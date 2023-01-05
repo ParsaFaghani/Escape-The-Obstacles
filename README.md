@@ -6,7 +6,7 @@
 ## Software
 
 The game was made with Godot Engine and the other software used in its development are:
-* [Modafe](https://mmd..)
+* [Modafe](https://github.com/modafe5124)
 * and You
 
 ## License and Copyright
