@@ -5,7 +5,7 @@
 ## Software
 
 The game was made with Godot Engine and the other software used in its development are:
-* [modafe](https://github.com/modafe5124)
+* [Modafe](https://github.com/modafe5124)
 
 The Android version uses this plugin:
 * [Godot-Android-Admob-Plugin](https://github.com/Shin-NiL/Godot-Android-Admob-Plugin).
