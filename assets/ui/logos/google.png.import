@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/eraser_spritesheet.png-87db458a459259aa2cc69bad642465b2.stex"
+path="res://.import/google.png-7958a7a62ee9dd2811bf65a2407cb884.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/elements/eraser_spritesheet.png"
-dest_files=[ "res://.import/eraser_spritesheet.png-87db458a459259aa2cc69bad642465b2.stex" ]
+source_file="res://assets/ui/logos/google.png"
+dest_files=[ "res://.import/google.png-7958a7a62ee9dd2811bf65a2407cb884.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
