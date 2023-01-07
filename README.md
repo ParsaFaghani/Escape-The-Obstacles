@@ -1,4 +1,4 @@
-# ٍسزشم٫٫
+
 ## Escape-The-Obstacles
 
 ## Free 2D game for Smartphone and Web
