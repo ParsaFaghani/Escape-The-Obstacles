@@ -2,7 +2,5 @@
 
 [ext_resource path="res://src/main/user_data.gd" type="Script" id=1]
 
-[node name="UserData" type="Node" groups=[
-"Persist",
-]]
+[node name="UserData" type="Node" groups=["Persist"]]
 script = ExtResource( 1 )

@@ -14,7 +14,7 @@
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
 shader = ExtResource( 7 )
-shader_param/progress = 0.12456
+shader_param/progress = 0.0
 shader_param/color = Color( 1.5, 1.5, 1.5, 1 )
 shader_param/noise = ExtResource( 8 )
 
@@ -101,8 +101,8 @@ tracks/0/keys = {
 pause_mode = 1
 script = ExtResource( 1 )
 __meta__ = {
-"_edit_horizontal_guides_": [ 64000.0, 640.0, 960.0, 320.0, 5120.0 ],
-"_edit_vertical_guides_": [ 0.0, 720.0, 180.0, 360.0, 540.0 ]
+"_edit_horizontal_guides_": [ 64000.0, 5120.0 ],
+"_edit_vertical_guides_": [ 0.0, 720.0, 360.0, 540.0 ]
 }
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 2 )]
@@ -122,12 +122,6 @@ position = Vector2( 360, 320 )
 
 [node name="Sprites" parent="Player" index="1"]
 material = SubResource( 1 )
-
-[node name="Body" parent="Player/Sprites" index="0"]
-region_rect = Rect2( 192, 128, 64, 64 )
-
-[node name="Head" parent="Player/Sprites" index="1"]
-region_rect = Rect2( 192, 128, 64, 64 )
 
 [node name="Shield" parent="Player" index="2"]
 material = SubResource( 2 )
@@ -169,7 +163,6 @@ one_shot = true
 autoplay = "ENTER"
 anims/ENTER = SubResource( 4 )
 anims/glitch = SubResource( 5 )
-
 [connection signal="timeout" from="MultiplierTimer" to="." method="_on_MultiplierTimer_timeout"]
 
 [editable path="Player"]

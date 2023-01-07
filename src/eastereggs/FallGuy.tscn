@@ -138,9 +138,9 @@ tracks/1/keys = {
 
 [node name="FallGuy" type="RigidBody2D"]
 z_index = 1
-input_pickable = true
 collision_layer = 2
 collision_mask = 0
+input_pickable = true
 mass = 0.816326
 script = ExtResource( 4 )
 
@@ -184,6 +184,7 @@ autoplay = "RESET"
 anims/RESET = SubResource( 3 )
 anims/despawn = SubResource( 4 )
 anims/fall = SubResource( 5 )
+
 [connection signal="input_event" from="." to="." method="_on_FallGuy_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_FallGuy_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_FallGuy_mouse_exited"]

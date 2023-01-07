@@ -6,7 +6,7 @@ onready var background := $ParallaxLayer/Sprite
 
 var velocity := Vector2.ZERO
 var gravity := 8.0
-var distance := 2.0
+var distance := 1.0
 
 
 func _ready() -> void:

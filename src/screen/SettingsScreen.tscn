@@ -5,6 +5,7 @@
 [ext_resource path="res://assets/sfx/click.wav" type="AudioStream" id=3]
 
 [node name="SettingsScreen" type="PopupPanel"]
+visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 1 )
@@ -42,7 +43,7 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer"]
-margin_right = 640.0
+margin_right = 648.0
 margin_bottom = 100.0
 alignment = 2
 __meta__ = {
@@ -50,24 +51,24 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Control/VBoxContainer/HBoxContainer"]
-margin_left = 34.0
-margin_top = 26.0
-margin_right = 176.0
-margin_bottom = 74.0
+margin_left = 31.0
+margin_top = 33.0
+margin_right = 184.0
+margin_bottom = 66.0
 text = "Volume"
 align = 2
 valign = 1
 
 [node name="VSeparator" type="VSeparator" parent="Control/VBoxContainer/HBoxContainer"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 180.0
-margin_right = 220.0
+margin_left = 188.0
+margin_right = 228.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 40, 0 )
 
 [node name="MasterHSlider" type="HSlider" parent="Control/VBoxContainer/HBoxContainer"]
-margin_left = 224.0
-margin_right = 544.0
+margin_left = 232.0
+margin_right = 552.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 320, 100 )
 focus_mode = 0
@@ -80,15 +81,15 @@ __meta__ = {
 
 [node name="VSeparator2" type="VSeparator" parent="Control/VBoxContainer/HBoxContainer"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 548.0
-margin_right = 588.0
+margin_left = 556.0
+margin_right = 596.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 40, 0 )
 
 [node name="Value" type="Label" parent="Control/VBoxContainer/HBoxContainer"]
-margin_left = 592.0
+margin_left = 600.0
 margin_top = 26.0
-margin_right = 640.0
+margin_right = 648.0
 margin_bottom = 74.0
 rect_min_size = Vector2( 48, 48 )
 text = "09"
@@ -100,13 +101,13 @@ __meta__ = {
 [node name="HSeparator" type="HSeparator" parent="Control/VBoxContainer"]
 modulate = Color( 1, 1, 1, 0 )
 margin_top = 104.0
-margin_right = 640.0
+margin_right = 648.0
 margin_bottom = 184.0
 rect_min_size = Vector2( 0, 80 )
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Control/VBoxContainer"]
 margin_top = 188.0
-margin_right = 640.0
+margin_right = 648.0
 margin_bottom = 288.0
 alignment = 2
 __meta__ = {
@@ -114,23 +115,23 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Control/VBoxContainer/HBoxContainer2"]
-margin_top = 26.0
-margin_right = 176.0
-margin_bottom = 74.0
+margin_top = 33.0
+margin_right = 184.0
+margin_bottom = 66.0
 text = "Effects"
 align = 2
 valign = 1
 
 [node name="VSeparator" type="VSeparator" parent="Control/VBoxContainer/HBoxContainer2"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 180.0
-margin_right = 220.0
+margin_left = 188.0
+margin_right = 228.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 40, 0 )
 
 [node name="SFXHSlider" type="HSlider" parent="Control/VBoxContainer/HBoxContainer2"]
-margin_left = 224.0
-margin_right = 544.0
+margin_left = 232.0
+margin_right = 552.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 320, 100 )
 focus_mode = 0
@@ -143,15 +144,15 @@ __meta__ = {
 
 [node name="VSeparator2" type="VSeparator" parent="Control/VBoxContainer/HBoxContainer2"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 548.0
-margin_right = 588.0
+margin_left = 556.0
+margin_right = 596.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 40, 0 )
 
 [node name="Value" type="Label" parent="Control/VBoxContainer/HBoxContainer2"]
-margin_left = 592.0
+margin_left = 600.0
 margin_top = 26.0
-margin_right = 640.0
+margin_right = 648.0
 margin_bottom = 74.0
 rect_min_size = Vector2( 48, 48 )
 text = "09"
@@ -163,13 +164,13 @@ __meta__ = {
 [node name="HSeparator2" type="HSeparator" parent="Control/VBoxContainer"]
 modulate = Color( 1, 1, 1, 0 )
 margin_top = 292.0
-margin_right = 640.0
+margin_right = 648.0
 margin_bottom = 372.0
 rect_min_size = Vector2( 0, 80 )
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="Control/VBoxContainer"]
 margin_top = 376.0
-margin_right = 640.0
+margin_right = 648.0
 margin_bottom = 476.0
 alignment = 2
 __meta__ = {
@@ -177,24 +178,24 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Control/VBoxContainer/HBoxContainer3"]
-margin_left = 64.0
-margin_top = 26.0
-margin_right = 176.0
-margin_bottom = 74.0
+margin_left = 59.0
+margin_top = 33.0
+margin_right = 184.0
+margin_bottom = 66.0
 text = "Music"
 align = 2
 valign = 1
 
 [node name="VSeparator" type="VSeparator" parent="Control/VBoxContainer/HBoxContainer3"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 180.0
-margin_right = 220.0
+margin_left = 188.0
+margin_right = 228.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 40, 0 )
 
 [node name="MusicHSlider" type="HSlider" parent="Control/VBoxContainer/HBoxContainer3"]
-margin_left = 224.0
-margin_right = 544.0
+margin_left = 232.0
+margin_right = 552.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 320, 100 )
 focus_mode = 0
@@ -207,15 +208,15 @@ __meta__ = {
 
 [node name="VSeparator2" type="VSeparator" parent="Control/VBoxContainer/HBoxContainer3"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 548.0
-margin_right = 588.0
+margin_left = 556.0
+margin_right = 596.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 40, 0 )
 
 [node name="Value" type="Label" parent="Control/VBoxContainer/HBoxContainer3"]
-margin_left = 592.0
+margin_left = 600.0
 margin_top = 26.0
-margin_right = 640.0
+margin_right = 648.0
 margin_bottom = 74.0
 rect_min_size = Vector2( 48, 48 )
 text = "09"
@@ -229,25 +230,22 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -120.0
-margin_top = 132.0
-margin_right = 120.0
-margin_bottom = 232.0
+margin_left = -142.0
+margin_top = 142.079
+margin_right = 142.0
+margin_bottom = 242.079
 grow_horizontal = 2
 grow_vertical = 2
 rect_min_size = Vector2( 240, 100 )
-focus_mode = 0
-mouse_default_cursor_shape = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-pressed = true
-enabled_focus_mode = 0
-text = "Ads"
+text = "Language"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="CalibrateButton" type="Button" parent="Control"]
+visible = false
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -268,10 +266,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -200.0
-margin_top = -228.0
-margin_right = 200.0
-margin_bottom = -128.0
+margin_left = -195.766
+margin_top = -275.976
+margin_right = 204.234
+margin_bottom = -175.976
 grow_horizontal = 2
 grow_vertical = 2
 rect_min_size = Vector2( 400, 100 )

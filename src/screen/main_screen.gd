@@ -45,8 +45,8 @@ func _ready() -> void:
 									+ Data.menumusic[0]))
 		BackGroundMusic.play()
 	
-	#if Main.os == "Android":
-	#	rate_button.set_normal_texture(load("res://assets/ui/logos/google.png"))
+	if Main.os == "Android":
+		rate_button.set_normal_texture(load("res://assets/ui/logos/google.png"))
 	
 	body_sprite.set_texture(
 		load(Data.body_dir + '/' + Data.body[UserData.last_body]))
@@ -111,6 +111,8 @@ func _on_EasterEgg_pressed() -> void:
 	
 	anim_play.play("reset_sprite")
 
+
+
 func _on_EEGame_hidden_activeted() -> void:
 	anim_play.play("easteregg2")
 
@@ -119,24 +121,28 @@ func _on_EEDialog_closed() -> void:
 	button_sfx.play()
 	yield(button_sfx, "finished")
 
-func _on_Rate_pressed() -> void:
+
+func _on_Myket_pressed():
 	button_sfx.play()
 	yield(button_sfx, "finished")
-	if Main.os == "Android":
-		OS.shell_open("https://myket.ir/app/me.DarkCoder.escape")
-		return
+	OS.shell_open("https://myket.ir/app/me.DarkCoder.escape")
 
-func _on_Twitter_pressed() -> void:
-	button_sfx.play()
-	yield(button_sfx, "finished")
-	# OS.shell_open("https://twitter.com/")
 
-func _on_GitHub_pressed() -> void:
-	button_sfx.play()
-	yield(button_sfx, "finished")
-	OS.shell_open("https://github.com/FDarkCoder/Escape-The-Obstacles/")
 
-func _on_LiberaPay_pressed() -> void:
+func _on_virasty_pressed():
 	button_sfx.play()
 	yield(button_sfx, "finished")
 	OS.shell_open("https://virasty.com/DarkCoder")
+
+
+
+func _on_GitHub_pressed():
+	button_sfx.play()
+	yield(button_sfx, "finished")
+	OS.shell_open("https://github.com/FDarkCoder/Escape-The-Obstacles")
+
+
+
+
+func _on_Twitter_pressed():
+	pass # Replace with function body.

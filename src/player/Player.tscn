@@ -14,8 +14,9 @@
 [ext_resource path="res://assets/player/player_shield_spritesheet.png" type="Texture" id=12]
 [ext_resource path="res://assets/shader/script/erase.shader" type="Shader" id=13]
 [ext_resource path="res://assets/shader/texture/erase_shield.png" type="Texture" id=14]
-[ext_resource path="res://src/deathguy_env.tres" type="Environment" id=15]
+[ext_resource path="res://src/escape_env.tres" type="Environment" id=15]
 [ext_resource path="res://assets/sfx/shield.wav" type="AudioStream" id=16]
+
 
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true

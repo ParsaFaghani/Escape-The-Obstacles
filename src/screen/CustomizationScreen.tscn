@@ -3,7 +3,7 @@
 [ext_resource path="res://assets/deathguy_theme.tres" type="Theme" id=1]
 [ext_resource path="res://admob-lib/admob.gd" type="Script" id=2]
 [ext_resource path="res://assets/shader/material/glitch.tres" type="Material" id=3]
-[ext_resource path="res://src/deathguy_env.tres" type="Environment" id=4]
+[ext_resource path="res://src/escape_env.tres" type="Environment" id=4]
 [ext_resource path="res://debug/AdMobDebug.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/sfx/click.wav" type="AudioStream" id=6]
 [ext_resource path="res://assets/ui/coin.png" type="Texture" id=7]
@@ -67,10 +67,11 @@ __meta__ = {
 "_edit_vertical_guides_": [ 360.0 ]
 }
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="ads" type="CanvasLayer" parent="."]
 layer = 100
 
-[node name="AdMobDebug" parent="CanvasLayer" instance=ExtResource( 5 )]
+[node name="AdMobDebug" parent="ads" instance=ExtResource( 5 )]
+visible = false
 
 [node name="BackGroundSelector" parent="." instance=ExtResource( 12 )]
 material = SubResource( 1 )
@@ -90,10 +91,10 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Coin"]
-margin_left = 499.0
-margin_top = 16.0
+margin_left = 500.0
+margin_top = 23.0
 margin_right = 520.0
-margin_bottom = 64.0
+margin_bottom = 56.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "0"

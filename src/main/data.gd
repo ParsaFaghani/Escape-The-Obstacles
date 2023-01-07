@@ -61,7 +61,7 @@ func _init() -> void:
 		dir.list_dir_begin()
 		var file_name := dir.get_next()
 		while(file_name != ""):
-			if file_name.ends_with(".jpg.import"):
+			if file_name.ends_with(".jpg.import") or file_name.ends_with(".png.import"):
 				file_name = file_name.replace(".import", "")
 				background.append(file_name)
 			file_name = dir.get_next()
