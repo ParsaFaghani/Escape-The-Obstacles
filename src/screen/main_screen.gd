@@ -9,7 +9,7 @@ onready var head_sprite := $Sprites/Head
 onready var background := $CanvasLayer/Background
 
 onready var settings_screen := $SettingsScreen
-onready var credits_screen := $CreditsScreen
+onready var credits_screen := $AboutScreen
 onready var tutorial_screen:= $TutorialConfirmation
 
 onready var ee_game := $CanvasLayer/EasterEggGame

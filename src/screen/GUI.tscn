@@ -179,26 +179,25 @@ __meta__ = {
 }
 
 [node name="Score" type="Label" parent="CanvasLayer/HBoxContainer"]
-margin_left = 16.0
-margin_top = 16.0
-margin_right = 312.0
-margin_bottom = 64.0
+margin_top = 23.0
+margin_right = 328.0
+margin_bottom = 56.0
 grow_horizontal = 0
 text = "000000000000"
 align = 2
 
 [node name="Multiplier" type="Label" parent="CanvasLayer/HBoxContainer"]
-margin_left = 316.0
-margin_top = 16.0
-margin_right = 396.0
-margin_bottom = 64.0
+margin_left = 332.0
+margin_top = 23.0
+margin_right = 412.0
+margin_bottom = 56.0
 rect_min_size = Vector2( 80, 0 )
 align = 2
 valign = 1
 
 [node name="Wallet" type="HBoxContainer" parent="CanvasLayer/HBoxContainer"]
-margin_left = 400.0
-margin_right = 640.0
+margin_left = 416.0
+margin_right = 656.0
 margin_bottom = 80.0
 grow_horizontal = 0
 rect_min_size = Vector2( 240, 80 )
@@ -210,10 +209,10 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/Wallet"]
-margin_left = 99.0
-margin_top = 16.0
+margin_left = 100.0
+margin_top = 23.0
 margin_right = 120.0
-margin_bottom = 64.0
+margin_bottom = 56.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "0"
@@ -359,7 +358,6 @@ stream = ExtResource( 3 )
 bus = "SFX"
 
 [node name="Tween" type="Tween" parent="."]
-
 [connection signal="pressed" from="CanvasLayer/Button/PauseButton" to="." method="_on_PauseButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/Button/PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="toggled" from="CanvasLayer/Button/SFXButton" to="." method="_on_SFXButton_toggled"]

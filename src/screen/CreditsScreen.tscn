@@ -28,6 +28,35 @@ margin_left = 8.0
 margin_top = 8.0
 margin_right = -8.0
 margin_bottom = -280.0
+bbcode_enabled = true
+bbcode_text = "created by DarkCoder and modafe
+mygithub ([color=#0000EE][url]https://github.com/FDarkCoder[/url][/color])
+
+open source game 
+
+
+
+
+created by GODOTEnjine
+
+
+
+[MIT]
+"
+text = "created by DarkCoder and modafe
+mygithub (https://github.com/FDarkCoder)
+
+open source game 
+
+
+
+
+created by GODOTEnjine
+
+
+
+[MIT]
+"
 __meta__ = {
 "_edit_use_anchors_": false
 }

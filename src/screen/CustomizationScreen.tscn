@@ -218,6 +218,7 @@ margin_left = -278.0
 margin_top = 320.0
 margin_right = 262.0
 margin_bottom = 960.0
+window_title = "INFO"
 
 [node name="UnlockScreen" parent="." instance=ExtResource( 9 )]
 anchor_left = 0.5
@@ -227,8 +228,10 @@ margin_left = -278.0
 margin_top = 320.0
 margin_right = 262.0
 margin_bottom = 960.0
+window_title = "INFO"
 
 [node name="TutorialConfirmation" parent="." instance=ExtResource( 16 )]
+window_title = "INFO"
 
 [node name="AdsWarning" parent="." instance=ExtResource( 15 )]
 anchor_left = 0.5
@@ -237,6 +240,7 @@ margin_left = -278.0
 margin_top = 320.0
 margin_right = 262.0
 margin_bottom = 960.0
+window_title = "INFO"
 
 [node name="Glitch" type="ColorRect" parent="."]
 material = ExtResource( 3 )
