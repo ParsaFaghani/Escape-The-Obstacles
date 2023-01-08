@@ -16,7 +16,7 @@ shader_param/noise = ExtResource( 1 )
 
 [sub_resource type="CircleShape2D" id=2]
 resource_local_to_scene = true
-radius = 64.0
+radius = 79.6279
 
 [sub_resource type="Animation" id=3]
 length = 0.001
@@ -138,22 +138,23 @@ tracks/1/keys = {
 
 [node name="FallGuy" type="RigidBody2D"]
 z_index = 1
+input_pickable = true
 collision_layer = 2
 collision_mask = 0
-input_pickable = true
 mass = 0.816326
 script = ExtResource( 4 )
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 position = Vector2( 0, -20 )
-amount = 32
+amount = 100
 local_coords = false
 emission_shape = 1
-emission_sphere_radius = 16.0
+emission_sphere_radius = 19.61
 direction = Vector2( 0, -1 )
 spread = 0.0
 gravity = Vector2( 0, -98 )
-scale_amount = 4.0
+scale_amount = 3.0
+color = Color( 1, 1, 1, 0.823529 )
 
 [node name="Sprites" type="Node2D" parent="."]
 material = SubResource( 1 )
@@ -184,7 +185,6 @@ autoplay = "RESET"
 anims/RESET = SubResource( 3 )
 anims/despawn = SubResource( 4 )
 anims/fall = SubResource( 5 )
-
 [connection signal="input_event" from="." to="." method="_on_FallGuy_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_FallGuy_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_FallGuy_mouse_exited"]
