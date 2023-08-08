@@ -1,12 +1,12 @@
 # License
-
+MIT
 <p>
   <a href="https://opensource.org/licenses/MIT">
     <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/MIT_logo.svg" height="100" alt="MIT_logo">
   </a>
 </p>
 
-Copyright (c) 2020 [amdotblacksheep](https://amdotblacksheep.itch.io/)
+Copyright (c) 2020
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
@@ -28,5 +28,3 @@ HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
 WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
-
-[DeathGuy](https://amdotblacksheep.itch.io/deathguy)
