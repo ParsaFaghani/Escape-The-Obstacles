@@ -1,5 +1,5 @@
 
-## Escape-The-Obstacles
+###### Escape-The-Obstacles
 
 ## Free 2D game for Smartphone and Web
 
