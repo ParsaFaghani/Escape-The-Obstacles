@@ -1,0 +1,238 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://assets/fonts/Vazir.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/deathguy_theme.tres" type="Theme" id=2]
+[ext_resource path="res://assets/shader/script/change_texture.shader" type="Shader" id=3]
+[ext_resource path="res://assets/shader/texture/left_texture.png" type="Texture" id=4]
+[ext_resource path="res://assets/shader/texture/right_texture.png" type="Texture" id=5]
+[ext_resource path="res://src/screen/background_selector.gd" type="Script" id=6]
+[ext_resource path="res://assets/sfx/click.wav" type="AudioStream" id=7]
+[ext_resource path="res://assets/ui/button/button_spritesheet.png" type="Texture" id=8]
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+shader = ExtResource( 3 )
+shader_param/progress = 0.0
+shader_param/noise = ExtResource( 5 )
+
+[sub_resource type="StreamTexture" id=2]
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 8 )
+region_rect = Rect2( 320, 64, 64, 64 )
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 8 )
+region_rect = Rect2( 320, 128, 64, 64 )
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 8 )
+region_rect = Rect2( 320, 192, 64, 64 )
+
+[sub_resource type="StyleBoxTexture" id=6]
+texture = ExtResource( 8 )
+region_rect = Rect2( 320, 0, 64, 64 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 34
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+extra_spacing_char = 2
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxTexture" id=8]
+texture = ExtResource( 8 )
+region_rect = Rect2( 384, 64, 64, 64 )
+
+[sub_resource type="StyleBoxTexture" id=9]
+texture = ExtResource( 8 )
+region_rect = Rect2( 384, 128, 64, 64 )
+
+[sub_resource type="StyleBoxTexture" id=10]
+texture = ExtResource( 8 )
+region_rect = Rect2( 384, 192, 64, 64 )
+
+[sub_resource type="StyleBoxTexture" id=11]
+texture = ExtResource( 8 )
+region_rect = Rect2( 384, 0, 64, 64 )
+
+[sub_resource type="Animation" id=12]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material:shader_param/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=13]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material:shader_param/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.5 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:material:shader_param/noise")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 4 ) ]
+}
+
+[sub_resource type="Animation" id=14]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material:shader_param/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.5 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:material:shader_param/noise")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 5 ) ]
+}
+
+[node name="BackgroundSelector" type="TextureRect"]
+material = SubResource( 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+texture = SubResource( 2 )
+expand = true
+script = ExtResource( 6 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -44.8985
+margin_top = -146.531
+margin_right = 41.1015
+margin_bottom = -46.5305
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LeftButton" type="Button" parent="HBoxContainer"]
+modulate = Color( 1, 1, 1, 0.8 )
+margin_left = 95.0
+margin_right = 175.0
+margin_bottom = 109.0
+rect_min_size = Vector2( 80, 80 )
+focus_mode = 0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+enabled_focus_mode = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 179.0
+margin_right = 199.0
+margin_bottom = 109.0
+rect_min_size = Vector2( 20, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UnlockButton" type="Button" parent="HBoxContainer"]
+margin_left = 203.0
+margin_right = 603.0
+margin_bottom = 109.0
+rect_min_size = Vector2( 400, 100 )
+focus_mode = 0
+mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 7 )
+disabled = true
+enabled_focus_mode = 0
+text = "unlock background"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VSeparator2" type="VSeparator" parent="HBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 607.0
+margin_right = 627.0
+margin_bottom = 109.0
+rect_min_size = Vector2( 20, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RightButton" type="Button" parent="HBoxContainer"]
+modulate = Color( 1, 1, 1, 0.8 )
+margin_left = 631.0
+margin_right = 711.0
+margin_bottom = 109.0
+rect_min_size = Vector2( 80, 80 )
+focus_mode = 0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_styles/hover = SubResource( 8 )
+custom_styles/pressed = SubResource( 9 )
+custom_styles/focus = SubResource( 8 )
+custom_styles/disabled = SubResource( 10 )
+custom_styles/normal = SubResource( 11 )
+enabled_focus_mode = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+bus = "SFX"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "RESET"
+anims/RESET = SubResource( 12 )
+anims/change_left = SubResource( 13 )
+anims/change_right = SubResource( 14 )
+
+[connection signal="pressed" from="HBoxContainer/LeftButton" to="." method="_on_LeftButton_pressed"]
+[connection signal="pressed" from="HBoxContainer/UnlockButton" to="." method="_on_UnlockButton_pressed"]
+[connection signal="pressed" from="HBoxContainer/RightButton" to="." method="_on_RightButton_pressed"]

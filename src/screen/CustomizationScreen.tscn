@@ -1,0 +1,285 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://assets/deathguy_theme.tres" type="Theme" id=1]
+[ext_resource path="res://admob-lib/admob.gd" type="Script" id=2]
+[ext_resource path="res://assets/shader/material/glitch.tres" type="Material" id=3]
+[ext_resource path="res://src/escape_env.tres" type="Environment" id=4]
+[ext_resource path="res://debug/AdMobDebug.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/sfx/click.wav" type="AudioStream" id=6]
+[ext_resource path="res://assets/ui/coin.png" type="Texture" id=7]
+[ext_resource path="res://src/screen/customization_screen.gd" type="Script" id=8]
+[ext_resource path="res://src/screen/UnlockScreen.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/screen/ColorSelector.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/screen/PlayerSelector.tscn" type="PackedScene" id=11]
+[ext_resource path="res://src/screen/BackGroundSelector.tscn" type="PackedScene" id=12]
+[ext_resource path="res://src/screen/InfoScreen.tscn" type="PackedScene" id=13]
+[ext_resource path="res://src/fakeads/FakeAds.tscn" type="PackedScene" id=14]
+[ext_resource path="res://src/screen/AdsWarning.tscn" type="PackedScene" id=15]
+[ext_resource path="res://src/screen/TutorialConfirmation.tscn" type="PackedScene" id=16]
+[ext_resource path="res://assets/shader/texture/right_texture.png" type="Texture" id=17]
+[ext_resource path="res://assets/fonts/hh.otf" type="DynamicFontData" id=18]
+[ext_resource path="res://assets/shader/script/change_texture.shader" type="Shader" id=19]
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+shader = ExtResource( 19 )
+shader_param/progress = 0.0
+shader_param/noise = ExtResource( 17 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 60
+font_data = ExtResource( 18 )
+
+[sub_resource type="Animation" id=2]
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Glitch:material:shader_param/apply")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "exit"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Glitch:material:shader_param/apply")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+
+[node name="CustomizationScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 640.0 ],
+"_edit_vertical_guides_": [ 360.0 ]
+}
+
+[node name="ads" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="AdMobDebug" parent="ads" instance=ExtResource( 5 )]
+visible = false
+
+[node name="BackGroundSelector" parent="." instance=ExtResource( 12 )]
+material = SubResource( 1 )
+
+[node name="Coin" type="HBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -320.0
+margin_top = 80.0
+margin_right = 320.0
+margin_bottom = 160.0
+grow_horizontal = 0
+rect_min_size = Vector2( 640, 64 )
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Coin"]
+margin_left = 494.0
+margin_top = 10.0
+margin_right = 520.0
+margin_bottom = 70.0
+grow_horizontal = 0
+grow_vertical = 0
+custom_fonts/font = SubResource( 4 )
+text = "0"
+align = 2
+valign = 1
+
+[node name="VSeparator" type="VSeparator" parent="Coin"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 524.0
+margin_right = 556.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 32, 64 )
+
+[node name="TextureRect" type="TextureRect" parent="Coin"]
+margin_left = 560.0
+margin_right = 640.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+texture = ExtResource( 7 )
+stretch_mode = 1
+
+[node name="ColorSelector" parent="." instance=ExtResource( 10 )]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -166.0
+margin_top = 160.0
+margin_right = 166.0
+margin_bottom = 324.0
+
+[node name="PlayerSelector" parent="." instance=ExtResource( 11 )]
+
+[node name="Button" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayButton" type="Button" parent="Button"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -200.0
+margin_right = 200.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 400, 100 )
+focus_mode = 0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+enabled_focus_mode = 0
+text = "Play"
+
+[node name="AdsButton" type="Button" parent="Button"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -200.0
+margin_top = 134.0
+margin_right = 200.0
+margin_bottom = 263.0
+rect_min_size = Vector2( 400, 100 )
+focus_mode = 0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+enabled_focus_mode = 0
+text = "More Coin"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ExitButton" type="Button" parent="Button"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -200.0
+margin_top = 268.0
+margin_right = 200.0
+margin_bottom = 397.0
+rect_min_size = Vector2( 400, 100 )
+focus_mode = 0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+enabled_focus_mode = 0
+text = "Exit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InfoButton" type="Button" parent="Button"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -317.0
+margin_top = -321.0
+margin_right = -157.0
+margin_bottom = -192.0
+rect_min_size = Vector2( 100, 100 )
+focus_mode = 0
+mouse_default_cursor_shape = 2
+enabled_focus_mode = 0
+text = "..."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InfoScreen" parent="." instance=ExtResource( 13 )]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -278.0
+margin_top = 320.0
+margin_right = 262.0
+margin_bottom = 960.0
+window_title = "INFO"
+
+[node name="UnlockScreen" parent="." instance=ExtResource( 9 )]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = -278.0
+margin_top = 320.0
+margin_right = 262.0
+margin_bottom = 960.0
+window_title = "INFO"
+
+[node name="TutorialConfirmation" parent="." instance=ExtResource( 16 )]
+
+[node name="AdsWarning" parent="." instance=ExtResource( 15 )]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -278.0
+margin_top = 320.0
+margin_right = 262.0
+margin_bottom = 960.0
+window_title = "INFO"
+
+[node name="Glitch" type="ColorRect" parent="."]
+material = ExtResource( 3 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="FakeAds" parent="." instance=ExtResource( 14 )]
+
+[node name="AdMob" type="Node" parent="."]
+script = ExtResource( 2 )
+__meta__ = {
+"_editor_description_": ""
+}
+is_real = true
+is_personalized = false
+max_ad_content_rate = "T"
+
+[node name="ButtonSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+bus = "SFX"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "ENTER"
+anims/ENTER = SubResource( 2 )
+anims/exit = SubResource( 3 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 4 )
+
+[connection signal="pressed" from="Button/PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="Button/AdsButton" to="." method="_on_AdsButton_pressed"]
+[connection signal="pressed" from="Button/ExitButton" to="." method="_on_ExitButton_pressed"]
+[connection signal="pressed" from="Button/InfoButton" to="." method="_on_InfoButton_pressed"]
+[connection signal="popup_hide" from="InfoScreen" to="." method="_on_InfoScreen_popup_hide"]
+[connection signal="confirmed" from="TutorialConfirmation" to="." method="_on_TutorialConfirmation_confirmed"]
+[connection signal="confirmed" from="AdsWarning" to="." method="_on_AdsWarning_confirmed"]
+[connection signal="closed" from="FakeAds" to="." method="_on_FakeAds_closed"]
+[connection signal="interstitial_closed" from="AdMob" to="." method="_on_AdMob_interstitial_closed"]
+[connection signal="interstitial_failed_to_load" from="AdMob" to="." method="_on_AdMob_interstitial_failed_to_load"]
+[connection signal="interstitial_loaded" from="AdMob" to="." method="_on_AdMob_interstitial_loaded"]

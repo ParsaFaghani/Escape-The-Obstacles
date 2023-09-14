@@ -1,0 +1,341 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/deathguy_theme.tres" type="Theme" id=1]
+[ext_resource path="res://src/screen/settings_screen.gd" type="Script" id=2]
+[ext_resource path="res://assets/sfx/click.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/fonts/vazir_farsi_font.tres" type="DynamicFont" id=4]
+
+[node name="SettingsScreen" type="PopupPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+popup_exclusive = true
+script = ExtResource( 2 )
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -272.0
+margin_top = 240.0
+margin_right = 272.0
+margin_bottom = 716.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer"]
+margin_right = 564.0
+margin_bottom = 100.0
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/HBoxContainer"]
+margin_left = 15.0
+margin_top = 30.0
+margin_right = 100.0
+margin_bottom = 70.0
+custom_fonts/font = ExtResource( 4 )
+text = "Volume"
+align = 2
+valign = 1
+
+[node name="VSeparator" type="VSeparator" parent="Control/VBoxContainer/HBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 104.0
+margin_right = 144.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 40, 0 )
+
+[node name="MasterHSlider" type="HSlider" parent="Control/VBoxContainer/HBoxContainer"]
+margin_left = 148.0
+margin_right = 468.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 320, 100 )
+focus_mode = 0
+mouse_default_cursor_shape = 2
+max_value = 9.0
+value = 9.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VSeparator2" type="VSeparator" parent="Control/VBoxContainer/HBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 472.0
+margin_right = 512.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 40, 0 )
+
+[node name="Value" type="Label" parent="Control/VBoxContainer/HBoxContainer"]
+margin_left = 516.0
+margin_top = 26.0
+margin_right = 564.0
+margin_bottom = 74.0
+rect_min_size = Vector2( 48, 48 )
+custom_fonts/font = ExtResource( 4 )
+text = "09"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator" type="HSeparator" parent="Control/VBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 104.0
+margin_right = 564.0
+margin_bottom = 184.0
+rect_min_size = Vector2( 0, 80 )
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/VBoxContainer"]
+margin_top = 188.0
+margin_right = 564.0
+margin_bottom = 288.0
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/HBoxContainer2"]
+margin_left = 21.0
+margin_top = 30.0
+margin_right = 100.0
+margin_bottom = 70.0
+custom_fonts/font = ExtResource( 4 )
+text = "Effects"
+align = 2
+valign = 1
+
+[node name="VSeparator" type="VSeparator" parent="Control/VBoxContainer/HBoxContainer2"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 104.0
+margin_right = 144.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 40, 0 )
+
+[node name="SFXHSlider" type="HSlider" parent="Control/VBoxContainer/HBoxContainer2"]
+margin_left = 148.0
+margin_right = 468.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 320, 100 )
+focus_mode = 0
+mouse_default_cursor_shape = 2
+max_value = 9.0
+value = 9.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VSeparator2" type="VSeparator" parent="Control/VBoxContainer/HBoxContainer2"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 472.0
+margin_right = 512.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 40, 0 )
+
+[node name="Value" type="Label" parent="Control/VBoxContainer/HBoxContainer2"]
+margin_left = 516.0
+margin_top = 26.0
+margin_right = 564.0
+margin_bottom = 74.0
+rect_min_size = Vector2( 48, 48 )
+custom_fonts/font = ExtResource( 4 )
+text = "09"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator2" type="HSeparator" parent="Control/VBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 292.0
+margin_right = 564.0
+margin_bottom = 372.0
+rect_min_size = Vector2( 0, 80 )
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Control/VBoxContainer"]
+margin_top = 376.0
+margin_right = 564.0
+margin_bottom = 476.0
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/HBoxContainer3"]
+margin_left = 32.0
+margin_top = 30.0
+margin_right = 100.0
+margin_bottom = 70.0
+custom_fonts/font = ExtResource( 4 )
+text = "Music"
+align = 2
+valign = 1
+
+[node name="VSeparator" type="VSeparator" parent="Control/VBoxContainer/HBoxContainer3"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 104.0
+margin_right = 144.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 40, 0 )
+
+[node name="MusicHSlider" type="HSlider" parent="Control/VBoxContainer/HBoxContainer3"]
+margin_left = 148.0
+margin_right = 468.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 320, 100 )
+focus_mode = 0
+mouse_default_cursor_shape = 2
+max_value = 9.0
+value = 9.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VSeparator2" type="VSeparator" parent="Control/VBoxContainer/HBoxContainer3"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 472.0
+margin_right = 512.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 40, 0 )
+
+[node name="Value" type="Label" parent="Control/VBoxContainer/HBoxContainer3"]
+margin_left = 516.0
+margin_top = 26.0
+margin_right = 564.0
+margin_bottom = 74.0
+rect_min_size = Vector2( 48, 48 )
+custom_fonts/font = ExtResource( 4 )
+text = "09"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator4" type="HSeparator" parent="Control/VBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 480.0
+margin_right = 564.0
+margin_bottom = 560.0
+rect_min_size = Vector2( 0, 80 )
+
+[node name="HSeparator3" type="HSeparator" parent="Control/VBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 564.0
+margin_right = 564.0
+margin_bottom = 644.0
+rect_min_size = Vector2( 0, 80 )
+
+[node name="lang" type="HBoxContainer" parent="Control/VBoxContainer"]
+margin_top = 648.0
+margin_right = 564.0
+margin_bottom = 748.0
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/lang"]
+margin_top = 30.0
+margin_right = 81.0
+margin_bottom = 70.0
+custom_fonts/font = ExtResource( 4 )
+text = "English"
+align = 2
+valign = 1
+
+[node name="VSeparator" type="VSeparator" parent="Control/VBoxContainer/lang"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 85.0
+margin_right = 125.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 40, 0 )
+
+[node name="lang_value" type="HSlider" parent="Control/VBoxContainer/lang"]
+margin_left = 129.0
+margin_right = 449.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 320, 100 )
+focus_mode = 0
+mouse_default_cursor_shape = 2
+max_value = 1.0
+value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VSeparator2" type="VSeparator" parent="Control/VBoxContainer/lang"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 453.0
+margin_right = 493.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 40, 0 )
+
+[node name="Value" type="Label" parent="Control/VBoxContainer/lang"]
+margin_left = 497.0
+margin_top = 26.0
+margin_right = 564.0
+margin_bottom = 74.0
+rect_min_size = Vector2( 48, 48 )
+custom_fonts/font = ExtResource( 4 )
+text = "ﯽﺳﺭﺎﻓ"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AdsCheckButton" type="CheckButton" parent="Control"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -128.0
+margin_top = 215.0
+margin_right = 156.0
+margin_bottom = 315.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 240, 100 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "lang"
+
+[node name="CloseButton" type="Button" parent="Control"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -192.938
+margin_top = -304.26
+margin_right = 207.062
+margin_bottom = -204.26
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 400, 100 )
+focus_mode = 0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+enabled_focus_mode = 0
+text = "Close"
+
+[node name="ButtonSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+stream_paused = true
+bus = "SFX"
+
+[connection signal="value_changed" from="Control/VBoxContainer/HBoxContainer/MasterHSlider" to="." method="_on_MasterHSlider_value_changed"]
+[connection signal="value_changed" from="Control/VBoxContainer/HBoxContainer2/SFXHSlider" to="." method="_on_SFXHSlider_value_changed"]
+[connection signal="value_changed" from="Control/VBoxContainer/HBoxContainer3/MusicHSlider" to="." method="_on_MusicHSlider_value_changed"]
+[connection signal="value_changed" from="Control/VBoxContainer/lang/lang_value" to="." method="_on_lang_value_value_changed"]
+[connection signal="toggled" from="Control/AdsCheckButton" to="." method="_on_AdsCheckButton_toggled"]
+[connection signal="toggled" from="Control/AdsCheckButton" to="." method="_on_lang_toggled"]
+[connection signal="pressed" from="Control/CloseButton" to="." method="_on_CloseButton_pressed"]
