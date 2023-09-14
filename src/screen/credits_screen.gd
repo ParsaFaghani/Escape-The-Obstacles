@@ -18,7 +18,7 @@ created by GODOT Engine
 var text_fa = """[right]ﯽﻧﺎﻘﻓ ﺎﺳﺭﺎﭘ : ﻩﺪﻨﻫﺩ ﻪﻌﺳﻮﺗ ﻭ ﺲﯾﻮﻧ ﻪﻣﺎﻧﺮﺑ[/right]
 [right]ﯽﺸﯾﻭﺭﺩ ﺪﻤﺤﻣ : ﯼﺯﺎﺑ ﺡﺍﺮﻃ[/right]
 [right]ﺩﺭﺍﺩ ﺭﺍﺮﻗ MIT ﺯﻮﺠﻣ ﺖﺤﺗ ﻭ ﺖﺳﺍ ﺯﺎﺑ ﻦﺘﻣ ﯼﺯﺎﺑ ﻦﯾﺍ[/right]
-[right][color=#0000EE][url]https://github.com/FDarkCoder/Escape-The-Obstacles[/url][/color] : ﯼﺯﺎﺑ ﺏﺎﻫ ﺖﯿﮔ ﮏﻨﯿﻟ [/right]
+[right][color=#0000EE][url]https://github.com/FDarkCoder/Escape-The-Obstacles[/url][/color] : ﺏﺎﻫ ﺖﯿﮔ ﮏﻨﯿﻟ [/right]
 [right]ﺖﺳﺍ ﻩﺪﺷ ﻪﺘﺧﺎﺳ GODOT ﯼﺯﺎﺳ ﯼﺯﺎﺑ ﺭﻮﺗﻮﻣ ﺎﺑ ﯼﺯﺎﺑ ﻦﯾﺍ[/right]"""
 
 func _ready():
