@@ -11,9 +11,11 @@ Escape The Obstacles is a free and open source game
 ## Software
 
 The game was made with Godot Engine
-The Android version uses this plugin:
+plugins:
 
 * [Godot-Android-Admob-Plugin](https://github.com/Shin-NiL/Godot-Android-Admob-Plugin).
+* [Godot-Persian_resaper](https://github.com/2dvision/godot-persian-reshaper).
+* [godot-awesome-splash](https://github.com/duongvituan/godot-awesome-splash).
 
 ## License and Copyright
 
