@@ -14,6 +14,36 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://admob-lib/admob.gd"
 }, {
+"base": "Node2D",
+"class": "AspectNode",
+"language": "GDScript",
+"path": "res://addons/awesome_splash/core/AspectNode.gd"
+}, {
+"base": "Node2D",
+"class": "AweListTextNode",
+"language": "GDScript",
+"path": "res://addons/awesome_splash/text_node/AweListTextNode.gd"
+}, {
+"base": "Node2D",
+"class": "AweSplashScreen",
+"language": "GDScript",
+"path": "res://addons/awesome_splash/core/AweSplashScreen.gd"
+}, {
+"base": "AweSplashScreen",
+"class": "AweSplashScreenViewport",
+"language": "GDScript",
+"path": "res://addons/awesome_splash/core/AweSplashScreenViewport.gd"
+}, {
+"base": "Node2D",
+"class": "AweTextNode",
+"language": "GDScript",
+"path": "res://addons/awesome_splash/text_node/AweTextNode.gd"
+}, {
+"base": "Node",
+"class": "AweTimer",
+"language": "GDScript",
+"path": "res://addons/awesome_splash/core/AweTimer.gd"
+}, {
 "base": "Button",
 "class": "ColorSwitch",
 "language": "GDScript",
@@ -23,6 +53,236 @@ _global_script_classes=[ {
 "class": "Element",
 "language": "GDScript",
 "path": "res://src/randomgenerator/element/element.gd"
+}, {
+"base": "Reference",
+"class": "GDAction",
+"language": "GDScript",
+"path": "res://addons/godot-action/Core/GDAction.gd"
+}, {
+"base": "GDActionInterval",
+"class": "GDActionColorize",
+"language": "GDScript",
+"path": "res://addons/godot-action/GDAction/Animating/Colorize/GDActionColorize.gd"
+}, {
+"base": "GDActionInterval",
+"class": "GDActionCustomAction",
+"language": "GDScript",
+"path": "res://addons/godot-action/GDAction/CustomAction/Custom/GDActionCustomAction.gd"
+}, {
+"base": "GDActionInterval",
+"class": "GDActionFadeAlphaBy",
+"language": "GDScript",
+"path": "res://addons/godot-action/GDAction/Animating/FadeAlphaBy/GDActionFadeAlphaBy.gd"
+}, {
+"base": "GDActionInterval",
+"class": "GDActionFadeAlphaTo",
+"language": "GDScript",
+"path": "res://addons/godot-action/GDAction/Animating/FadeAlphaTo/GDActionFadeAlphaTo.gd"
+}, {
+"base": "GDActionInstant",
+"class": "GDActionGroup",
+"language": "GDScript",
+"path": "res://addons/godot-action/GDAction/Chaining/Group/GDActionGroup.gd"
+}, {
+"base": "GDAction",
+"class": "GDActionInstant",
+"language": "GDScript",
+"path": "res://addons/godot-action/Core/GDActionInstant.gd"
+}, {
+"base": "GDAction",
+"class": "GDActionInterval",
+"language": "GDScript",
+"path": "res://addons/godot-action/Core/GDActionInterval.gd"
+}, {
+"base": "GDActionInterval",
+"class": "GDActionMoveBy",
+"language": "GDScript",
+"path": "res://addons/godot-action/GDAction/Animating/MoveBy/GDActionMoveBy.gd"
+}, {
+"base": "GDActionInterval",
+"class": "GDActionMoveTo",
+"language": "GDScript",
+"path": "res://addons/godot-action/GDAction/Animating/MoveTo/GDActionMoveTo.gd"
+}, {
+"base": "Node",
+"class": "GDActionNode",
+"language": "GDScript",
+"path": "res://addons/godot-action/Core/GDActionNode.gd"
+}, {
+"base": "GDActionNodeInterval",
+"class": "GDActionNodeColorize",
+"language": "GDScript",
+"path": "res://addons/godot-action/GDAction/Animating/Colorize/GDActionNodeColorize.gd"
+}, {
+"base": "GDActionNodeInterval",
+"class": "GDActionNodeCustomAction",
+"language": "GDScript",
+"path": "res://addons/godot-action/GDAction/CustomAction/Custom/GDActionNodeCustomAction.gd"
+}, {
+"base": "GDActionNodeInterval",
+"class": "GDActionNodeFadeAlphaBy",
+"language": "GDScript",
+"path": "res://addons/godot-action/GDAction/Animating/FadeAlphaBy/GDActionNodeFadeAlpha.gd"
+}, {
+"base": "GDActionNodeInterval",
+"class": "GDActionNodeFadeAlphaTo",
+"language": "GDScript",
+"path": "res://addons/godot-action/GDAction/Animating/FadeAlphaTo/GDActionNodeFadeAlphaTo.gd"
+}, {
+"base": "GDActionNodeInstant",
+"class": "GDActionNodeGroup",
+"language": "GDScript",
+"path": "res://addons/godot-action/GDAction/Chaining/Group/GDActionNodeGroup.gd"
+}, {
+"base": "GDActionNode",
+"class": "GDActionNodeInstant",
+"language": "GDScript",
+"path": "res://addons/godot-action/Core/GDActionNodeInstant.gd"
+}, {
+"base": "GDActionNode",
+"class": "GDActionNodeInterval",
+"language": "GDScript",
+"path": "res://addons/godot-action/Core/GDActionNodeInterval.gd"
+}, {
+"base": "GDActionNodeInterval",
+"class": "GDActionNodeMoveBy",
+"language": "GDScript",
+"path": "res://addons/godot-action/GDAction/Animating/MoveBy/GDActionNodeMoveBy.gd"
+}, {
+"base": "GDActionNodeInterval",
+"class": "GDActionNodeMoveTo",
+"language": "GDScript",
+"path": "res://addons/godot-action/GDAction/Animating/MoveTo/GDActionNodeMoveTo.gd"
+}, {
+"base": "GDActionNodeInstant",
+"class": "GDActionNodePerform",
+"language": "GDScript",
+"path": "res://addons/godot-action/GDAction/CustomAction/Perform/GDActionNodePerform.gd"
+}, {
+"base": "GDActionNodeInstant",
+"class": "GDActionNodeRemove",
+"language": "GDScript",
+"path": "res://addons/godot-action/GDAction/RemoveNode/GDActionNodeRemove.gd"
+}, {
+"base": "GDActionNodeInstant",
+"class": "GDActionNodeRepeat",
+"language": "GDScript",
+"path": "res://addons/godot-action/GDAction/Chaining/Repeat/GDActionNodeRepeat.gd"
+}, {
+"base": "GDActionNodeInstant",
+"class": "GDActionNodeRepeatForever",
+"language": "GDScript",
+"path": "res://addons/godot-action/GDAction/Chaining/RepeatForever/GDActionNodeRepeatForever.gd"
+}, {
+"base": "GDActionNodeInterval",
+"class": "GDActionNodeRotateBy",
+"language": "GDScript",
+"path": "res://addons/godot-action/GDAction/Animating/RotateBy/GDActionNodeRotateBy.gd"
+}, {
+"base": "GDActionNodeInterval",
+"class": "GDActionNodeRotateTo",
+"language": "GDScript",
+"path": "res://addons/godot-action/GDAction/Animating/RotateTo/GDActionNodeRotateTo.gd"
+}, {
+"base": "GDActionNodeInstant",
+"class": "GDActionNodeRun",
+"language": "GDScript",
+"path": "res://addons/godot-action/GDAction/CustomAction/Run/GDActionNodeRun.gd"
+}, {
+"base": "GDActionNodeInterval",
+"class": "GDActionNodeScaleBy",
+"language": "GDScript",
+"path": "res://addons/godot-action/GDAction/Animating/ScaleBy/GDActionNodeScaleBy.gd"
+}, {
+"base": "GDActionNodeInterval",
+"class": "GDActionNodeScaleTo",
+"language": "GDScript",
+"path": "res://addons/godot-action/GDAction/Animating/ScaleTo/GDActionNodeScaleTo.gd"
+}, {
+"base": "GDActionNodeInstant",
+"class": "GDActionNodeSequence",
+"language": "GDScript",
+"path": "res://addons/godot-action/GDAction/Chaining/Sequence/GDActionNodeSequence.gd"
+}, {
+"base": "GDActionNodeInstant",
+"class": "GDActionNodeVisibility",
+"language": "GDScript",
+"path": "res://addons/godot-action/GDAction/Visibility/GDActionNodeVisibility.gd"
+}, {
+"base": "GDActionNodeInstant",
+"class": "GDActionNodeWait",
+"language": "GDScript",
+"path": "res://addons/godot-action/GDAction/Wait/GDActionNodeWait.gd"
+}, {
+"base": "GDActionInstant",
+"class": "GDActionPerform",
+"language": "GDScript",
+"path": "res://addons/godot-action/GDAction/CustomAction/Perform/GDActionPerform.gd"
+}, {
+"base": "GDActionInstant",
+"class": "GDActionRemove",
+"language": "GDScript",
+"path": "res://addons/godot-action/GDAction/RemoveNode/GDActionRemove.gd"
+}, {
+"base": "GDActionInstant",
+"class": "GDActionRepeat",
+"language": "GDScript",
+"path": "res://addons/godot-action/GDAction/Chaining/Repeat/GDActionRepeat.gd"
+}, {
+"base": "GDActionInstant",
+"class": "GDActionRepeatForever",
+"language": "GDScript",
+"path": "res://addons/godot-action/GDAction/Chaining/RepeatForever/GDActionRepeatForever.gd"
+}, {
+"base": "GDActionInterval",
+"class": "GDActionRotateBy",
+"language": "GDScript",
+"path": "res://addons/godot-action/GDAction/Animating/RotateBy/GDActionRotateBy.gd"
+}, {
+"base": "GDActionInterval",
+"class": "GDActionRotateTo",
+"language": "GDScript",
+"path": "res://addons/godot-action/GDAction/Animating/RotateTo/GDActionRotateTo.gd"
+}, {
+"base": "GDActionInstant",
+"class": "GDActionRun",
+"language": "GDScript",
+"path": "res://addons/godot-action/GDAction/CustomAction/Run/GDActionRun.gd"
+}, {
+"base": "GDActionInterval",
+"class": "GDActionScaleBy",
+"language": "GDScript",
+"path": "res://addons/godot-action/GDAction/Animating/ScaleBy/GDActionScaleBy.gd"
+}, {
+"base": "GDActionInterval",
+"class": "GDActionScaleTo",
+"language": "GDScript",
+"path": "res://addons/godot-action/GDAction/Animating/ScaleTo/GDActionScaleTo.gd"
+}, {
+"base": "GDActionInstant",
+"class": "GDActionSequence",
+"language": "GDScript",
+"path": "res://addons/godot-action/GDAction/Chaining/Sequence/GDActionSequence.gd"
+}, {
+"base": "GDActionInstant",
+"class": "GDActionVisibility",
+"language": "GDScript",
+"path": "res://addons/godot-action/GDAction/Visibility/GDActionVisibility.gd"
+}, {
+"base": "GDActionInstant",
+"class": "GDActionWait",
+"language": "GDScript",
+"path": "res://addons/godot-action/GDAction/Wait/GDActionWait.gd"
+}, {
+"base": "Node",
+"class": "GDEaseFunc",
+"language": "GDScript",
+"path": "res://addons/godot-action/ease_func.gd"
+}, {
+"base": "Node",
+"class": "Persian",
+"language": "GDScript",
+"path": "res://addons/persian_reshaper/Persian.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Player",
@@ -39,6 +299,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/randomgenerator/rgen_state.gd"
 }, {
+"base": "Node2D",
+"class": "SplashContainer",
+"language": "GDScript",
+"path": "res://addons/awesome_splash/core/SplashContainer.gd"
+}, {
 "base": "Node",
 "class": "State",
 "language": "GDScript",
@@ -51,11 +316,64 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "AdMob": "res://admob-lib/icon.png",
+"AspectNode": "res://addons/awesome_splash/assets/icon/aspect_node_icon.png",
+"AweListTextNode": "res://addons/awesome_splash/assets/icon/list_text_node_icon.png",
+"AweSplashScreen": "res://addons/awesome_splash/assets/icon/splash_screen_icon.png",
+"AweSplashScreenViewport": "",
+"AweTextNode": "res://addons/awesome_splash/assets/icon/text_node_icon.png",
+"AweTimer": "",
 "ColorSwitch": "",
 "Element": "",
+"GDAction": "",
+"GDActionColorize": "",
+"GDActionCustomAction": "",
+"GDActionFadeAlphaBy": "",
+"GDActionFadeAlphaTo": "",
+"GDActionGroup": "",
+"GDActionInstant": "",
+"GDActionInterval": "",
+"GDActionMoveBy": "",
+"GDActionMoveTo": "",
+"GDActionNode": "",
+"GDActionNodeColorize": "",
+"GDActionNodeCustomAction": "",
+"GDActionNodeFadeAlphaBy": "",
+"GDActionNodeFadeAlphaTo": "",
+"GDActionNodeGroup": "",
+"GDActionNodeInstant": "",
+"GDActionNodeInterval": "",
+"GDActionNodeMoveBy": "",
+"GDActionNodeMoveTo": "",
+"GDActionNodePerform": "",
+"GDActionNodeRemove": "",
+"GDActionNodeRepeat": "",
+"GDActionNodeRepeatForever": "",
+"GDActionNodeRotateBy": "",
+"GDActionNodeRotateTo": "",
+"GDActionNodeRun": "",
+"GDActionNodeScaleBy": "",
+"GDActionNodeScaleTo": "",
+"GDActionNodeSequence": "",
+"GDActionNodeVisibility": "",
+"GDActionNodeWait": "",
+"GDActionPerform": "",
+"GDActionRemove": "",
+"GDActionRepeat": "",
+"GDActionRepeatForever": "",
+"GDActionRotateBy": "",
+"GDActionRotateTo": "",
+"GDActionRun": "",
+"GDActionScaleBy": "",
+"GDActionScaleTo": "",
+"GDActionSequence": "",
+"GDActionVisibility": "",
+"GDActionWait": "",
+"GDEaseFunc": "",
+"Persian": "",
 "Player": "",
 "PlayerState": "",
 "RGenState": "",
+"SplashContainer": "res://addons/awesome_splash/assets/icon/splash_container_icon.png",
 "State": "",
 "StateMachine": ""
 }
@@ -66,8 +384,8 @@ config/name="Escape The Obstacles"
 run/main_scene="res://src/screen/SplashScreen.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="escapetheobstacles"
-boot_splash/image="res://assets/splash_screen/splash_back.png"
-boot_splash/bg_color=Color( 0.298039, 0.298039, 0.298039, 1 )
+boot_splash/image="res://assets/splash_screen/splash_amdbs.png"
+boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon.png"
 
 [audio]
@@ -77,10 +395,13 @@ default_bus_layout="res://src/escape_bus_layout.tres"
 [autoload]
 
 Data="*res://src/main/data.gd"
+Lang="*res://src/main/lang.gd"
 Main="*res://src/main/main.gd"
 UserData="*res://src/main/UserData.tscn"
 SaveLoad="*res://src/main/saveload.gd"
 BackGroundMusic="*res://src/main/BackGroundMusic.tscn"
+gd="*res://addons/godot-action/utils_gd_action.tscn"
+sp="*res://addons/awesome_splash/utils_splash.gd"
 
 [display]
 
@@ -93,12 +414,16 @@ window/handheld/orientation="portrait"
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
 
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/awesome_splash/plugin.cfg", "res://addons/godot-action/plugin.cfg", "res://addons/persian_reshaper/plugin.cfg" )
+
 [input]
 
 move_left={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"unicode":0,"echo":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777231,"unicode":0,"echo":false,"script":null)
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777231,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
 , Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":0,"axis_value":-1.0,"script":null)
 , Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":2,"axis_value":-1.0,"script":null)
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":14,"pressure":0.0,"pressed":false,"script":null)
@@ -106,8 +431,8 @@ move_left={
 }
 move_right={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"unicode":0,"echo":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777233,"unicode":0,"echo":false,"script":null)
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777233,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
 , Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":0,"axis_value":1.0,"script":null)
 , Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":2,"axis_value":1.0,"script":null)
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":15,"pressure":0.0,"pressed":false,"script":null)
@@ -125,8 +450,8 @@ quality/driver/driver_name="GLES2"
 quality/driver/fallback_to_gles2=true
 quality/intended_usage/framebuffer_allocation=0
 quality/intended_usage/framebuffer_allocation.mobile=0
-quality/2d/use_pixel_snap=true
-vram_compression/import_etc=true
-environment/default_clear_color=Color( 0.298039, 0.298039, 0.298039, 1 )
-environment/default_environment="res://default_env.tres"
 2d/snapping/use_gpu_pixel_snap=true
+vram_compression/import_etc=true
+environment/default_clear_color=Color( 0, 0, 0, 1 )
+environment/default_environment="res://default_env.tres"
+quality/2d/use_pixel_snap=true
