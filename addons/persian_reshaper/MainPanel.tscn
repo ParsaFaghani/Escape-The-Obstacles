@@ -1,0 +1,199 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://addons/persian_reshaper/MainPanel.gd" type="Script" id=1]
+[ext_resource path="res://addons/persian_reshaper/font/Vazir-Thin.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://addons/persian_reshaper/font/VazirThin16.tres" type="DynamicFont" id=3]
+[ext_resource path="res://addons/persian_reshaper/theme/ButtonNormal.tres" type="StyleBox" id=4]
+[ext_resource path="res://addons/persian_reshaper/theme/ButtonHover.tres" type="StyleBox" id=5]
+
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 2 )
+
+[node name="MarginContainer" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_vertical = 3
+custom_constants/margin_right = 14
+custom_constants/margin_top = 14
+custom_constants/margin_left = 14
+custom_constants/margin_bottom = 14
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 14.0
+margin_top = 14.0
+margin_right = 706.0
+margin_bottom = 1266.0
+custom_constants/separation = 20
+script = ExtResource( 1 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_right = 692.0
+margin_bottom = 47.0
+custom_constants/separation = 15
+
+[node name="Clean" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_right = 76.0
+margin_bottom = 47.0
+focus_next = NodePath("../../HBoxContainer2/Copy")
+focus_previous = NodePath("../Reshape")
+custom_fonts/font = ExtResource( 3 )
+text = "  ﻥﺩﺮﮐ ﮎﺎﭘ  "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Reshape" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 91.0
+margin_right = 191.0
+margin_bottom = 47.0
+rect_min_size = Vector2( 100, 0 )
+focus_next = NodePath("../Clean")
+focus_previous = NodePath("../Input")
+custom_fonts/font = ExtResource( 3 )
+custom_styles/hover = ExtResource( 5 )
+custom_styles/normal = ExtResource( 4 )
+text = "ﻞﯾﺪﺒﺗ"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Input" type="LineEdit" parent="VBoxContainer/HBoxContainer"]
+margin_left = 206.0
+margin_right = 692.0
+margin_bottom = 47.0
+rect_min_size = Vector2( 0, 32 )
+focus_next = NodePath("../Reshape")
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 3 )
+align = 2
+placeholder_text = "ﺪﯿﻨﮐ ﺩﺭﺍﻭ ﺎﺠﻨﯾﺍ ﺍﺭ ﺩﻮﺧ ﻦﺘﻣ"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 67.0
+margin_right = 692.0
+margin_bottom = 114.0
+custom_constants/separation = 15
+
+[node name="Donate" type="Button" parent="VBoxContainer/HBoxContainer2"]
+margin_right = 88.0
+margin_bottom = 47.0
+rect_min_size = Vector2( 88, 0 )
+focus_next = NodePath("../../HBoxContainer/Input")
+focus_previous = NodePath("../Copy")
+custom_fonts/font = SubResource( 5 )
+flat = true
+
+[node name="Copy" type="Button" parent="VBoxContainer/HBoxContainer2"]
+margin_left = 103.0
+margin_right = 203.0
+margin_bottom = 47.0
+rect_min_size = Vector2( 100, 0 )
+focus_next = NodePath("../../HBoxContainer/Input")
+focus_previous = NodePath("../../HBoxContainer/Clean")
+custom_fonts/font = ExtResource( 3 )
+custom_styles/hover = ExtResource( 5 )
+custom_styles/normal = ExtResource( 4 )
+text = "ﻦﺘﻣ ﯽﭙﻛ"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Output" type="LineEdit" parent="VBoxContainer/HBoxContainer2"]
+margin_left = 218.0
+margin_right = 692.0
+margin_bottom = 47.0
+rect_min_size = Vector2( 0, 32 )
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 3 )
+align = 2
+editable = false
+placeholder_text = "ﻩﺪﺷ ﻞﯾﺪﺒﺗ ﻦﺘﻣ ﺖﻓﺎﯾﺭﺩ"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+margin_top = 134.0
+margin_right = 692.0
+margin_bottom = 138.0
+
+[node name="Guide" type="RichTextLabel" parent="VBoxContainer"]
+margin_top = 158.0
+margin_right = 692.0
+margin_bottom = 1252.0
+size_flags_vertical = 3
+custom_fonts/normal_font = ExtResource( 3 )
+bbcode_enabled = true
+bbcode_text = "[right]ﺢﯿﺿﻮﺗ[/right]
+[right]----------[/right]
+[right].ﺪﻨﮐ‌ﯽﻣ ﺭﺎﮐ 3.x ﻪﺨﺴﻧ ﻦﯿﺠﻧﺍ ﻭﺩﻮﮔ ﺎﺑ ﻪﻧﻭﺰﻓﺍ ﻦﯾﺍ[/right]
+[right].ﺪﻨﮐ‌ﯽﻤﻧ ﯽﻧﺎﺒﯿﺘﺸﭘ ﯽﺳﺭﺎﭘ ﺪﻨﻧﺎﻣ ﭗﭼ ﻪﺑ ﺖﺳﺍﺭ ﯼﺎﻫ‌ﻥﺎﺑﺯ ﺯﺍ ﻦﯿﺠﻧﺍ ﻭﺩﻮﮔ[/right]
+[right].ﺖﺳﺍ ﻩﺪﺷ ﻞﺣ ۴ ﻪﺨﺴﻧ ﻦﯿﺠﻧﺍ ﻭﺩﻮﮔ ﺭﺩ ﻞﮑﺸﻣ ﻦﯾﺍ[/right]
+
+[right]ﺕﺎﻤﯿﻈﻨﺗ[/right]
+[right]----------[/right]
+[right].ﺪﯿﻨﮑﻧ ﻩﺩﺎﻔﺘﺳﺍ Autowrap ﺯﺍ Label ﺩﻮﻧ ﯼﺍﺮﺑ :ﻪﺘﮑﻧ[/right]
+
+[right]ﺪﯿﻫﺩ ﺮﯿﯿﻐﺗ ﺍﺭ ﺮﯾﺯ ﺩﺭﺍﻮﻣ ﻞﺒﯿﻟ ﺕﺎﻤﯿﻈﻨﺗ ﺭﺩ ﺲﭙﺳ ،ﺪﯿﻨﮐ ﻪﻓﺎﺿﺍ ﻞﺒﯿﻟ ﺩﻮﻧ ﮏﯾ[/right]
+[right]Right ﻪﺑ Align ﻪﻨﯾﺰﮔ .۱[/right]
+[right]Begin ﻪﺑ Grow Direction > Horizontal ﻪﻨﯾﺰﮔ .۲[/right]
+
+[right]ﻩﺩﺎﻔﺘﺳﺍ ﺵﻭﺭ[/right]
+[right]----------[/right]
+[right].ﺪﯿﻨﮐ ﻩﺩﺎﻔﺘﺳﺍ ﻻﺎﺑ ﯽﮑﯿﻓﺍﺮﮔ ﻝﺪﺒﻣ ﺯﺍ ﺪﯿﻧﺍﻮﺗ‌ﯽﻣ ﺎﻫ‌ﻦﺘﻣ ﻞﯾﺪﺒﺗ ﯼﺍﺮﺑ[/right]
+
+[right].ﺖﭙﯾﺮﮑﺳﺍ ﺭﺩ ﻩﺩﺎﻔﺘﺳﺍ ﯼﺍﺮﺑ ﺮﯾﺯ ﺵﻭﺭ ﻪﺑ ﺎﯾ[/right]
+[right]ﺪﯿﻧﺰﺑ ﺍﺪﺻ ﻞﮑﺷ ﻦﯾﺍ ﻪﺑ ﺵﺍ‌ﺖﭙﯾﺮﮑﺳﺍ ﺭﺩ ﺍﺭ ﻞﺒﯿﻟ ،ﻂﺧ ﮏﺗ ﯼﺎﻫ‌ﻦﺘﻣ ﯼﺍﺮﺑ[/right]
+
+var txt := \"پارسی شکر است.\"
+$Label.text = Persian.reshaper(txt)
+
+[right]ﺩﻮﺷ ﻝﺎﻌﻓ ﻂﺧ ﺪﻨﭼ ﻭ ﯽﻧﻻﻮﻃ ﯼﺎﻫ‌ﻦﺘﻣ ﯼﺍﺮﺑ Autowrap ﺖﻟﺎﺣ ﺪﯿﻫﺍﻮﺧ‌ﯽﻣ ﻪﮐ ﯽﺗﺭﻮﺻ ﺭﺩ[/right]
+[right].ﺪﯿﻨﮐ ﺩﺭﺍﻭ ﯼﺩﺪﻋ ﻞﮑﺷ ﻪﺑ ﺍﺭ ﺖﺳﺍ «ﻂﺧ ﻝﻮﻃ» ﻪﮐ ﻡﻭﺩ ﺮﺘﻣﺍﺭﺎﭘ[/right]
+[right].ﺩﺮﯿﮔ‌ﯽﻣ ﺭﺍﺮﻗ ﻂﺧ ﮏﯾ ﺭﺩ ﻪﮐ ﺖﺳﺍ (ﻪﻠﺻﺎﻓ ﻭ ﺩﺍﺪﻋﺍ ،ﻑﻭﺮﺣ ﻞﻣﺎﺷ) ﯽﯾﺎﻫﺮﺘﮐﺍﺭﺎﮐ ﺩﺍﺪﻌﺗ ﺎﺑ ﺮﺑﺍﺮﺑ ﻂﺧ ﻝﻮﻃ[/right]
+
+var txt := \"پارسی شکر است.\"
+$Label.text = Persian.reshaper(txt, 36)
+
+"
+text = "ﺢﯿﺿﻮﺗ
+----------
+.ﺪﻨﮐ‌ﯽﻣ ﺭﺎﮐ 3.x ﻪﺨﺴﻧ ﻦﯿﺠﻧﺍ ﻭﺩﻮﮔ ﺎﺑ ﻪﻧﻭﺰﻓﺍ ﻦﯾﺍ
+.ﺪﻨﮐ‌ﯽﻤﻧ ﯽﻧﺎﺒﯿﺘﺸﭘ ﯽﺳﺭﺎﭘ ﺪﻨﻧﺎﻣ ﭗﭼ ﻪﺑ ﺖﺳﺍﺭ ﯼﺎﻫ‌ﻥﺎﺑﺯ ﺯﺍ ﻦﯿﺠﻧﺍ ﻭﺩﻮﮔ
+.ﺖﺳﺍ ﻩﺪﺷ ﻞﺣ ۴ ﻪﺨﺴﻧ ﻦﯿﺠﻧﺍ ﻭﺩﻮﮔ ﺭﺩ ﻞﮑﺸﻣ ﻦﯾﺍ
+
+ﺕﺎﻤﯿﻈﻨﺗ
+----------
+.ﺪﯿﻨﮑﻧ ﻩﺩﺎﻔﺘﺳﺍ Autowrap ﺯﺍ Label ﺩﻮﻧ ﯼﺍﺮﺑ :ﻪﺘﮑﻧ
+
+ﺪﯿﻫﺩ ﺮﯿﯿﻐﺗ ﺍﺭ ﺮﯾﺯ ﺩﺭﺍﻮﻣ ﻞﺒﯿﻟ ﺕﺎﻤﯿﻈﻨﺗ ﺭﺩ ﺲﭙﺳ ،ﺪﯿﻨﮐ ﻪﻓﺎﺿﺍ ﻞﺒﯿﻟ ﺩﻮﻧ ﮏﯾ
+Right ﻪﺑ Align ﻪﻨﯾﺰﮔ .۱
+Begin ﻪﺑ Grow Direction > Horizontal ﻪﻨﯾﺰﮔ .۲
+
+ﻩﺩﺎﻔﺘﺳﺍ ﺵﻭﺭ
+----------
+.ﺪﯿﻨﮐ ﻩﺩﺎﻔﺘﺳﺍ ﻻﺎﺑ ﯽﮑﯿﻓﺍﺮﮔ ﻝﺪﺒﻣ ﺯﺍ ﺪﯿﻧﺍﻮﺗ‌ﯽﻣ ﺎﻫ‌ﻦﺘﻣ ﻞﯾﺪﺒﺗ ﯼﺍﺮﺑ
+
+.ﺖﭙﯾﺮﮑﺳﺍ ﺭﺩ ﻩﺩﺎﻔﺘﺳﺍ ﯼﺍﺮﺑ ﺮﯾﺯ ﺵﻭﺭ ﻪﺑ ﺎﯾ
+ﺪﯿﻧﺰﺑ ﺍﺪﺻ ﻞﮑﺷ ﻦﯾﺍ ﻪﺑ ﺵﺍ‌ﺖﭙﯾﺮﮑﺳﺍ ﺭﺩ ﺍﺭ ﻞﺒﯿﻟ ،ﻂﺧ ﮏﺗ ﯼﺎﻫ‌ﻦﺘﻣ ﯼﺍﺮﺑ
+
+var txt := \"پارسی شکر است.\"
+$Label.text = Persian.reshaper(txt)
+
+ﺩﻮﺷ ﻝﺎﻌﻓ ﻂﺧ ﺪﻨﭼ ﻭ ﯽﻧﻻﻮﻃ ﯼﺎﻫ‌ﻦﺘﻣ ﯼﺍﺮﺑ Autowrap ﺖﻟﺎﺣ ﺪﯿﻫﺍﻮﺧ‌ﯽﻣ ﻪﮐ ﯽﺗﺭﻮﺻ ﺭﺩ
+.ﺪﯿﻨﮐ ﺩﺭﺍﻭ ﯼﺩﺪﻋ ﻞﮑﺷ ﻪﺑ ﺍﺭ ﺖﺳﺍ «ﻂﺧ ﻝﻮﻃ» ﻪﮐ ﻡﻭﺩ ﺮﺘﻣﺍﺭﺎﭘ
+.ﺩﺮﯿﮔ‌ﯽﻣ ﺭﺍﺮﻗ ﻂﺧ ﮏﯾ ﺭﺩ ﻪﮐ ﺖﺳﺍ (ﻪﻠﺻﺎﻓ ﻭ ﺩﺍﺪﻋﺍ ،ﻑﻭﺮﺣ ﻞﻣﺎﺷ) ﯽﯾﺎﻫﺮﺘﮐﺍﺭﺎﮐ ﺩﺍﺪﻌﺗ ﺎﺑ ﺮﺑﺍﺮﺑ ﻂﺧ ﻝﻮﻃ
+
+var txt := \"پارسی شکر است.\"
+$Label.text = Persian.reshaper(txt, 36)
+
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
