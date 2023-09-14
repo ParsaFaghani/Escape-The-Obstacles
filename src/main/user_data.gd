@@ -19,6 +19,7 @@ var bus : Dictionary = {
 }
 var ads : bool = true
 
+var lang : int = 1
 
 func save() -> Dictionary:
 	var save_dict : Dictionary = {

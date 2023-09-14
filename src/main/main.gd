@@ -7,6 +7,22 @@ onready var level := preload("res://src/level/Level.tscn")
 onready var tutorial := preload("res://src/level/Tutorial.tscn")
 onready var os := OS.get_name()
 
+onready var info_string_name_fa : Dictionary = {
+	0: "ﮒﺮﻣ ﺩﺮﻣ",
+	1: "ﻭﺩﻮﮔ",
+	2: "ﯽﮑﯿﮐ",
+	3: "ﺱﺁ",
+	4: "ﺭﻭﺩﺭﺍ",
+	5: "ﻢﻠﻫ",
+	6: "ﭻﯾﺍ",
+	7: "ﺖﮐﻮﺘﮐﺍ",
+	8: "ﻮﻨﮔ",
+	9: "ﺲﮐﺎﺗ",
+	10: "ﺎﺳﻮﻓ",
+	11: "ﺮﻔﯿﻠﮔ",
+	12: "ﺰﺑ"
+}
+
 onready var info_string_name : Dictionary = {
 	0: "Deathguy",
 	1: "Godot",
@@ -20,7 +36,7 @@ onready var info_string_name : Dictionary = {
 	9: "Tux",
 	10: "Fossa",
 	11: "Glyphr",
-	12: "am.blacksheep"
+	12: "goat"
 }
 
 onready var info_string_url : Dictionary = {
@@ -49,16 +65,16 @@ onready var ads_reward_string : Dictionary = {
 }
 
 onready var fake_ads_img : Dictionary = {
-	0: preload("res://assets/fakeads/banner_amdbs.jpeg"),
+	0: preload("res://icon.png"),
 	1: preload("res://assets/fakeads/banner_deathguy.jpeg")
 }
 
 onready var fake_ads_text : Dictionary = {
-	0: "[b]Info on amdotblacksheep, my slave.[/b]\n\nGo check out my slave's other games.",
-	1: "[b]Join the deathsquad on itch.io.[/b]\n\nIf you are too noob to play from your smartphone you can join the cause even from your PC."
+	0: "[b]open source game[/b]\n\nGo to check",
+	# 1: "[b]Join the deathsquad on itch.io.[/b]\n\nIf you are too noob to play from your smartphone you can join the cause even from your PC."
 }
 
 onready var fake_ads_url : Dictionary = {
-	0: "https://amdotblacksheep.itch.io",
+	0: "https://github.com/FDarkCoder/Escape-The-Obstacles",
 	1: "https://amdotblacksheep.itch.io/deathguy"
 }
