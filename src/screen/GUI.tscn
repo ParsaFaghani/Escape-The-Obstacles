@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://assets/ui/button/button_spritesheet.png" type="Texture" id=1]
 [ext_resource path="res://assets/deathguy_theme.tres" type="Theme" id=2]
@@ -11,6 +11,17 @@
 [ext_resource path="res://admob-lib/admob.gd" type="Script" id=9]
 [ext_resource path="res://src/fakeads/FakeAds.tscn" type="PackedScene" id=10]
 [ext_resource path="res://debug/AdMobDebug.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/fonts/hh.otf" type="DynamicFontData" id=12]
+
+[sub_resource type="DynamicFont" id=21]
+size = 60
+font_data = ExtResource( 12 )
+
+[sub_resource type="DynamicFont" id=22]
+size = 52
+font_data = ExtResource( 12 )
+
+[sub_resource type="DynamicFont" id=5]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 1 )
@@ -44,7 +55,7 @@ margin_right = 16.0
 margin_top = 16.0
 margin_bottom = 16.0
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=10]
 
 [sub_resource type="StyleBoxTexture" id=6]
 texture = ExtResource( 1 )
@@ -78,7 +89,7 @@ margin_right = 16.0
 margin_top = 16.0
 margin_bottom = 16.0
 
-[sub_resource type="DynamicFont" id=10]
+[sub_resource type="DynamicFont" id=15]
 
 [sub_resource type="StyleBoxTexture" id=11]
 texture = ExtResource( 1 )
@@ -112,7 +123,7 @@ margin_right = 16.0
 margin_top = 16.0
 margin_bottom = 16.0
 
-[sub_resource type="DynamicFont" id=15]
+[sub_resource type="DynamicFont" id=20]
 
 [sub_resource type="StyleBoxTexture" id=16]
 texture = ExtResource( 1 )
@@ -146,8 +157,6 @@ margin_right = 16.0
 margin_top = 16.0
 margin_bottom = 16.0
 
-[sub_resource type="DynamicFont" id=20]
-
 [node name="GUI" type="Control"]
 pause_mode = 2
 anchor_right = 1.0
@@ -157,7 +166,6 @@ theme = ExtResource( 2 )
 script = ExtResource( 6 )
 __meta__ = {
 "_edit_horizontal_guides_": [ 128.0 ],
-"_edit_use_anchors_": false,
 "_edit_vertical_guides_": [ 640.0 ]
 }
 
@@ -179,25 +187,26 @@ __meta__ = {
 }
 
 [node name="Score" type="Label" parent="CanvasLayer/HBoxContainer"]
-margin_top = 23.0
-margin_right = 328.0
-margin_bottom = 56.0
+margin_top = 10.0
+margin_right = 312.0
+margin_bottom = 70.0
 grow_horizontal = 0
+custom_fonts/font = SubResource( 21 )
 text = "000000000000"
 align = 2
 
 [node name="Multiplier" type="Label" parent="CanvasLayer/HBoxContainer"]
-margin_left = 332.0
-margin_top = 23.0
-margin_right = 412.0
-margin_bottom = 56.0
+margin_left = 316.0
+margin_top = 33.0
+margin_right = 396.0
+margin_bottom = 47.0
 rect_min_size = Vector2( 80, 0 )
 align = 2
 valign = 1
 
 [node name="Wallet" type="HBoxContainer" parent="CanvasLayer/HBoxContainer"]
-margin_left = 416.0
-margin_right = 656.0
+margin_left = 400.0
+margin_right = 640.0
 margin_bottom = 80.0
 grow_horizontal = 0
 rect_min_size = Vector2( 240, 80 )
@@ -209,12 +218,13 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/Wallet"]
-margin_left = 100.0
-margin_top = 23.0
+margin_left = 97.0
+margin_top = 13.0
 margin_right = 120.0
-margin_bottom = 56.0
+margin_bottom = 66.0
 grow_horizontal = 0
 grow_vertical = 0
+custom_fonts/font = SubResource( 22 )
 text = "0"
 align = 2
 valign = 1
@@ -256,12 +266,12 @@ margin_top = -80.0
 margin_right = 80.0
 focus_mode = 0
 mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 5 )
 custom_styles/hover = SubResource( 1 )
 custom_styles/pressed = SubResource( 2 )
 custom_styles/focus = SubResource( 1 )
 custom_styles/disabled = SubResource( 3 )
 custom_styles/normal = SubResource( 4 )
-custom_fonts/font = SubResource( 5 )
 enabled_focus_mode = 0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -275,12 +285,12 @@ margin_top = -80.0
 margin_right = 80.0
 focus_mode = 0
 mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 10 )
 custom_styles/hover = SubResource( 6 )
 custom_styles/pressed = SubResource( 7 )
 custom_styles/focus = SubResource( 6 )
 custom_styles/disabled = SubResource( 8 )
 custom_styles/normal = SubResource( 9 )
-custom_fonts/font = SubResource( 10 )
 enabled_focus_mode = 0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -296,12 +306,12 @@ margin_top = -80.0
 margin_right = -120.0
 focus_mode = 0
 mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 15 )
 custom_styles/hover = SubResource( 11 )
 custom_styles/pressed = SubResource( 12 )
 custom_styles/focus = SubResource( 11 )
 custom_styles/disabled = SubResource( 13 )
 custom_styles/normal = SubResource( 14 )
-custom_fonts/font = SubResource( 15 )
 toggle_mode = true
 enabled_focus_mode = 0
 __meta__ = {
@@ -317,12 +327,12 @@ margin_left = -80.0
 margin_top = -80.0
 focus_mode = 0
 mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 20 )
 custom_styles/hover = SubResource( 16 )
 custom_styles/pressed = SubResource( 17 )
 custom_styles/focus = SubResource( 16 )
 custom_styles/disabled = SubResource( 18 )
 custom_styles/normal = SubResource( 19 )
-custom_fonts/font = SubResource( 20 )
 toggle_mode = true
 enabled_focus_mode = 0
 __meta__ = {
@@ -358,6 +368,7 @@ stream = ExtResource( 3 )
 bus = "SFX"
 
 [node name="Tween" type="Tween" parent="."]
+
 [connection signal="pressed" from="CanvasLayer/Button/PauseButton" to="." method="_on_PauseButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/Button/PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="toggled" from="CanvasLayer/Button/SFXButton" to="." method="_on_SFXButton_toggled"]
