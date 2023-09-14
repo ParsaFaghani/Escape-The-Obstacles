@@ -213,9 +213,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -200.0
-margin_top = -94.0
+margin_top = -64.0
 margin_right = 200.0
-margin_bottom = 35.0
+margin_bottom = 65.0
 rect_min_size = Vector2( 400, 100 )
 focus_mode = 0
 mouse_default_cursor_shape = 2
@@ -233,9 +233,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -200.0
-margin_top = 39.0
+margin_top = 69.0
 margin_right = 200.0
-margin_bottom = 168.0
+margin_bottom = 198.0
 rect_min_size = Vector2( 400, 100 )
 focus_mode = 0
 mouse_default_cursor_shape = 2
@@ -247,35 +247,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LeaderButton" type="Button" parent="Button"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -201.0
-margin_top = 172.0
-margin_right = 199.0
-margin_bottom = 301.0
-rect_min_size = Vector2( 400, 100 )
-focus_mode = 0
-mouse_default_cursor_shape = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-enabled_focus_mode = 0
-text = "Leader"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="ExitButton" type="Button" parent="Button"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -200.0
-margin_top = 306.0
+margin_top = 202.0
 margin_right = 200.0
-margin_bottom = 406.0
+margin_bottom = 331.0
 rect_min_size = Vector2( 400, 100 )
 focus_mode = 0
 mouse_default_cursor_shape = 2
@@ -283,9 +263,6 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 enabled_focus_mode = 0
 text = "Exit"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Glitch" type="ColorRect" parent="."]
 material = ExtResource( 5 )
@@ -305,5 +282,4 @@ anims/show = SubResource( 3 )
 
 [connection signal="pressed" from="Button/RetryButton" to="." method="_on_RetryButton_pressed"]
 [connection signal="pressed" from="Button/CustomizeButton" to="." method="_on_CustomizeButton_pressed"]
-[connection signal="pressed" from="Button/LeaderButton" to="." method="_on_LeaderButton_pressed"]
 [connection signal="pressed" from="Button/ExitButton" to="." method="_on_ExitButton_pressed"]
