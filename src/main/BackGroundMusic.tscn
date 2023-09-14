@@ -1,5 +1,0 @@
-[gd_scene format=2]
-
-[node name="BackGroundMusic" type="AudioStreamPlayer"]
-pause_mode = 2
-bus = "Music"
