@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/deathguy_theme.tres" type="Theme" id=1]
 [ext_resource path="res://src/screen/info_screen.gd" type="Script" id=2]
 [ext_resource path="res://assets/sfx/click.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/fonts/vazir_farsi_font.tres" type="DynamicFont" id=4]
 
 [node name="InfoScreen" type="WindowDialog"]
 margin_right = 360.0
@@ -11,7 +12,7 @@ rect_min_size = Vector2( 540, 640 )
 mouse_default_cursor_shape = 2
 theme = ExtResource( 1 )
 popup_exclusive = true
-window_title = "deathguy.gd"
+window_title = "INFO"
 script = ExtResource( 2 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
@@ -24,6 +25,7 @@ margin_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 2
 rect_min_size = Vector2( 472, 0 )
+custom_fonts/normal_font = ExtResource( 4 )
 bbcode_enabled = true
 fit_content_height = true
 __meta__ = {
@@ -35,4 +37,5 @@ stream = ExtResource( 3 )
 bus = "SFX"
 
 [node name="Tween" type="Tween" parent="."]
+
 [connection signal="meta_clicked" from="RichTextLabel" to="." method="_on_Meta_clicked"]

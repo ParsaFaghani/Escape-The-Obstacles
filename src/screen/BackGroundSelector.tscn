@@ -1,5 +1,6 @@
 [gd_scene load_steps=23 format=2]
 
+[ext_resource path="res://assets/fonts/Vazir.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/deathguy_theme.tres" type="Theme" id=2]
 [ext_resource path="res://assets/shader/script/change_texture.shader" type="Shader" id=3]
 [ext_resource path="res://assets/shader/texture/left_texture.png" type="Texture" id=4]
@@ -7,7 +8,6 @@
 [ext_resource path="res://src/screen/background_selector.gd" type="Script" id=6]
 [ext_resource path="res://assets/sfx/click.wav" type="AudioStream" id=7]
 [ext_resource path="res://assets/ui/button/button_spritesheet.png" type="Texture" id=8]
-[ext_resource path="res://assets/fonts/DeathGuyFont.otf" type="DynamicFontData" id=9]
 
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
@@ -38,8 +38,8 @@ size = 34
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 use_mipmaps = true
-extra_spacing_char = -1
-font_data = ExtResource( 9 )
+extra_spacing_char = 2
+font_data = ExtResource( 1 )
 
 [sub_resource type="StyleBoxTexture" id=8]
 texture = ExtResource( 8 )
@@ -151,9 +151,9 @@ __meta__ = {
 [node name="LeftButton" type="Button" parent="HBoxContainer"]
 modulate = Color( 1, 1, 1, 0.8 )
 margin_left = 95.0
-margin_top = 10.0
+margin_top = 3.0
 margin_right = 175.0
-margin_bottom = 90.0
+margin_bottom = 96.0
 rect_min_size = Vector2( 80, 80 )
 focus_mode = 0
 mouse_default_cursor_shape = 2
@@ -207,9 +207,9 @@ __meta__ = {
 [node name="RightButton" type="Button" parent="HBoxContainer"]
 modulate = Color( 1, 1, 1, 0.8 )
 margin_left = 631.0
-margin_top = 10.0
+margin_top = 3.0
 margin_right = 711.0
-margin_bottom = 90.0
+margin_bottom = 96.0
 rect_min_size = Vector2( 80, 80 )
 focus_mode = 0
 mouse_default_cursor_shape = 2
@@ -234,6 +234,7 @@ autoplay = "RESET"
 anims/RESET = SubResource( 12 )
 anims/change_left = SubResource( 13 )
 anims/change_right = SubResource( 14 )
+
 [connection signal="pressed" from="HBoxContainer/LeftButton" to="." method="_on_LeftButton_pressed"]
 [connection signal="pressed" from="HBoxContainer/UnlockButton" to="." method="_on_UnlockButton_pressed"]
 [connection signal="pressed" from="HBoxContainer/RightButton" to="." method="_on_RightButton_pressed"]

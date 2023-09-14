@@ -9,6 +9,11 @@ onready var button_sfx := $ButtonSFX
 onready var tween := $Tween
 onready var anim_play := $AnimationPlayer
 
+onready var RetryButton := $Button/RetryButton
+onready var CustomizeButton := $Button/CustomizeButton
+onready var ExitButton := $Button/ExitButton
+
+
 var score := 0 setget set_score
 var wallet := 0 setget set_wallet
 var record := 0 setget set_record
@@ -16,7 +21,16 @@ var record := 0 setget set_record
 
 func _ready() -> void:
 	record = UserData.score_record
-	record_text.set_text("Your record: %012d" % record)
+	if UserData.lang:
+		record_text.set_text(Lang.record_text[1] % record)
+		RetryButton.text = Persian.reshaper(Lang.Retry[1])
+		CustomizeButton.text = Persian.reshaper(Lang.Customize[1])
+		ExitButton.text = Persian.reshaper(Lang.exit[1])
+	else:
+		record_text.set_text(Lang.record_text[0] % record)
+		RetryButton.text = Lang.Retry[0]
+		CustomizeButton.text = Lang.Customize[0]
+		ExitButton.text = Lang.exit[0]
 
 func _on_end_screen_triggered() -> void:
 	anim_play.play("show")

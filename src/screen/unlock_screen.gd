@@ -14,7 +14,7 @@ var method : String
 var index : int
 var cost : int
 var text := "You're in the mood for shopping... this requires %d coins. Do you want to buy it?"
-
+var text_fa := " %d  :ﻪﮑﺳ ﺩﺍﺪﻌﺗ ؟ﺪﯾﺮﺨﺑ ﺍﺭ ﻥﺍ ﻪﮐ ﺪﯿﻠﯾﺎﻣ ﺎﯾﺍ"
 func _ready() -> void:
 	get_close_button().connect("pressed", self, "_on_UnlockScreen_cancelled")
 	get_cancel().connect("pressed", self, "_on_UnlockScreen_cancelled")
@@ -35,7 +35,7 @@ func _on_unlock_pressed(
 	method = new_method
 	index = new_index
 	cost = new_cost
-	label.set_bbcode(text % cost)
+	label.set_bbcode(text_fa % cost)
 	label.set_percent_visible(0)
 	
 	popup()

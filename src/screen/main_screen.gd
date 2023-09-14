@@ -22,7 +22,25 @@ onready var anim_play := $AnimationPlayer
 
 onready var rate_button := $Logos/Rate
 
+onready var PlayButton := $Button/PlayButton
+onready var CustomizeButton := $Button/CustomizeButton
+onready var SettingsButton := $Button/SettingsButton
+onready var AboutButton := $Button/AboutButton
+
+
 func _ready() -> void:
+	if UserData.lang:
+		print('fa')
+		PlayButton.text = Persian.reshaper(Lang.play[1])
+		CustomizeButton.text = Persian.reshaper(Lang.Customize[1])
+		SettingsButton.text = Persian.reshaper(Lang.settings[1])
+		AboutButton.text = Persian.reshaper(Lang.about[1])
+	elif UserData.lang == 0:
+		print('en')
+		PlayButton.text = Lang.play[0]
+		CustomizeButton.text = Lang.Customize[0]
+		SettingsButton.text = Lang.settings[0]
+		AboutButton.text = Lang.about[0]
 	get_tree().set_pause(false)
 	SaveLoad.load_game()
 	
@@ -63,10 +81,10 @@ func _on_PlayButton_pressed() -> void:
 	button_sfx.play()
 	yield(button_sfx, "finished")
 	
-	if not UserData.tutorial:
-		get_tree().change_scene_to(Main.level)
-		return
-	emit_signal("tutorial_triggered")
+	# if not UserData.tutorial:
+	get_tree().change_scene_to(Main.level)
+	# 	return
+	# emit_signal("tutorial_triggered")
 
 func _on_CustomizeButton_pressed() -> void:
 	button_sfx.play()
@@ -79,6 +97,7 @@ func _on_SettingsButton_pressed() -> void:
 	settings_screen.popup()
 
 func _on_CreditsButton_pressed() -> void:
+	button_sfx.play()
 	credits_screen.popup()
 
 func _on_TutorialConfirmation_confirmed() -> void:
@@ -146,3 +165,4 @@ func _on_GitHub_pressed():
 
 func _on_Twitter_pressed():
 	pass # Replace with function body.
+

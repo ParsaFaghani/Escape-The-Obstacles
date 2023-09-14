@@ -76,7 +76,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.8, 1 ),
 "transitions": PoolRealArray( 1, 0.5, 2 ),
 "update": 0,
-"values": [ Vector2( -340, 610 ), Vector2( 210, 610 ), Vector2( 160, 610 ) ]
+"values": [ Vector2( -340, 610 ), Vector2( 210, 610 ), Vector2( 160, 526 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Button/CustomizeButton:rect_position")
@@ -88,7 +88,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 0.8, 1 ),
 "transitions": PoolRealArray( 1, 0.5, 2 ),
 "update": 0,
-"values": [ Vector2( 720, 722 ), Vector2( 110, 722 ), Vector2( 160, 722 ) ]
+"values": [ Vector2( 720, 722 ), Vector2( 110, 722 ), Vector2( 160, 667 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("Button/SettingsButton:rect_position")
@@ -100,7 +100,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0, 0.8, 1 ),
 "transitions": PoolRealArray( 1, 0.5, 2 ),
 "update": 0,
-"values": [ Vector2( -400, 834 ), Vector2( 210, 834 ), Vector2( 160, 834 ) ]
+"values": [ Vector2( -400, 834 ), Vector2( 210, 834 ), Vector2( 160, 807 ) ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("Button/AboutButton:rect_position")
@@ -237,6 +237,42 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector2( 0, -110 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Button/PlayButton:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 160, 526 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Button/CustomizeButton:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 160, 667 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Button/SettingsButton:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 160, 807 ) ]
+}
 
 [sub_resource type="Animation" id=10]
 length = 1.5
@@ -356,8 +392,7 @@ mouse_filter = 2
 theme = ExtResource( 4 )
 script = ExtResource( 6 )
 __meta__ = {
-"_edit_horizontal_guides_": [ 640.0 ],
-"_edit_use_anchors_": false,
+"_edit_horizontal_guides_": [ 526.0 ],
 "_edit_vertical_guides_": [ 360.0 ]
 }
 
@@ -382,9 +417,9 @@ stretch_mode = 6
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -360.0
-margin_top = 110.0
+margin_top = -110.0
 margin_right = 360.0
-margin_bottom = 246.0
+margin_bottom = 25.9999
 rect_min_size = Vector2( 720, 0 )
 custom_fonts/font = SubResource( 2 )
 text = "ESCAPE"
@@ -401,8 +436,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -128.0
-margin_top = -316.0
+margin_top = -399.0
 margin_right = 128.0
+margin_bottom = -83.0
 rect_min_size = Vector2( 256, 256 )
 mouse_filter = 2
 
@@ -449,34 +485,23 @@ anchor_bottom = 1.0
 mouse_filter = 2
 
 [node name="PlayButton" type="Button" parent="Button"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -200.0
-margin_top = -30.0
-margin_right = 200.0
-margin_bottom = 70.0
+margin_left = 160.0
+margin_top = 526.0
+margin_right = 560.0
+margin_bottom = 655.0
 rect_min_size = Vector2( 400, 100 )
 focus_mode = 0
 mouse_default_cursor_shape = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 enabled_focus_mode = 0
-text = "Play"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+text = "play"
 
 [node name="CustomizeButton" type="Button" parent="Button"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -200.0
-margin_top = 82.0
-margin_right = 200.001
-margin_bottom = 182.0
+margin_left = 160.0
+margin_top = 667.0
+margin_right = 560.0
+margin_bottom = 796.0
 rect_min_size = Vector2( 400, 100 )
 focus_mode = 0
 mouse_default_cursor_shape = 2
@@ -486,14 +511,10 @@ enabled_focus_mode = 0
 text = "Customize"
 
 [node name="SettingsButton" type="Button" parent="Button"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -200.0
-margin_top = 194.0
-margin_right = 200.0
-margin_bottom = 294.0
+margin_left = 160.0
+margin_top = 807.0
+margin_right = 560.0
+margin_bottom = 936.0
 rect_min_size = Vector2( 400, 100 )
 focus_mode = 0
 mouse_default_cursor_shape = 2
@@ -503,14 +524,10 @@ enabled_focus_mode = 0
 text = "Settings"
 
 [node name="AboutButton" type="Button" parent="Button"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -200.0
-margin_top = 306.0
-margin_right = 200.001
-margin_bottom = 406.0
+margin_left = 160.0
+margin_top = 946.0
+margin_right = 560.0
+margin_bottom = 1075.0
 rect_min_size = Vector2( 400, 100 )
 focus_mode = 0
 mouse_default_cursor_shape = 2
@@ -609,13 +626,10 @@ scroll_active = false
 script = ExtResource( 12 )
 
 [node name="EasterEggDialog" parent="." instance=ExtResource( 16 )]
-window_title = "INFO"
 
 [node name="TutorialConfirmation" parent="." instance=ExtResource( 13 )]
-window_title = "INFO"
 
 [node name="SettingsScreen" parent="." instance=ExtResource( 17 )]
-visible = false
 
 [node name="AboutScreen" parent="." instance=ExtResource( 18 )]
 
@@ -638,6 +652,7 @@ anims/sprite_unique = SubResource( 14 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 15 )
+
 [connection signal="pressed" from="Sprites/EasterEgg" to="." method="_on_EasterEgg_pressed"]
 [connection signal="pressed" from="Button/PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="Button/CustomizeButton" to="." method="_on_CustomizeButton_pressed"]

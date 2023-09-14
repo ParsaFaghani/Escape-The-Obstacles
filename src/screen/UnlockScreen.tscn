@@ -25,8 +25,8 @@ anchor_bottom = 0.5
 margin_left = -262.0
 margin_top = -312.0
 margin_right = 262.0
-margin_bottom = 216.0
-grow_horizontal = 2
+margin_bottom = 175.0
+grow_horizontal = 0
 grow_vertical = 0
 bbcode_enabled = true
 fit_content_height = true
@@ -43,4 +43,5 @@ stream = ExtResource( 4 )
 bus = "SFX"
 
 [node name="Tween" type="Tween" parent="."]
+
 [connection signal="confirmed" from="." to="." method="_on_UnlockScreen_confirmed"]

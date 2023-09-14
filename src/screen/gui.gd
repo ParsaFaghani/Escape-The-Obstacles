@@ -77,8 +77,8 @@ func set_wallet(coins : int) -> void:
 
 func _on_player_hitted() -> void:
 	if can_respawn:
-		for button in buttons.get_children():
-			button.set_disabled(true)
+		# for button in buttons.get_children():
+		# 	button.set_disabled(true)
 		emit_signal("ads_warnig_triggered", Main.ads_reward_string[1])
 		can_respawn = false
 		return
@@ -109,6 +109,7 @@ func _on_MusicButton_toggled(button_pressed: bool) -> void:
 	button_sfx.play()
 
 func _on_AdsWarning_confirmed() -> void:
+	emit_signal("end_screen_triggered")
 	BackGroundMusic.set_stream_paused(true)
 	
 	if not (UserData.ads and Engine.has_singleton("GodotAdMob")):

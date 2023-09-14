@@ -6,11 +6,15 @@ onready var anim_play := $AnimationPlayer
 onready var unlock_button := $HBoxContainer/UnlockButton
 onready var button_sfx := $ButtonSFX
 
+onready var unlockButton = $HBoxContainer/UnlockButton
+
 var background : int = UserData.last_background
 var cost : int = 500
 
 
 func _ready():
+	if UserData.lang:
+		unlockButton.text = Persian.reshaper(Lang.unlock_background[1])
 	yield(get_parent(), "ready")
 	set_texture(load(Data.back_dir + '/' + Data.background[background]))
 

@@ -18,6 +18,9 @@ onready var fake_ads := $FakeAds
 onready var coin := $Coin/Label
 
 onready var adsbutton := $Button/AdsButton
+onready var ExitButton := $Button/ExitButton
+onready var PlayButton := $Button/PlayButton
+
 
 onready var button_sfx := $ButtonSFX
 onready var anim_play := $AnimationPlayer
@@ -28,6 +31,15 @@ var coin_reward := 300
 
 
 func _ready() -> void:
+	if UserData.lang:
+		PlayButton.text = Persian.reshaper(Lang.play[1])
+		ExitButton.text = Persian.reshaper(Lang.exit[1])
+		adsbutton.text = Persian.reshaper(Lang.AdsButton[1])
+	elif UserData.lang == 0:
+		PlayButton.text = Lang.play[0]
+		ExitButton.text = Lang.exit[0]
+		adsbutton.text = Lang.AdsButton[0]
+	
 	get_tree().set_pause(false)
 	SaveLoad.load_game()
 	

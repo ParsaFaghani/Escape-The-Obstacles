@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://assets/deathguy_theme.tres" type="Theme" id=1]
 [ext_resource path="res://admob-lib/admob.gd" type="Script" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://src/screen/AdsWarning.tscn" type="PackedScene" id=15]
 [ext_resource path="res://src/screen/TutorialConfirmation.tscn" type="PackedScene" id=16]
 [ext_resource path="res://assets/shader/texture/right_texture.png" type="Texture" id=17]
+[ext_resource path="res://assets/fonts/hh.otf" type="DynamicFontData" id=18]
 [ext_resource path="res://assets/shader/script/change_texture.shader" type="Shader" id=19]
 
 [sub_resource type="ShaderMaterial" id=1]
@@ -24,6 +25,10 @@ resource_local_to_scene = true
 shader = ExtResource( 19 )
 shader_param/progress = 0.0
 shader_param/noise = ExtResource( 17 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 60
+font_data = ExtResource( 18 )
 
 [sub_resource type="Animation" id=2]
 length = 0.3
@@ -63,7 +68,6 @@ theme = ExtResource( 1 )
 script = ExtResource( 8 )
 __meta__ = {
 "_edit_horizontal_guides_": [ 640.0 ],
-"_edit_use_anchors_": false,
 "_edit_vertical_guides_": [ 360.0 ]
 }
 
@@ -91,12 +95,13 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Coin"]
-margin_left = 500.0
-margin_top = 23.0
+margin_left = 494.0
+margin_top = 10.0
 margin_right = 520.0
-margin_bottom = 56.0
+margin_bottom = 70.0
 grow_horizontal = 0
 grow_vertical = 0
+custom_fonts/font = SubResource( 4 )
 text = "0"
 align = 2
 valign = 1
@@ -149,9 +154,6 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 enabled_focus_mode = 0
 text = "Play"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="AdsButton" type="Button" parent="Button"]
 anchor_left = 0.5
@@ -159,9 +161,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -200.0
-margin_top = 102.0
+margin_top = 134.0
 margin_right = 200.0
-margin_bottom = 202.0
+margin_bottom = 263.0
 rect_min_size = Vector2( 400, 100 )
 focus_mode = 0
 mouse_default_cursor_shape = 2
@@ -179,9 +181,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -200.0
-margin_top = 204.0
+margin_top = 268.0
 margin_right = 200.0
-margin_bottom = 304.0
+margin_bottom = 397.0
 rect_min_size = Vector2( 400, 100 )
 focus_mode = 0
 mouse_default_cursor_shape = 2
@@ -198,10 +200,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -312.0
-margin_top = -288.0
-margin_right = -152.0
-margin_bottom = -188.0
+margin_left = -317.0
+margin_top = -321.0
+margin_right = -157.0
+margin_bottom = -192.0
 rect_min_size = Vector2( 100, 100 )
 focus_mode = 0
 mouse_default_cursor_shape = 2
@@ -231,7 +233,6 @@ margin_bottom = 960.0
 window_title = "INFO"
 
 [node name="TutorialConfirmation" parent="." instance=ExtResource( 16 )]
-window_title = "INFO"
 
 [node name="AdsWarning" parent="." instance=ExtResource( 15 )]
 anchor_left = 0.5
@@ -247,9 +248,6 @@ material = ExtResource( 3 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="FakeAds" parent="." instance=ExtResource( 14 )]
 
@@ -273,6 +271,7 @@ anims/exit = SubResource( 3 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 4 )
+
 [connection signal="pressed" from="Button/PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="Button/AdsButton" to="." method="_on_AdsButton_pressed"]
 [connection signal="pressed" from="Button/ExitButton" to="." method="_on_ExitButton_pressed"]
