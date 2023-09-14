@@ -19,7 +19,7 @@ plugins:
 
 ## License and Copyright
 
-Anyone who wants to contribute [MIT license]
+Anyone who wants to contribute [MIT license](https://github.com/FDarkCoder/Escape-The-Obstacles/blob/main/LICENSE)
 
 ## Thanks
 
