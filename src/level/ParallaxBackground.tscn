@@ -1,10 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
+[ext_resource path="res://assets/background/background01.jpg" type="Texture" id=1]
 [ext_resource path="res://src/level/parallax_background.gd" type="Script" id=2]
-
-[sub_resource type="StreamTexture" id=1]
-flags = 4
-load_path = "res://.import/background01.png-df71d024805860b8f5c6e1383731c9ab.stex"
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
 scroll_ignore_camera_zoom = true
@@ -14,10 +11,9 @@ __meta__ = {
 }
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
-motion_mirroring = Vector2( 0, 2881 )
+motion_mirroring = Vector2( 0, 5120 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxLayer"]
-position = Vector2( -126.669, 2072.5 )
-scale = Vector2( 0.9, 0.91 )
-texture = SubResource( 1 )
-offset = Vector2( 540, -707 )
+position = Vector2( 362, 2560 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 1 )
