@@ -14,6 +14,6 @@ __meta__ = {
 motion_mirroring = Vector2( 0, 5120 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxLayer"]
-position = Vector2( 482, 2560 )
-scale = Vector2( 1.5, 1.6 )
+position = Vector2( 362, 2560 )
+scale = Vector2( 4, 4 )
 texture = ExtResource( 1 )
