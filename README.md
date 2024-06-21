@@ -23,4 +23,4 @@ Anyone who wants to contribute [MIT license](https://github.com/FDarkCoder/Escap
 
 ## Thanks
 
-Thank you and modafe
+Thank you and MDarvishi
