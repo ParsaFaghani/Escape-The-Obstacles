@@ -9,7 +9,8 @@ func get_class() -> String:
 	return "GDActionNodePerform"
 
 
-func _init(action, key, node).(action, key, node):
+func _init(action, key, node):
+	super(action, key, node)
 	pass
 
 
@@ -29,10 +30,10 @@ func _start_action():
 
 func _perform(selector, on_target, args):
 	if on_target == null:
-		finished()
+		_finished()
 	
 #	on_target.call_deferred(selector)
 #	on_target.call(selector)
 	on_target.callv(selector, args)
-	finished()
+	_finished()
 

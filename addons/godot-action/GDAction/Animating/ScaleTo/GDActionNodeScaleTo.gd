@@ -8,7 +8,8 @@ func get_class() -> String:
 	return "GDActionNodeScaleTo"
 
 
-func _init(action, key, node).(action, key, node):
+func _init(action, key, node):
+	super(action, key, node)
 	pass
 
 
@@ -18,12 +19,12 @@ func _update(value: float, eased_value: float, delta: float):
 			node.scale = lerp(from_scale, to_scale, eased_value)
 		
 		NodeType.CONTROL:
-			node.rect_scale = lerp(from_scale, to_scale, eased_value)
+			node.scale = lerp(from_scale, to_scale, eased_value)
 
 
 func scale_to(vector_scale: Vector2, duration: float, delay: float, speed: float):
 	if duration <= 0.0:
-		finished()
+		_finished()
 	
 	self.to_scale = vector_scale
 	self.duration = duration
@@ -34,7 +35,7 @@ func scale_to(vector_scale: Vector2, duration: float, delay: float, speed: float
 		NodeType.NODE_2D:
 			self.from_scale = node.scale
 		NodeType.CONTROL:
-			self.from_scale = node.rect_scale
+			self.from_scale = node.scale
 	
 	_reset_value()
 	_run()

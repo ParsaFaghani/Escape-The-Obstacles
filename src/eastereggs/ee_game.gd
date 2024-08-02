@@ -3,7 +3,7 @@ extends Node2D
 signal hidden_activeted()
 signal dialog_triggered(string)
 
-export var fallguy : PackedScene
+@export var fallguy : PackedScene
 
 var initialize_y := -640
 var max_x := 720
@@ -15,14 +15,14 @@ func _on_SpawnTimer_timeout() -> void:
 	var x := randi() % max_x + 1
 	var y := initialize_y
 	
-	var new_istance : Node = fallguy.instance()
+	var new_istance : Node = fallguy.instantiate()
 	new_istance.set_position(Vector2(x, y))
 	if count >= 7:
 		new_istance.set_pickable(false)
 	add_child(new_istance, true)
 	
-	connect("hidden_activeted", new_istance, "_on_EEGame_hidden_activeted")
-	new_istance.connect("erased", self, "_on_FallGuy_erased")
+	connect("hidden_activeted", Callable(new_istance, "_on_EEGame_hidden_activeted"))
+	new_istance.connect("erased", Callable(self, "_on_FallGuy_erased"))
 
 func _on_FallGuy_erased() -> void:
 	count += 1

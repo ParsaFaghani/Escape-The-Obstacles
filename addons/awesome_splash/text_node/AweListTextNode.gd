@@ -1,12 +1,12 @@
 extends Node2D
 class_name AweListTextNode, "res://addons/awesome_splash/assets/icon/list_text_node_icon.png"
 
-export var font: DynamicFont
-export var anchor: Vector2 = Vector2.ZERO
-export var char_anchor: Vector2 = Vector2.ZERO
-export var space_character: float = 0
+@export var font: FontFile
+@export var anchor: Vector2 = Vector2.ZERO
+@export var char_anchor: Vector2 = Vector2.ZERO
+@export var space_character: float = 0
 
-export var text: String setget _set_text, _get_text
+@export var text: String: get = _get_text, set = _set_text
 
 var list_text_node: Array = []
 
@@ -15,7 +15,7 @@ var height = 0.0
 
 var text_container: Node2D
 
-func _init(font: DynamicFont = null, anchor := Vector2.ZERO, char_anchor := Vector2.ZERO, space_character: float = 0.0):
+func _init(font: FontFile = null, anchor := Vector2.ZERO, char_anchor := Vector2.ZERO, space_character: float = 0.0):
 	self.font = font
 	self.anchor = anchor
 	self.char_anchor = char_anchor
@@ -60,7 +60,7 @@ func update_all_anchor(list_anchor: Array):
 #	draw_rect(Rect2(-10, -10, 20, 20), Color.yellow)
 
 
-func _create_char_node(text: String, font: DynamicFont, char_anchor: Vector2):
+func _create_char_node(text: String, font: FontFile, char_anchor: Vector2):
 	var text_node = AweTextNode.new(char_anchor, font)
 	list_text_node.append(text_node)
 	text_container.add_child(text_node)

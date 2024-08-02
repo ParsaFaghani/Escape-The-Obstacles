@@ -8,12 +8,12 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -360.0
-margin_top = -240.0
-margin_right = 360.0
+offset_left = -360.0
+offset_top = -240.0
+offset_right = 360.0
 grow_horizontal = 2
 grow_vertical = 0
-rect_min_size = Vector2( 680, 200 )
+custom_minimum_size = Vector2( 680, 200 )
 mouse_filter = 2
 theme = ExtResource( 1 )
 script = ExtResource( 2 )
@@ -24,7 +24,7 @@ __meta__ = {
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -24.0
+offset_top = -24.0
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
@@ -36,10 +36,10 @@ __meta__ = {
 [node name="Data" type="HBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 20.0
-margin_top = 20.0
-margin_right = -20.0
-margin_bottom = -18.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -18.0
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
@@ -48,8 +48,8 @@ __meta__ = {
 }
 
 [node name="String" type="VBoxContainer" parent="Data"]
-margin_right = 338.0
-margin_bottom = 227.0
+offset_right = 338.0
+offset_bottom = 227.0
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
@@ -61,50 +61,50 @@ __meta__ = {
 }
 
 [node name="Direction" type="Label" parent="Data/String"]
-margin_right = 338.0
-margin_bottom = 29.0
+offset_right = 338.0
+offset_bottom = 29.0
 text = "Direction:"
 
 [node name="Rotation" type="Label" parent="Data/String"]
-margin_top = 33.0
-margin_right = 338.0
-margin_bottom = 62.0
+offset_top = 33.0
+offset_right = 338.0
+offset_bottom = 62.0
 text = "Rotation:"
 
 [node name="Velocity" type="Label" parent="Data/String"]
-margin_top = 66.0
-margin_right = 338.0
-margin_bottom = 95.0
+offset_top = 66.0
+offset_right = 338.0
+offset_bottom = 95.0
 text = "Velocity:"
 
 [node name="State" type="Label" parent="Data/String"]
-margin_top = 99.0
-margin_right = 338.0
-margin_bottom = 128.0
+offset_top = 99.0
+offset_right = 338.0
+offset_bottom = 128.0
 text = "State:"
 
 [node name="FPS" type="Label" parent="Data/String"]
-margin_top = 132.0
-margin_right = 338.0
-margin_bottom = 161.0
+offset_top = 132.0
+offset_right = 338.0
+offset_bottom = 161.0
 text = "FPS:"
 
 [node name="OS" type="Label" parent="Data/String"]
-margin_top = 165.0
-margin_right = 338.0
-margin_bottom = 194.0
+offset_top = 165.0
+offset_right = 338.0
+offset_bottom = 194.0
 text = "OS:"
 
 [node name="PVel" type="Label" parent="Data/String"]
-margin_top = 198.0
-margin_right = 338.0
-margin_bottom = 227.0
+offset_top = 198.0
+offset_right = 338.0
+offset_bottom = 227.0
 text = "Pvel:"
 
 [node name="Value" type="VBoxContainer" parent="Data"]
-margin_left = 342.0
-margin_right = 680.0
-margin_bottom = 227.0
+offset_left = 342.0
+offset_right = 680.0
+offset_bottom = 227.0
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
@@ -116,49 +116,49 @@ __meta__ = {
 }
 
 [node name="Direction" type="Label" parent="Data/Value"]
-margin_right = 338.0
-margin_bottom = 29.0
+offset_right = 338.0
+offset_bottom = 29.0
 text = "(0, 0)"
 align = 2
 
 [node name="Rotation" type="Label" parent="Data/Value"]
-margin_top = 33.0
-margin_right = 338.0
-margin_bottom = 62.0
+offset_top = 33.0
+offset_right = 338.0
+offset_bottom = 62.0
 text = "(0, 0)"
 align = 2
 
 [node name="Velocity" type="Label" parent="Data/Value"]
-margin_top = 66.0
-margin_right = 338.0
-margin_bottom = 95.0
+offset_top = 66.0
+offset_right = 338.0
+offset_bottom = 95.0
 text = "(0, 0)"
 align = 2
 
 [node name="State" type="Label" parent="Data/Value"]
-margin_top = 99.0
-margin_right = 338.0
-margin_bottom = 128.0
+offset_top = 99.0
+offset_right = 338.0
+offset_bottom = 128.0
 text = "Idle"
 align = 2
 
 [node name="FPS" type="Label" parent="Data/Value"]
-margin_top = 132.0
-margin_right = 338.0
-margin_bottom = 161.0
+offset_top = 132.0
+offset_right = 338.0
+offset_bottom = 161.0
 text = "0"
 align = 2
 
 [node name="OS" type="Label" parent="Data/Value"]
-margin_top = 165.0
-margin_right = 338.0
-margin_bottom = 194.0
+offset_top = 165.0
+offset_right = 338.0
+offset_bottom = 194.0
 text = "os"
 align = 2
 
 [node name="PVel" type="Label" parent="Data/Value"]
-margin_top = 198.0
-margin_right = 338.0
-margin_bottom = 227.0
+offset_top = 198.0
+offset_right = 338.0
+offset_bottom = 227.0
 text = "0"
 align = 2

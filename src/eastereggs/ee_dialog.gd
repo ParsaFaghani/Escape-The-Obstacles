@@ -1,10 +1,10 @@
-extends WindowDialog
+extends Window
 
 
-onready var label := $RichTextLabel
-onready var tween := $Tween
+@onready var label := $RichTextLabel
 
 func _on_EEGame_dialog_triggered(string : String) -> void:
+	var tween = Tween.new()
 	label.set_bbcode(string)
 	label.set_percent_visible(0)
 	popup()

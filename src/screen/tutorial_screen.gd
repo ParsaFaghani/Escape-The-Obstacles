@@ -1,12 +1,12 @@
 extends Panel
 
 
-onready var label := $VBoxContainer/CenterContainer/RichTextLabel
-onready var next_button := $VBoxContainer/NextButton
-onready var elements := $VBoxContainer/Elements
-onready var button_sfx := $ButtonSFX
-onready var tween := $Tween
-onready var anim_play := $AnimationPlayer
+@onready var label := $VBoxContainer/CenterContainer/RichTextLabel
+@onready var next_button := $VBoxContainer/NextButton
+@onready var elements := $VBoxContainer/Elements
+@onready var button_sfx := $ButtonSFX
+@onready var tween := $Tween
+@onready var anim_play := $AnimationPlayer
 
 
 var string : Dictionary = {
@@ -38,8 +38,8 @@ func _on_UpdateTutorial() -> void:
 	if phase < string.size() - 1:
 		return
 	
-	next_button.disconnect("pressed", self, "_on_NextButton_pressed")
-	next_button.connect("pressed", self, "_on_ExitButton_pressed")
+	next_button.disconnect("pressed", Callable(self, "_on_NextButton_pressed"))
+	next_button.connect("pressed", Callable(self, "_on_ExitButton_pressed"))
 	next_button.set_text("Exit!")
 
 
@@ -49,7 +49,7 @@ func _on_NextButton_pressed() -> void:
 		elements.set_visible(false)
 		anim_play.stop()
 	button_sfx.play()
-	yield(button_sfx, "finished")
+	await button_sfx.finished
 	set_visible(false)
 	get_tree().set_pause(false)
 
@@ -57,6 +57,6 @@ func _on_NextButton_pressed() -> void:
 func _on_ExitButton_pressed() -> void:
 	SaveLoad.save_game()
 	button_sfx.play()
-	yield(button_sfx, "finished")
+	await button_sfx.finished
 	BackGroundMusic.stop()
-	get_tree().change_scene_to(Main.main_screen)
+	get_tree().change_scene_to_packed(preload("res://src/screen/MainScreen.tscn"))

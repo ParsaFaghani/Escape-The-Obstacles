@@ -2,13 +2,13 @@ extends RigidBody2D
 
 signal erased()
 
-onready var sprites := $Sprites
-onready var head := $Sprites/Head
-onready var body := $Sprites/Body
-onready var particles := $CPUParticles2D
-onready var collision_shape := $CollisionShape2D
-onready var anim_play := $AnimationPlayer
-onready var despawn_sfx := $DespawnSFX
+@onready var sprites := $Sprites
+@onready var head := $Sprites/Head
+@onready var body := $Sprites/Body
+@onready var particles := $CPUParticles2D
+@onready var collision_shape := $CollisionShape2D
+@onready var anim_play := $AnimationPlayer
+@onready var despawn_sfx := $DespawnSFX
 
 var standard_position := Vector2(0, -32)
 var standard_extents := Vector2(32, 32)
@@ -35,13 +35,12 @@ func random_guy() -> void:
 	head.set_flip_h(random_flip)
 	body.set_flip_h(random_flip)
 	sprites.set_modulate(Color(Data.color[random_color]))
-	sprites.get_material().set_shader_param(
+	sprites.get_material().set_shader_parameter(
 		"color", Data.shader_color[random_color])
 	particles.set_color(Data.shader_color[random_color])
 	
 	sprites.set_scale(standard_scale * random_scale)
 	particles.set_scale(standard_scale * random_scale * 2)
-	particles.set_param(8, standar_s_amount * random_scale * 2)
 	sprites.set_position(standard_position * random_scale)
 	particles.set_position(standard_p_position * random_scale)
 	collision_shape.set_position(standard_position * random_scale)
@@ -61,7 +60,7 @@ func _on_FallGuy_input_event(
 		set_pickable(false)
 		anim_play.play("despawn")
 		despawn_sfx.play()
-		yield(anim_play, "animation_finished")
+		await anim_play.animation_finished
 		emit_signal("erased")
 
 func _on_FallGuy_mouse_entered() -> void:

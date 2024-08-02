@@ -35,10 +35,11 @@ var levelm_dir := "res://assets/music/level"
 
 
 func _init() -> void:
-	var dir := Directory.new()
+	var dir := DirAccess.open(head_dir)
 	
-	if dir.open(head_dir) == OK:
-		dir.list_dir_begin()
+	
+	if dir.change_dir(head_dir) == OK:
+		dir.list_dir_begin() # TODOConverter3To4 fill missing arguments https://github.com/godotengine/godot/pull/40547
 		var file_name := dir.get_next()
 		while(file_name != ""):
 			if file_name.ends_with(".png.import"):
@@ -47,8 +48,8 @@ func _init() -> void:
 			file_name = dir.get_next()
 	head.sort()
 	
-	if dir.open(body_dir) == OK:
-		dir.list_dir_begin()
+	if dir.change_dir(body_dir) == OK:
+		dir.list_dir_begin() # TODOConverter3To4 fill missing arguments https://github.com/godotengine/godot/pull/40547
 		var file_name := dir.get_next()
 		while(file_name != ""):
 			if file_name.ends_with(".png.import"):
@@ -57,8 +58,8 @@ func _init() -> void:
 			file_name = dir.get_next()
 	body.sort()
 	
-	if dir.open(back_dir) == OK:
-		dir.list_dir_begin()
+	if dir.change_dir(back_dir) == OK:
+		dir.list_dir_begin() # TODOConverter3To4 fill missing arguments https://github.com/godotengine/godot/pull/40547
 		var file_name := dir.get_next()
 		while(file_name != ""):
 			if file_name.ends_with(".jpg.import") or file_name.ends_with(".png.import"):
@@ -67,8 +68,8 @@ func _init() -> void:
 			file_name = dir.get_next()
 	background.sort()
 	
-	if dir.open(menum_dir) == OK:
-		dir.list_dir_begin()
+	if dir.change_dir(menum_dir) == OK:
+		dir.list_dir_begin() # TODOConverter3To4 fill missing arguments https://github.com/godotengine/godot/pull/40547
 		var file_name := dir.get_next()
 		while(file_name != ""):
 			if file_name.ends_with(".ogg.import"):
@@ -77,8 +78,8 @@ func _init() -> void:
 			file_name = dir.get_next()
 	menumusic.sort()
 	
-	if dir.open(levelm_dir) == OK:
-		dir.list_dir_begin()
+	if dir.change_dir(levelm_dir) == OK:
+		dir.list_dir_begin() # TODOConverter3To4 fill missing arguments https://github.com/godotengine/godot/pull/40547
 		var file_name := dir.get_next()
 		while(file_name != ""):
 			if file_name.ends_with(".ogg.import"):

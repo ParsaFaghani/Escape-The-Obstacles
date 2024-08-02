@@ -2,7 +2,7 @@ extends PlayerState
 
 
 func enter() -> void:
-	player.eraser_det.set_collision_mask_bit(0, true)
+	player.eraser_det.set_collision_mask_value(0, true)
 
 func physics_update(_delta: float) -> void:
 	player.direction = get_direction()

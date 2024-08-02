@@ -8,7 +8,8 @@ func get_class() -> String:
 	return "GDActionNodeFadeAlphaTo"
 
 
-func _init(action, key, node).(action, key, node):
+func _init(action, key, node):
+	super(action, key, node)
 	pass
 
 

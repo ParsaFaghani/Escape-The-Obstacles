@@ -1,7 +1,7 @@
 extends Control
 
 
-onready var label := $RichTextLabel
+@onready var label := $RichTextLabel
 
 
 func _ready() -> void:

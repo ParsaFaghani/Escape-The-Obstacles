@@ -1,7 +1,8 @@
 class_name GDActionNodeInstant extends GDActionNode
 
 
-func _init(action, key, node).(action, key, node):
+func _init(action, key, node):
+	super(action, key, node)
 	pass
 
 
@@ -11,7 +12,7 @@ func get_class() -> String:
 
 func _process(delta):
 	if not is_instance_valid(node):
-		finished()
+		_finished()
 		return
 
 	current_time += delta * speed

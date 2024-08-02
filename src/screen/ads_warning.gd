@@ -2,15 +2,15 @@ extends AcceptDialog
 
 signal can_show_ads()
 
-onready var label := $RichTextLabel
-onready var tween := $Tween
+@onready var label := $RichTextLabel
+@onready var tween := $Tween
 
 var ads_warning := "Take a look at this ad to %s"
 
 func download(link, path):
 	var http = HTTPRequest.new()
 	add_child(http)
-	http.connect("request_completed", self, "_http_request_completed")
+	http.connect("request_completed", Callable(self, "_http_request_completed"))
 
 	http.set_download_file(path)
 	var request = http.request(link)

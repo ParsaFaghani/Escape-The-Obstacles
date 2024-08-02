@@ -5,24 +5,27 @@ signal wallet_updated(new_wallet)
 signal multiplier_updated(new_multiplier)
 signal update_tutorial()
 
-onready var player := $Player
-onready var rand_gen := $RandomGenerator
+@onready var player := $Player
+@onready var rand_gen := $RandomGenerator
 
-onready var background := $ParallaxBackground
-onready var gui := $CanvasLayer/GUI
+@onready var background := $ParallaxBackground
+@onready var gui := $CanvasLayer/GUI
 
-onready var mult_timer := $MultiplierTimer
+@onready var mult_timer := $MultiplierTimer
 
-onready var tween := $Tween
-onready var anim_play := $AnimationPlayer
+@onready var tween := $Tween
+@onready var anim_play := $AnimationPlayer
 
-onready var tutorial_screen := $CanvasLayer/TutorialScreen
+@onready var tutorial_screen := $CanvasLayer/TutorialScreen
 
-onready var raycast := $RayCast2D
+@onready var raycast := $RayCast2D
 
-var score := 0 setget set_score
-var wallet := 0 setget set_wallet
-var multiplier := 1 setget set_multiplier
+var score := 0 :
+	set(value): set_score(value)
+var wallet := 0 :
+	set(value): set_wallet(value)
+var multiplier := 1 : 
+	set(value): set_multiplier(value)
 
 
 func _ready() -> void:
@@ -32,13 +35,13 @@ func _ready() -> void:
 		load(Data.levelm_dir + '/' + Data.levelmusic[0]))
 	BackGroundMusic.play()
 	
-	connect("score_updated", gui, "_on_score_updated")
-	connect("wallet_updated", gui, "_on_wallet_updated")
-	connect("multiplier_updated", gui, "_on_multiplier_updated")
-	connect("update_tutorial", tutorial_screen, "_on_UpdateTutorial")
+	score_updated.connect(gui._on_score_updated)
+	wallet_updated.connect(gui._on_wallet_updated)
+	multiplier_updated.connect(gui._on_multiplier_updated)
+	update_tutorial.connect(tutorial_screen._on_UpdateTutorial)
 	
-	player.connect("player_hitted", self, "_on_player_hitted")
-	rand_gen.connect("state_changed", self, "_on_state_changed")
+	player.player_hitted.connect(_on_player_hitted)
+	# rand_gen.state_changed.connect(_on_state_changed)
 
 func _physics_process(delta: float) -> void:
 	background.parallax.motion_offset.x = clamp(background.parallax.motion_offset.x - player.linear_velocity.x / 10, -1080, 1080)
@@ -79,7 +82,7 @@ func _on_player_hitted() -> void:
 func _on_state_changed() -> void:
 	anim_play.play("glitch")
 	if tutorial_screen.phase == 0:
-		yield(anim_play, "animation_finished")
+		await anim_play
 		emit_signal("update_tutorial")
 
 func _on_MultiplierTimer_timeout() -> void:

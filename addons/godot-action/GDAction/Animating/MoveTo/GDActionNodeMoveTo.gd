@@ -12,7 +12,8 @@ func get_class() -> String:
 	return "GDActionNodeMoveTo"
 
 
-func _init(action, key, node).(action, key, node):
+func _init(action, key, node):
+	super(action, key, node)
 	pass
 
 
@@ -34,7 +35,7 @@ func _update_move_to(value: float, eased_value: float, delta: float):
 			node.position = lerp(from_value, to_value, eased_value)
 		
 		NodeType.CONTROL:
-			node.rect_position = lerp(from_value, to_value, eased_value)
+			node.position = lerp(from_value, to_value, eased_value)
 
 
 func _update_move_to_x(value: float, eased_value: float, delta: float):
@@ -43,7 +44,7 @@ func _update_move_to_x(value: float, eased_value: float, delta: float):
 			node.position.x = lerp(from_value, to_value, eased_value)
 		
 		NodeType.CONTROL:
-			node.rect_position.x = lerp(from_value, to_value, eased_value)
+			node.position.x = lerp(from_value, to_value, eased_value)
 
 
 func _update_move_to_y(value: float, eased_value: float, delta: float):
@@ -52,7 +53,7 @@ func _update_move_to_y(value: float, eased_value: float, delta: float):
 			node.position.y = lerp(from_value, to_value, eased_value)
 		
 		NodeType.CONTROL:
-			node.rect_position.y = lerp(from_value, to_value, eased_value)
+			node.position.y = lerp(from_value, to_value, eased_value)
 
 
 func move_to(x, y, duration: float, delay = 0.0, speed = 1.0):
@@ -88,28 +89,28 @@ func _config_type_node(x, y):
 	
 	else:
 		push_error("GDActionNodeMoveTo much x != null or y != null")
-		finished()
+		_finished()
 
 
 func _config_type_control(x, y):
 	if x != null and y != null:
-		self.from_value = node.rect_position
+		self.from_value = node.position
 		self.to_value = Vector2(x, y)
 		self.type = Type.MOVE_TO
 	
 	elif x != null:
-		self.from_value = node.rect_position.x
+		self.from_value = node.position.x
 		self.to_value = x
 		self.type = Type.MOVE_TO_X
 	
 	elif y != null:
-		self.from_value = node.rect_position.y
+		self.from_value = node.position.y
 		self.to_value = y
 		self.type = Type.MOVE_TO_Y
 	
 	else:
 		push_error("GDActionNodeMoveTo much x != null or y != null")
-		finished()
+		_finished()
 
 
 

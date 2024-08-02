@@ -1,36 +1,40 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=7 format=3 uid="uid://b01oju0u3ruvu"]
 
-[ext_resource path="res://src/randomgenerator/random_generator.gd" type="Script" id=1]
-[ext_resource path="res://src/randomgenerator/rgen_state_machine.gd" type="Script" id=4]
-[ext_resource path="res://src/randomgenerator/states/standard.gd" type="Script" id=5]
-[ext_resource path="res://src/randomgenerator/states/tunnel.gd" type="Script" id=6]
-[ext_resource path="res://src/randomgenerator/states/sniper.gd" type="Script" id=7]
-[ext_resource path="res://src/randomgenerator/states/burst.gd" type="Script" id=8]
+[ext_resource type="Script" path="res://src/randomgenerator/random_generator.gd" id="1"]
+[ext_resource type="Script" path="res://src/randomgenerator/rgen_state_machine.gd" id="4"]
+[ext_resource type="Script" path="res://src/randomgenerator/states/standard.gd" id="5"]
+[ext_resource type="Script" path="res://src/randomgenerator/states/tunnel.gd" id="6"]
+[ext_resource type="Script" path="res://src/randomgenerator/states/sniper.gd" id="7"]
+[ext_resource type="Script" path="res://src/randomgenerator/states/burst.gd" id="8"]
 
 [node name="RandomGenerator" type="Node2D"]
-position = Vector2( 0, 1280 )
 z_index = 1
-script = ExtResource( 1 )
+position = Vector2(0, 1280)
+script = ExtResource("1")
 
 [node name="StateMachine" type="Node" parent="."]
-script = ExtResource( 4 )
+script = ExtResource("4")
 initial_state = NodePath("Standard")
 
 [node name="Standard" type="Node" parent="StateMachine"]
-script = ExtResource( 5 )
+script = ExtResource("5")
 
 [node name="Burst" type="Node" parent="StateMachine"]
-script = ExtResource( 8 )
+script = ExtResource("8")
 
 [node name="Sniper" type="Node" parent="StateMachine"]
-script = ExtResource( 7 )
+script = ExtResource("7")
 
 [node name="Tunnel" type="Node" parent="StateMachine"]
-script = ExtResource( 6 )
+script = ExtResource("6")
 
 [node name="State" type="Timer" parent="."]
 wait_time = 52.0
 one_shot = true
 autostart = true
 
+[node name="add" type="Timer" parent="."]
+wait_time = 2.0
+
 [connection signal="timeout" from="State" to="." method="_on_State_timeout"]
+[connection signal="timeout" from="add" to="." method="_on_add_timeout"]

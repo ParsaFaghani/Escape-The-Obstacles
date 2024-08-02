@@ -1,15 +1,19 @@
 [remap]
 
-importer="ogg_vorbis"
-type="AudioStreamOGGVorbis"
-path="res://.import/DeathGuyLevel.ogg-ee7c2c71393aae5cd52594a068f3a21f.oggstr"
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bh8xv3jpi80l7"
+path="res://.godot/imported/DeathGuyLevel.ogg-ee7c2c71393aae5cd52594a068f3a21f.oggvorbisstr"
 
 [deps]
 
 source_file="res://assets/music/level/DeathGuyLevel.ogg"
-dest_files=[ "res://.import/DeathGuyLevel.ogg-ee7c2c71393aae5cd52594a068f3a21f.oggstr" ]
+dest_files=["res://.godot/imported/DeathGuyLevel.ogg-ee7c2c71393aae5cd52594a068f3a21f.oggvorbisstr"]
 
 [params]
 
 loop=true
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

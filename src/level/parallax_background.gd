@@ -1,8 +1,8 @@
 extends ParallaxBackground
 
 
-onready var parallax := $ParallaxLayer
-onready var background := $ParallaxLayer/Sprite
+@onready var parallax := $ParallaxLayer
+@onready var background := $ParallaxLayer/Sprite2D
 
 var velocity := Vector2.ZERO
 var gravity := 8.0
@@ -10,7 +10,7 @@ var distance := 1.0
 
 
 func _ready() -> void:
-	yield(get_parent(), "ready")
+	await get_parent().ready
 	background.set_texture(
 		load(Data.back_dir + '/' + Data.background[UserData.last_background]))
 

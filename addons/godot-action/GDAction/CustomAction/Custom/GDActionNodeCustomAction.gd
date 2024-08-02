@@ -8,7 +8,8 @@ func get_class() -> String:
 	return "GDActionNodeCustomAction"
 
 
-func _init(action, key, node).(action, key, node):
+func _init(action, key, node):
+	super(action, key, node)
 	pass
 
 
@@ -18,7 +19,7 @@ func _update(value: float, eased_value: float, delta: float):
 
 func start_custom_action(selector: String, on_target: Node, duration: float, delay = 0.0, speed = 1.0):
 	if duration <= 0:
-		finished()
+		_finished()
 		return
 	
 	self.selector = selector

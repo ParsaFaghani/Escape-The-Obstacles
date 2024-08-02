@@ -1,13 +1,13 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=23 format=3]
 
-[ext_resource path="res://assets/fonts/Vazir.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://assets/deathguy_theme.tres" type="Theme" id=2]
-[ext_resource path="res://assets/shader/script/change_texture.shader" type="Shader" id=3]
-[ext_resource path="res://assets/shader/texture/left_texture.png" type="Texture" id=4]
-[ext_resource path="res://assets/shader/texture/right_texture.png" type="Texture" id=5]
-[ext_resource path="res://src/screen/background_selector.gd" type="Script" id=6]
-[ext_resource path="res://assets/sfx/click.wav" type="AudioStream" id=7]
-[ext_resource path="res://assets/ui/button/button_spritesheet.png" type="Texture" id=8]
+[ext_resource type="FontFile" uid="uid://c4613du2ro8w2" path="res://assets/fonts/Vazir.ttf" id="1"]
+[ext_resource type="Theme" uid="uid://8v4be764xt8s" path="res://assets/base_theme.tres" id="2"]
+[ext_resource type="Shader" path="res://assets/shader/script/change_texture.gdshader" id="3"]
+[ext_resource type="Texture2D" uid="uid://7t5f8uwbeotj" path="res://assets/shader/texture/left_texture.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://b2lkt86rfdiyd" path="res://assets/shader/texture/right_texture.png" id="5"]
+[ext_resource type="Script" path="res://src/screen/background_selector.gd" id="6"]
+[ext_resource type="AudioStream" uid="uid://clb13nxm4p246" path="res://assets/sfx/click.wav" id="7"]
+[ext_resource type="Texture2D" uid="uid://cvjvyi142akoc" path="res://assets/ui/button/button_spritesheet.png" id="8"]
 
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
@@ -15,7 +15,7 @@ shader = ExtResource( 3 )
 shader_param/progress = 0.0
 shader_param/noise = ExtResource( 5 )
 
-[sub_resource type="StreamTexture" id=2]
+[sub_resource type="CompressedTexture2D" id=2]
 
 [sub_resource type="StyleBoxTexture" id=3]
 texture = ExtResource( 8 )
@@ -33,7 +33,7 @@ region_rect = Rect2( 320, 192, 64, 64 )
 texture = ExtResource( 8 )
 region_rect = Rect2( 320, 0, 64, 64 )
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="FontFile" id=7]
 size = 34
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
@@ -66,8 +66,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ 0.0 ]
 }
@@ -81,8 +81,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 0.5 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ 0.0, 1.5 ]
 }
@@ -93,8 +93,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 1,
 "values": [ ExtResource( 4 ) ]
 }
@@ -108,8 +108,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 0.5 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ 0.0, 1.5 ]
 }
@@ -120,8 +120,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 1,
 "values": [ ExtResource( 5 ) ]
 }
@@ -139,10 +139,10 @@ script = ExtResource( 6 )
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -44.8985
-margin_top = -146.531
-margin_right = 41.1015
-margin_bottom = -46.5305
+offset_left = -44.8985
+offset_top = -146.531
+offset_right = 41.1015
+offset_bottom = -46.5305
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -150,44 +150,44 @@ __meta__ = {
 
 [node name="LeftButton" type="Button" parent="HBoxContainer"]
 modulate = Color( 1, 1, 1, 0.8 )
-margin_left = 95.0
-margin_right = 175.0
-margin_bottom = 109.0
-rect_min_size = Vector2( 80, 80 )
+offset_left = 95.0
+offset_right = 175.0
+offset_bottom = 109.0
+custom_minimum_size = Vector2( 80, 80 )
 focus_mode = 0
 mouse_default_cursor_shape = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-custom_styles/hover = SubResource( 3 )
-custom_styles/pressed = SubResource( 4 )
-custom_styles/focus = SubResource( 3 )
-custom_styles/disabled = SubResource( 5 )
-custom_styles/normal = SubResource( 6 )
-enabled_focus_mode = 0
+theme_override_styles/hover = SubResource( 3 )
+theme_override_styles/pressed = SubResource( 4 )
+theme_override_styles/focus = SubResource( 3 )
+theme_override_styles/disabled = SubResource( 5 )
+theme_override_styles/normal = SubResource( 6 )
+focus_mode = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 179.0
-margin_right = 199.0
-margin_bottom = 109.0
-rect_min_size = Vector2( 20, 0 )
+offset_left = 179.0
+offset_right = 199.0
+offset_bottom = 109.0
+custom_minimum_size = Vector2( 20, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="UnlockButton" type="Button" parent="HBoxContainer"]
-margin_left = 203.0
-margin_right = 603.0
-margin_bottom = 109.0
-rect_min_size = Vector2( 400, 100 )
+offset_left = 203.0
+offset_right = 603.0
+offset_bottom = 109.0
+custom_minimum_size = Vector2( 400, 100 )
 focus_mode = 0
 mouse_default_cursor_shape = 2
-custom_fonts/font = SubResource( 7 )
+theme_override_fonts/font = SubResource( 7 )
 disabled = true
-enabled_focus_mode = 0
+focus_mode = 0
 text = "unlock background"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -195,30 +195,30 @@ __meta__ = {
 
 [node name="VSeparator2" type="VSeparator" parent="HBoxContainer"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 607.0
-margin_right = 627.0
-margin_bottom = 109.0
-rect_min_size = Vector2( 20, 0 )
+offset_left = 607.0
+offset_right = 627.0
+offset_bottom = 109.0
+custom_minimum_size = Vector2( 20, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="RightButton" type="Button" parent="HBoxContainer"]
 modulate = Color( 1, 1, 1, 0.8 )
-margin_left = 631.0
-margin_right = 711.0
-margin_bottom = 109.0
-rect_min_size = Vector2( 80, 80 )
+offset_left = 631.0
+offset_right = 711.0
+offset_bottom = 109.0
+custom_minimum_size = Vector2( 80, 80 )
 focus_mode = 0
 mouse_default_cursor_shape = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-custom_styles/hover = SubResource( 8 )
-custom_styles/pressed = SubResource( 9 )
-custom_styles/focus = SubResource( 8 )
-custom_styles/disabled = SubResource( 10 )
-custom_styles/normal = SubResource( 11 )
-enabled_focus_mode = 0
+theme_override_styles/hover = SubResource( 8 )
+theme_override_styles/pressed = SubResource( 9 )
+theme_override_styles/focus = SubResource( 8 )
+theme_override_styles/disabled = SubResource( 10 )
+theme_override_styles/normal = SubResource( 11 )
+focus_mode = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -4,10 +4,10 @@ extends ConfirmationDialog
 signal unlocked(index)
 
 
-onready var label := $RichTextLabel
-onready var button_sfx := $ButtonSFX
-onready var error_sfx := $ErrorSFX
-onready var tween := $Tween
+@onready var label := $RichTextLabel
+@onready var button_sfx := $ButtonSFX
+@onready var error_sfx := $ErrorSFX
+@onready var tween := $Tween
 
 var node : Node
 var method : String
@@ -16,8 +16,8 @@ var cost : int
 var text := "You're in the mood for shopping... this requires %d coins. Do you want to buy it?"
 var text_fa := " %d  :ﻪﮑﺳ ﺩﺍﺪﻌﺗ ؟ﺪﯾﺮﺨﺑ ﺍﺭ ﻥﺍ ﻪﮐ ﺪﯿﻠﯾﺎﻣ ﺎﯾﺍ"
 func _ready() -> void:
-	get_close_button().connect("pressed", self, "_on_UnlockScreen_cancelled")
-	get_cancel().connect("pressed", self, "_on_UnlockScreen_cancelled")
+	get_cancel_button().pressed.connect(Callable(self, "_on_UnlockScreen_cancelled"))
+	get_cancel_button().pressed.connect(Callable(self, "_on_UnlockScreen_cancelled"))
 
 func _on_unlock_pressed(
 	new_node : Node, 
@@ -27,9 +27,9 @@ func _on_unlock_pressed(
 	) -> void:
 	
 	if node:
-		disconnect("unlocked", node, method)
+		disconnect("unlocked", Callable(node, method))
 	
-	connect("unlocked", new_node, new_method)
+	connect("unlocked", Callable(new_node, new_method))
 	
 	node = new_node
 	method = new_method

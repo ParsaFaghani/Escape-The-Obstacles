@@ -9,7 +9,8 @@ func get_class() -> String:
 	return "GDActionNodeRun"
 
 
-func _init(action, key, node).(action, key, node):
+func _init(action, key, node):
+	super(action, key, node)
 	pass
 
 
@@ -28,19 +29,19 @@ func _start_action():
 
 
 func _on_action_object_completed(action_node):
-	action_node.disconnect("finished", self, "_on_action_object_completed")
-	finished()
+	action_node.disconnect("finished", Callable(self, "_on_action_object_completed"))
+	_finished()
 
 
 func _start_run_action(run_action, on_target, is_waiting_finished) -> void:
 	if not (is_instance_valid(node) and is_instance_valid(on_target)):
-		finished()
+		_finished()
 	
 	var action_node = run_action._start_from_action(on_target, key, speed)
 	
 	if not is_waiting_finished:
-		finished()
+		_finished()
 	
-	if not action_node.is_connected("finished", self, "_on_action_object_completed"):
-		action_node.connect("finished", self, "_on_action_object_completed")
+	if not action_node.is_connected("finished", Callable(self, "_on_action_object_completed")):
+		action_node.connect("finished", Callable(self, "_on_action_object_completed"))
 

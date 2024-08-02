@@ -1,9 +1,9 @@
 extends PopupPanel
 
-onready var close_button = $Control/CloseButton
-onready var about_Label = $Control/RichTextLabel
+@onready var close_button = $Control/CloseButton
+@onready var about_Label = $Control/RichTextLabel
 
-onready var button_sfx := $ButtonSFX
+@onready var button_sfx := $ButtonSFX
 
 var text = """created by DarkCoder and modafe
 
@@ -23,11 +23,11 @@ var text_fa = """[right]ﯽﻧﺎﻘﻓ ﺎﺳﺭﺎﭘ : ﻩﺪﻨﻫﺩ ﻪﻌ
 
 func _ready():
 	if UserData.lang:
-		close_button.text = Persian.reshaper(Lang.close[1])
-		about_Label.bbcode_text = text_fa
+		close_button.text = Lang.close[1]
+		about_Label.text = text_fa
 	elif UserData.lang == 0:
 		close_button.text = Lang.close[0]
-		about_Label.bbcode_text = text
+		about_Label.text = text
 
 func _on_CloseButton_pressed() -> void:
 	button_sfx.play()

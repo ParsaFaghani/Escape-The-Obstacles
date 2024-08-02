@@ -6,13 +6,14 @@ func get_class() -> String:
 	return "GDActionNodeVisibility"
 
 
-func _init(action, key, node).(action, key, node):
+func _init(action, key, node):
+	super(action, key, node)
 	pass
 
 
 func _start_action():
 	node.visible = not is_hide
-	finished()
+	_finished()
 
 
 func set_visibility(is_hide: bool, delay = 0.0, speed = 1.0):

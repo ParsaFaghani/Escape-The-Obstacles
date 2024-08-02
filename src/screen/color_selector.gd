@@ -5,25 +5,25 @@ signal unlock_pressed()
 signal player_color_changed(new_color)
 
 
-onready var grid := $ColorGrid
-onready var button_sfx := $ButtonSFX
+@onready var grid := $ColorGrid
+@onready var button_sfx := $ButtonSFX
 
 var color : int = UserData.last_color
 var cost := 250
 
 func _ready() -> void:
-	yield(owner, "ready")
+	await owner.ready
 	for switch in grid.get_children():
 		if switch.get_index() in UserData.unlocked_color:
 			switch.locked = false
 		if UserData.last_color == switch.get_index():
 			switch.set_pressed(true)
 		if switch.locked:
-			switch.connect(
-				"pressed", self, "_on_Unlock_pressed", [switch])
+			switch.pressed.connect(
+				self, "_on_Unlock_pressed", [switch])
 		else:
-			switch.connect(
-				"pressed", self, "_on_Change_pressed", [switch.get_index()])
+			switch.pressed.connect(
+				self, "_on_Change_pressed", [switch.get_index()])
 
 func _on_Change_pressed(new_color : int) -> void:
 	button_sfx.play()
@@ -49,8 +49,8 @@ func _on_Unlock_pressed(switch : Button) -> void:
 
 func _on_color_unlocked(index : int) -> void:
 	var switch := grid.get_child(index)
-	switch.disconnect("pressed", self, "_on_Unlock_pressed")
-	switch.connect("pressed", self, "_on_Change_pressed", [index])
+	switch.disconnect("pressed", Callable(self, "_on_Unlock_pressed"))
+	switch.connect("pressed", Callable(self, "_on_Change_pressed").bind(index))
 	switch.emit_signal("pressed")
 	switch.set_pressed(true)
 	

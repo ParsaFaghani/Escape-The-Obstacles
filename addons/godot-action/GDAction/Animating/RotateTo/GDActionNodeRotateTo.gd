@@ -8,7 +8,8 @@ func get_class() -> String:
 	return "GDActionNodeRotateTo"
 
 
-func _init(action, key, node).(action, key, node):
+func _init(action, key, node):
+	super(action, key, node)
 	pass
 
 
@@ -18,7 +19,7 @@ func _update(value: float, eased_value: float, delta: float):
 			node.rotation_degrees = lerp(from_angle, to_angle, eased_value)
 		
 		NodeType.CONTROL:
-			node.rect_rotation = lerp(from_angle, to_angle, eased_value)
+			node.rotation = lerp(from_angle, to_angle, eased_value)
 
 
 func action_done():
@@ -29,7 +30,7 @@ func action_done():
 			node.rotation_degrees = fmod(node.rotation_degrees, 360.0)
 		
 		NodeType.CONTROL:
-			node.rect_rotation = fmod(node.rect_rotation, 360.0)
+			node.rotation = fmod(node.rotation, 360.0)
 
 
 func rotate_to(to_angle: float, duration: float, delay: float, speed: float):
@@ -42,7 +43,7 @@ func rotate_to(to_angle: float, duration: float, delay: float, speed: float):
 		NodeType.NODE_2D:
 			self.from_angle = node.rotation_degrees
 		NodeType.CONTROL:
-			self.from_angle = node.rect_rotation
+			self.from_angle = node.rotation
 	
 	_reset_value()
 	_run()

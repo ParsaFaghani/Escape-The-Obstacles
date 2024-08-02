@@ -2,11 +2,11 @@ extends TextureRect
 
 signal unlock_pressed()
 
-onready var anim_play := $AnimationPlayer
-onready var unlock_button := $HBoxContainer/UnlockButton
-onready var button_sfx := $ButtonSFX
+@onready var anim_play := $AnimationPlayer
+@onready var unlock_button := $HBoxContainer/UnlockButton
+@onready var button_sfx := $ButtonSFX
 
-onready var unlockButton = $HBoxContainer/UnlockButton
+@onready var unlockButton = $HBoxContainer/UnlockButton
 
 var background : int = UserData.last_background
 var cost : int = 500
@@ -14,8 +14,8 @@ var cost : int = 500
 
 func _ready():
 	if UserData.lang:
-		unlockButton.text = Persian.reshaper(Lang.unlock_background[1])
-	yield(get_parent(), "ready")
+		unlockButton.text = Lang.unlock_background[1]
+	await get_parent().ready
 	set_texture(load(Data.back_dir + '/' + Data.background[background]))
 
 func _on_LeftButton_pressed():
@@ -25,7 +25,7 @@ func _on_LeftButton_pressed():
 	if background < 0:
 		background = Data.background.size() - 1
 	
-	get_material().set_shader_param(
+	get_material().set_shader_parameter(
 		"next", load(Data.back_dir + '/' + Data.background[background]))
 	anim_play.play("change_left")
 	
@@ -36,7 +36,7 @@ func _on_LeftButton_pressed():
 	else:
 		unlock_button.set_disabled(false)
 	
-	yield(anim_play, "animation_finished")
+	await anim_play.animation_finished
 	set_texture(load(Data.back_dir + '/' + Data.background[background]))
 
 func _on_RightButton_pressed():
@@ -46,7 +46,7 @@ func _on_RightButton_pressed():
 	if background >= Data.background.size():
 		background = 0
 	
-	get_material().set_shader_param(
+	get_material().set_shader_parameter(
 		"next", load(Data.back_dir + '/' + Data.background[background]))
 	anim_play.play("change_right")
 	
@@ -57,7 +57,7 @@ func _on_RightButton_pressed():
 	else:
 		unlock_button.set_disabled(false)
 	
-	yield(anim_play, "animation_finished")
+	await anim_play.animation_finished
 	set_texture(load(Data.back_dir + '/' + Data.background[background]))
 
 func _on_UnlockButton_pressed():

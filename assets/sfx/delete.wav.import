@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/delete.wav-edc9dfc60c03448fca99be53d1b32e7d.sample"
+type="AudioStreamWAV"
+uid="uid://mq02q0n28g6j"
+path="res://.godot/imported/delete.wav-edc9dfc60c03448fca99be53d1b32e7d.sample"
 
 [deps]
 
 source_file="res://assets/sfx/delete.wav"
-dest_files=[ "res://.import/delete.wav-edc9dfc60c03448fca99be53d1b32e7d.sample" ]
+dest_files=["res://.godot/imported/delete.wav-edc9dfc60c03448fca99be53d1b32e7d.sample"]
 
 [params]
 

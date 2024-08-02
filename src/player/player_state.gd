@@ -2,9 +2,9 @@ extends State
 class_name PlayerState
 
 
-var player: KinematicBody2D
+var player: CharacterBody2D
 
 
 func _ready() -> void:
-	yield(owner, "ready")
+	await owner.ready
 	player = owner

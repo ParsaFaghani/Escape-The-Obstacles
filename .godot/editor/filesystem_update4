@@ -1,0 +1,7 @@
+res://src/level/Level.tscn
+res://assets/base_theme.tres
+res://assets/shader/script/erase.gdshader
+res://assets/shader/material/erase.tres
+res://assets/shader/script/glitch.gdshader
+res://assets/shader/material/glitch.tres
+res://debug/debug_theme.tres

@@ -1,29 +1,30 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=4 format=3 uid="uid://dy5ycv0gpuunv"]
 
-[ext_resource path="res://assets/deathguy_theme.tres" type="Theme" id=1]
-[ext_resource path="res://assets/fonts/vazir_farsi_font.tres" type="DynamicFont" id=2]
-[ext_resource path="res://src/screen/ads_warning.gd" type="Script" id=3]
+[ext_resource type="Theme" uid="uid://8v4be764xt8s" path="res://assets/base_theme.tres" id="1"]
+[ext_resource type="FontFile" path="res://assets/fonts/vazir_farsi_font.tres" id="2"]
+[ext_resource type="Script" path="res://src/screen/ads_warning.gd" id="3"]
 
 [node name="AdsWarning" type="AcceptDialog"]
-margin_right = 540.0
-margin_bottom = 640.0
-rect_min_size = Vector2( 540, 640 )
-mouse_default_cursor_shape = 2
-theme = ExtResource( 1 )
-popup_exclusive = true
-window_title = "AD Info"
-script = ExtResource( 3 )
+theme = ExtResource("1")
+script = ExtResource("3")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-margin_left = 8.0
-margin_top = 8.0
-margin_right = 532.0
-margin_bottom = 495.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 532.0
+offset_bottom = 495.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
-custom_fonts/normal_font = ExtResource( 2 )
+theme_override_fonts/normal_font = ExtResource("2")
 bbcode_enabled = true
-fit_content_height = true
 
 [node name="Tween" type="Tween" parent="."]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+editor_description = ""
+script = null

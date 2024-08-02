@@ -8,13 +8,15 @@ var adj := 0
 func _ready() -> void:
 	pass
 
-func _physics_process(delta: float) -> void:
+func _process(delta: float) -> void:
 	adj = int( -(velocity.y - 20.0) / 100.0 )
 
 func _on_Detector_body_entered(body: Node) -> void:
+	print("in method")
 	if not body is Player:
+		print('not')
 		return
-	
+	print("ok")
 	if body.is_shielded:
 		body.anim_tree["parameters/playback"].travel("fall")
 		body.shield_timer.start()

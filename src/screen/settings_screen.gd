@@ -1,19 +1,19 @@
 extends PopupPanel
 
-onready var master_value := $Control/VBoxContainer/HBoxContainer/MasterHSlider
-onready var sfx_value := $Control/VBoxContainer/HBoxContainer2/SFXHSlider
-onready var music_value := $Control/VBoxContainer/HBoxContainer3/MusicHSlider
-onready var master_label := $Control/VBoxContainer/HBoxContainer/Value
-onready var sfx_label := $Control/VBoxContainer/HBoxContainer2/Value
-onready var music_label := $Control/VBoxContainer/HBoxContainer3/Value
-onready var ads_button := $Control/AdsCheckButton
-onready var lang_button := $Control/VBoxContainer/lang/lang_value
-onready var button_sfx := $ButtonSFX
+@onready var master_value := $Control/VBoxContainer/HBoxContainer/MasterHSlider
+@onready var sfx_value := $Control/VBoxContainer/HBoxContainer2/SFXHSlider
+@onready var music_value := $Control/VBoxContainer/HBoxContainer3/MusicHSlider
+@onready var master_label := $Control/VBoxContainer/HBoxContainer/Value
+@onready var sfx_label := $Control/VBoxContainer/HBoxContainer2/Value
+@onready var music_label := $Control/VBoxContainer/HBoxContainer3/Value
+@onready var ads_button := $Control/AdsCheckButton
+@onready var lang_button := $Control/VBoxContainer/lang/lang_value
+@onready var button_sfx := $ButtonSFX
 
-onready var close_button = $Control/CloseButton
-onready var volume_lable = $Control/VBoxContainer/HBoxContainer/Label
-onready var effects_lable = $Control/VBoxContainer/HBoxContainer2/Label
-onready var music_lable = $Control/VBoxContainer/HBoxContainer3/Label
+@onready var close_button = $Control/CloseButton
+@onready var volume_lable = $Control/VBoxContainer/HBoxContainer/Label
+@onready var effects_lable = $Control/VBoxContainer/HBoxContainer2/Label
+@onready var music_lable = $Control/VBoxContainer/HBoxContainer3/Label
 
 
 
@@ -23,17 +23,17 @@ var lang_change = false
 
 func _ready() -> void:
 	if UserData.lang:
-		close_button.text = Persian.reshaper(Lang.close[1])
-		volume_lable.text = Persian.reshaper(Lang.volume[1])
-		effects_lable.text = Persian.reshaper(Lang.effects[1])
-		music_lable.text = Persian.reshaper(Lang.Music[1])
+		close_button.text = Lang.close[1]
+		volume_lable.text = Lang.volume[1]
+		effects_lable.text = Lang.effects[1]
+		music_lable.text = Lang.Music[1]
 	elif UserData.lang == 0:
 		close_button.text = Lang.close[0]
 		volume_lable.text = Lang.volume[0]
 		effects_lable.text = Lang.effects[0]
 		music_lable.text = Lang.Music[0]
 	
-	yield(owner, "ready")
+	await owner.ready
 	master_value.set_value(UserData.bus["master"])
 	sfx_value.set_value(UserData.bus["sfx"])
 	music_value.set_value(UserData.bus["music"])

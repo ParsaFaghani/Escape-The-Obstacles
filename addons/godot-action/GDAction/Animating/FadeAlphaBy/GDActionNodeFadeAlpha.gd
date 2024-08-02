@@ -7,7 +7,8 @@ func get_class() -> String:
 	return "GDActionNodeFadeAlphaBy"
 
 
-func _init(action, key, node).(action, key, node):
+func _init(action, key, node):
+	super(action, key, node)
 	pass
 
 
@@ -17,7 +18,7 @@ func _update(value: float, eased_value: float, delta: float):
 
 func fade_alpha_by(alpha_value, duration: float, delay = 0.0, speed = 1.0):
 	if duration <= 0:
-		finished()
+		_finished()
 		return
 	
 	self.alpha_velocity = alpha_value / duration

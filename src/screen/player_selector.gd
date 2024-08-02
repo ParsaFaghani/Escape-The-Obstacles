@@ -2,38 +2,38 @@ extends HBoxContainer
 
 signal unlock_pressed()
 
-onready var body_sprite := $Sprites/Body
-onready var head_sprite := $Sprites/Head
-onready var player_sprite := $Sprites
-onready var unlock_button := $Sprites/UnlockButton
-onready var button_sfx := $ButtonSFX
-onready var anim_play := $AnimationPlayer
+@onready var body_sprite := $Sprites/Body
+@onready var head_sprite := $Sprites/Head
+@onready var player_sprite := $Sprites
+@onready var unlock_button := $Sprites/UnlockButton
+@onready var button_sfx := $ButtonSFX
+@onready var anim_play := $AnimationPlayer
 
 var body : int = UserData.last_body
 var head : int = UserData.last_head
 var cost := 1500
 
 func _ready() -> void:
-	yield(owner, "ready")
+	await owner.ready
 	
 	body_sprite.set_texture(load(Data.body_dir + '/' + Data.body[body]))
 	head_sprite.set_texture(load(Data.head_dir + '/' + Data.head[head]))
 	body_sprite.set_modulate(Color(Data.color[UserData.last_color]))
 	head_sprite.set_modulate(Color(Data.color[UserData.last_color]))
-	player_sprite.get_material().set_shader_param(
+	player_sprite.get_material().set_shader_parameter(
 		"color", Data.shader_color[UserData.last_color])
 
 func _on_LeftButton_pressed() -> void:
 	button_sfx.play()
 	anim_play.play("change_left")
-	yield(anim_play, "animation_finished")
+	await anim_play.animation_finished
 	
 	anim_play.play("player_anim")
 
 func _on_RightButton_pressed() -> void:
 	button_sfx.play()
 	anim_play.play("change_right")
-	yield(anim_play, "animation_finished")
+	await anim_play.animation_finished
 	
 	anim_play.play("player_anim")
 
@@ -63,7 +63,7 @@ func change_sprite(new_head : int) -> void:
 func _on_player_color_changed(new_color : int) -> void:
 	body_sprite.modulate = Color(Data.color[new_color])
 	head_sprite.modulate = Color(Data.color[new_color])
-	player_sprite.material.set_shader_param(
+	player_sprite.material.set_shader_parameter(
 		"color", Data.shader_color[new_color])
 
 func _on_head_unlocked(index : int) -> void:

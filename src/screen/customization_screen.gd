@@ -4,26 +4,26 @@ signal ads_warnig_triggered(string)
 signal info_triggered()
 signal tutorial_triggered()
 
-onready var admob := $AdMob
-onready var admob_debugger := $CanvasLayer/AdMobDebug
+@onready var admob := $AdMob
+@onready var admob_debugger := $CanvasLayer/AdMobDebug
 
-onready var player_selector := $PlayerSelector
-onready var background_selector := $BackGroundSelector
-onready var color_selector := $ColorSelector
-onready var ads_warning := $AdsWarning
-onready var info_screen := $InfoScreen
-onready var unlock_screen := $UnlockScreen
-onready var tutorial_screen := $TutorialConfirmation
-onready var fake_ads := $FakeAds
-onready var coin := $Coin/Label
+@onready var player_selector := $PlayerSelector
+@onready var background_selector := $BackGroundSelector
+@onready var color_selector := $ColorSelector
+@onready var ads_warning := $AdsWarning
+@onready var info_screen := $InfoScreen
+@onready var unlock_screen := $UnlockScreen
+@onready var tutorial_screen := $TutorialConfirmation
+@onready var fake_ads := $FakeAds
+@onready var coin := $Coin/Label
 
-onready var adsbutton := $Button/AdsButton
-onready var ExitButton := $Button/ExitButton
-onready var PlayButton := $Button/PlayButton
+@onready var adsbutton := $Button/AdsButton
+@onready var ExitButton := $Button/ExitButton
+@onready var PlayButton := $Button/PlayButton
 
 
-onready var button_sfx := $ButtonSFX
-onready var anim_play := $AnimationPlayer
+@onready var button_sfx := $ButtonSFX
+@onready var anim_play := $AnimationPlayer
 
 var rewarded := false
 var is_fake_ads = true
@@ -32,9 +32,9 @@ var coin_reward := 300
 
 func _ready() -> void:
 	if UserData.lang:
-		PlayButton.text = Persian.reshaper(Lang.play[1])
-		ExitButton.text = Persian.reshaper(Lang.exit[1])
-		adsbutton.text = Persian.reshaper(Lang.AdsButton[1])
+		PlayButton.text = Lang.play[1]
+		ExitButton.text = Lang.exit[1]
+		adsbutton.text = Lang.AdsButton[1]
 	elif UserData.lang == 0:
 		PlayButton.text = Lang.play[0]
 		ExitButton.text = Lang.exit[0]
@@ -43,21 +43,17 @@ func _ready() -> void:
 	get_tree().set_pause(false)
 	SaveLoad.load_game()
 	
-	connect("tutorial_triggered", tutorial_screen, "_on_tutorial_triggered")
-	connect("info_triggered", info_screen, "_on_info_triggered")
-	connect("ads_warnig_triggered", ads_warning, "_on_ads_warning_triggered")
+	connect("tutorial_triggered", Callable(tutorial_screen, "_on_tutorial_triggered"))
+	connect("info_triggered", Callable(info_screen, "_on_info_triggered"))
+	connect("ads_warnig_triggered", Callable(ads_warning, "_on_ads_warning_triggered"))
 	
-	player_selector.connect(
-		"unlock_pressed", unlock_screen, "_on_unlock_pressed")
-	background_selector.connect(
-		"unlock_pressed", unlock_screen, "_on_unlock_pressed")
-	color_selector.connect(
-		"unlock_pressed", unlock_screen, "_on_unlock_pressed")
-	color_selector.connect(
-		"player_color_changed", player_selector, "_on_player_color_changed")
+	player_selector.unlock_pressed.connect(unlock_screen, "_on_unlock_pressed")
+	background_selector.unlock_pressed.connect(unlock_screen, "_on_unlock_pressed")
+	color_selector.unlock_pressed.connect(unlock_screen, "_on_unlock_pressed")
+	color_selector.player_color_changed.connect(player_selector, "_on_player_color_changed")
 	tutorial_screen.get_close_button().connect(
 		"pressed", self, "_on_TutorialConfirmation_cancelled")
-	tutorial_screen.get_cancel().connect(
+	tutorial_screen.get_cancel_button().connect(
 		"pressed", self, "_on_TutorialConfirmation_cancelled")
 	ads_warning.get_close_button().connect(
 		"pressed", self, "_on_AdsWarning_closed")
@@ -78,9 +74,9 @@ func _ready() -> void:
 func _on_PlayButton_pressed() -> void:
 	SaveLoad.save_game()
 	button_sfx.play()
-	yield(button_sfx, "finished")
+	await button_sfx.finished
 	if not UserData.tutorial:
-		get_tree().change_scene_to(Main.level)
+		get_tree().change_scene_to_packed(preload("res://src/level/Level.tscn"))
 		return
 	emit_signal("tutorial_triggered")
 
@@ -88,45 +84,45 @@ func _on_ExitButton_pressed() -> void:
 	SaveLoad.save_game()
 	button_sfx.play()
 	anim_play.play("exit")
-	yield(anim_play, "animation_finished")
+	await anim_play.animation_finished
 	
-	get_tree().change_scene_to(Main.main_screen)
+	get_tree().change_scene_to_packed(Main.main_screen)
 
 func _on_InfoButton_pressed() -> void:
 	button_sfx.play()
-	yield(button_sfx, "finished")
+	await button_sfx.finished
 	emit_signal("info_triggered", player_selector.head)
 
 func _on_InfoScreen_popup_hide() -> void:
 	button_sfx.play()
-	yield(button_sfx, "finished")
+	await button_sfx.finished
 
 func _on_TutorialConfirmation_confirmed() -> void:
 	UserData.tutorial = false
 	SaveLoad.save_game()
 	button_sfx.play()
 	anim_play.play("exit")
-	yield(anim_play, "animation_finished")
-	get_tree().change_scene_to(Main.tutorial)
+	await anim_play.animation_finished
+	get_tree().change_scene_to_packed(preload("res://src/level/Tutorial.tscn"))
 
 func _on_TutorialConfirmation_cancelled() -> void:
 	UserData.tutorial = false
 	SaveLoad.save_game()
 	button_sfx.play()
 	anim_play.play("exit")
-	yield(anim_play, "animation_finished")
-	get_tree().change_scene_to(Main.level)
+	await anim_play.animation_finished
+	get_tree().change_scene_to_packed(preload("res://src/level/Level.tscn"))
 
 func _on_AdsButton_pressed() -> void:
 	button_sfx.play()
-	yield(button_sfx, "finished")
+	await button_sfx.finished
 	
 	emit_signal(
 		"ads_warnig_triggered", Main.ads_reward_string[0] % [coin_reward])
 
 func _on_AdsWarning_confirmed() -> void:
 	button_sfx.play()
-	yield(button_sfx, "finished")
+	await button_sfx.finished
 	
 	BackGroundMusic.set_stream_paused(true)
 	

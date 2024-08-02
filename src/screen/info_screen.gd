@@ -1,8 +1,8 @@
-extends WindowDialog
+extends Window
 
 
-onready var label := $RichTextLabel
-onready var tween := $Tween
+@onready var label := $RichTextLabel
+@onready var tween := $Tween
 
 # ﯽﻨﮐ ﺭﺎﺘﻓﺭ ﺏﻮﺧ ﺵﺎﻫﺎﺑ ﻩﺮﺘﻬﺑ ﺖﺴﻫ ﻮﻨﮔ ﻥﻭﺍ ﻢﺳﺍ
 var info_string_fa := """[right].ﺖﺴﻫ %s ﻥﻭﺍ ﻢﺳا [/right]

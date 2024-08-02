@@ -4,21 +4,20 @@ signal score_updated(new_score)
 signal wallet_updated(new_wallet)
 signal multiplier_updated(new_multiplier)
 
-onready var player := $Player
-onready var rand_gen := $RandomGenerator
+@onready var player := $Player
+@onready var rand_gen := $RandomGenerator
 
-onready var background := $ParallaxBackground
-onready var gui := $CanvasLayer/GUI
+@onready var background := $ParallaxBackground
+@onready var gui := $CanvasLayer/GUI
 
-onready var mult_timer := $MultiplierTimer
+@onready var mult_timer := $MultiplierTimer
 
-onready var tween := $Tween
-onready var anim_play := $AnimationPlayer
 
-var score := 0 setget set_score
-var wallet := 0 setget set_wallet
-var multiplier := 1 setget set_multiplier
+@onready var anim_play := $AnimationPlayer
 
+var score := 0: set = set_score
+var wallet := 0: set = set_wallet
+var multiplier := 1: set = set_multiplier
 
 func _ready() -> void:
 	get_tree().set_pause(false)
@@ -27,16 +26,16 @@ func _ready() -> void:
 		load(Data.levelm_dir + '/' + Data.levelmusic[0]))
 	BackGroundMusic.play()
 	
-	connect("score_updated", gui, "_on_score_updated")
-	connect("wallet_updated", gui, "_on_wallet_updated")
-	connect("multiplier_updated", gui, "_on_multiplier_updated")
+	score_updated.connect(Callable(gui, "_on_score_updated"))
+	wallet_updated.connect(Callable(gui, "_on_wallet_updated"))
+	multiplier_updated.connect(Callable(gui, "_on_multiplier_updated"))
 	
-	player.connect("player_hitted", self, "_on_player_hitted")
-	player.connect("player_hitted", gui, "_on_player_hitted")
-	rand_gen.connect("state_changed", self, "_on_state_changed")
-	gui.connect("respawn_triggerd", self, "_on_respawn_triggerd")
+	player.player_hitted.connect(Callable(self, "_on_player_hitted"))
+	player.player_hitted.connect(Callable(gui, "_on_player_hitted"))
+	rand_gen.state_changed.connect(Callable(self, "_on_state_changed"))
+	gui.respawn_triggerd.connect(Callable(self, "_on_respawn_triggerd"))
 	
-	yield(anim_play, "animation_finished")
+	await anim_play.animation_finished
 
 func _physics_process(delta: float) -> void:
 	background.parallax.motion_offset.x = clamp(

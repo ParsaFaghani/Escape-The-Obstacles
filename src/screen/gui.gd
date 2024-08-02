@@ -4,62 +4,59 @@ signal end_screen_triggered()
 signal ads_warnig_triggered()
 signal respawn_triggerd()
 
-onready var admob := $AdMob
-onready var fake_ads := $FakeAds
-onready var admob_debugger := $CanvasLayer/AdMobDebug
+@onready var admob := $AdMob
+@onready var fake_ads := $FakeAds
+@onready var admob_debugger := $CanvasLayer/AdMobDebug
 
-onready var pause_screen := $CanvasLayer/PauseScreen
-onready var end_screen := $CanvasLayer/EndScreen
-onready var ads_warning:= $AdsWarning
+@onready var pause_screen := $CanvasLayer/PauseScreen
+@onready var end_screen := $CanvasLayer/EndScreen
+@onready var ads_warning:= $AdsWarning
 
-onready var buttons := $CanvasLayer/Button
-onready var pause_button := $CanvasLayer/Button/PauseButton
-onready var play_button := $CanvasLayer/Button/PlayButton
-onready var sfx_button := $CanvasLayer/Button/SFXButton
-onready var music_button := $CanvasLayer/Button/MusicButton
+@onready var buttons := $CanvasLayer/Button
+@onready var pause_button := $CanvasLayer/Button/PauseButton
+@onready var play_button := $CanvasLayer/Button/PlayButton
+@onready var sfx_button := $CanvasLayer/Button/SFXButton
+@onready var music_button := $CanvasLayer/Button/MusicButton
 
-onready var score_text := $CanvasLayer/HBoxContainer/Score
-onready var wallet_text := $CanvasLayer/HBoxContainer/Wallet/Label
-onready var multiplier_text := $CanvasLayer/HBoxContainer/Multiplier
+@onready var score_text := $CanvasLayer/HBoxContainer/Score
+@onready var wallet_text := $CanvasLayer/HBoxContainer/Wallet/Label
+@onready var multiplier_text := $CanvasLayer/HBoxContainer/Multiplier
 
-onready var button_sfx := $ButtonSFX
-onready var tween := $Tween
+@onready var button_sfx := $ButtonSFX
+@onready var tween : Tween
 
 
-var score := 0 setget set_score
-var wallet := 0 setget set_wallet
+var score := 0: set = set_score
+var wallet := 0: set = set_wallet
 
 var is_fake_ads := true
 var is_rewarded := false
 var can_respawn := true
 
 func _ready() -> void:
+	tween = create_tween()
 	if AudioServer.is_bus_mute(AudioServer.get_bus_index("SFX")):
 		sfx_button.set_pressed(true)
 	if AudioServer.is_bus_mute(AudioServer.get_bus_index("Music")):
 		music_button.set_pressed(true)
 	
-	connect("ads_warnig_triggered", ads_warning, "_on_ads_warning_triggered")
-	connect("end_screen_triggered", end_screen, "_on_end_screen_triggered")
+	connect("ads_warnig_triggered", Callable(ads_warning, "_on_ads_warning_triggered"))
+	connect("end_screen_triggered", Callable(end_screen, "_on_end_screen_triggered"))
 	
-	ads_warning.get_close_button().connect(
-		"pressed", self, "_on_AdsWarning_closed")
-	
+	#ads_warning.get_close_button().connect(
+		#"pressed", self, "_on_AdsWarning_closed")
+	#
 	if (UserData.ads and Engine.has_singleton("GodotAdMob")):
 		admob.load_rewarded_video()
 		is_fake_ads = false
 
 func _on_score_updated(new_score : int) -> void:
-	tween.interpolate_property(self, "score",
-		score, new_score, (new_score - score)/1000.0,
-		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
-	tween.start()
+	tween.tween_property(self, "score",new_score, (new_score - score)/1000.0)
+	tween.play()
 
 func _on_wallet_updated(new_wallet : int) -> void:
-	tween.interpolate_property(self, "wallet",
-		wallet, new_wallet, (new_wallet - wallet)/100.0,
-		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
-	tween.start()
+	tween.tween_property(self, "wallet",new_wallet, (new_wallet - wallet)/100.0)
+	tween.play()
 
 func _on_multiplier_updated(new_multiplier : int) -> void:
 	if new_multiplier == 1:

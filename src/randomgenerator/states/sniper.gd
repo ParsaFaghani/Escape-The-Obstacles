@@ -15,4 +15,4 @@ func generate() -> void:
 	
 	var new_element := add_element(x, 0, element)
 	new_element.trigger_pos = 640
-	new_element.connect("next_triggered", rgen, "generate")
+	new_element.connect("next_triggered", Callable(rgen, "generate"))

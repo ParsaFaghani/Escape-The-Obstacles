@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/star.wav-45929e0325e3be52a8343ac8fcfc3fac.sample"
+type="AudioStreamWAV"
+uid="uid://cmyuupyqhwapa"
+path="res://.godot/imported/star.wav-45929e0325e3be52a8343ac8fcfc3fac.sample"
 
 [deps]
 
 source_file="res://assets/sfx/star.wav"
-dest_files=[ "res://.import/star.wav-45929e0325e3be52a8343ac8fcfc3fac.sample" ]
+dest_files=["res://.godot/imported/star.wav-45929e0325e3be52a8343ac8fcfc3fac.sample"]
 
 [params]
 

@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/error_click.wav-aa8f4ae79ac37550fcc7e1b5f821fea5.sample"
+type="AudioStreamWAV"
+uid="uid://bnob0cmrv65xr"
+path="res://.godot/imported/error_click.wav-aa8f4ae79ac37550fcc7e1b5f821fea5.sample"
 
 [deps]
 
 source_file="res://assets/sfx/error_click.wav"
-dest_files=[ "res://.import/error_click.wav-aa8f4ae79ac37550fcc7e1b5f821fea5.sample" ]
+dest_files=["res://.godot/imported/error_click.wav-aa8f4ae79ac37550fcc7e1b5f821fea5.sample"]
 
 [params]
 

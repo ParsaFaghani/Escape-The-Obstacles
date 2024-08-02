@@ -29,9 +29,9 @@ func new_generation(x : int, y : Array, dist : int) -> void:
 	var new_element = add_element(x, y[0], element)
 	if (y[0] == 128):
 		new_element.trigger_pos = 320
-		new_element.connect("next_triggered", rgen, "generate")
+		new_element.connect("next_triggered", Callable(rgen, "generate"))
 	
-	y.remove(0)
+	y.erase(0)
 	
 	x = check_off_screen(x, dist, max_x)
 	new_generation(x, y, dist)

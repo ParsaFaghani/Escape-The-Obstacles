@@ -1,10 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=5 format=3]
 
-[ext_resource path="res://assets/deathguy_theme.tres" type="Theme" id=1]
-[ext_resource path="res://src/screen/PauseScreen.gd" type="Script" id=2]
-[ext_resource path="res://assets/fonts/Vazir.ttf" type="DynamicFontData" id=3]
+[ext_resource type="Theme" uid="uid://8v4be764xt8s" path="res://assets/base_theme.tres" id="1"]
+[ext_resource type="Script" path="res://src/screen/PauseScreen.gd" id="2"]
+[ext_resource type="FontFile" uid="uid://c4613du2ro8w2" path="res://assets/fonts/Vazir.ttf" id="3"]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="FontFile" id=1]
 size = 90
 font_data = ExtResource( 3 )
 
@@ -23,11 +23,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -356.0
-margin_top = -636.0
-margin_right = 356.0
-margin_bottom = 636.0
-custom_fonts/font = SubResource( 1 )
+offset_left = -356.0
+offset_top = -636.0
+offset_right = 356.0
+offset_bottom = 636.0
+theme_override_fonts/font = SubResource( 1 )
 text = "Game Paused!"
 align = 1
 valign = 1
@@ -40,13 +40,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -192.74
-margin_top = 330.641
-margin_right = 207.26
-margin_bottom = 430.641
-rect_min_size = Vector2( 400, 100 )
+offset_left = -192.74
+offset_top = 330.641
+offset_right = 207.26
+offset_bottom = 430.641
+custom_minimum_size = Vector2( 400, 100 )
 focus_mode = 0
-enabled_focus_mode = 0
+focus_mode = 0
 text = "EXIT"
 
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

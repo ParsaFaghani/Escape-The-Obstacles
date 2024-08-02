@@ -17,13 +17,11 @@ var bus : Dictionary = {
 	"sfx" : 9,
 	"music" : 9
 }
-var ads : bool = true
-
+var ads : bool = false
 var lang : int = 1
 
 func save() -> Dictionary:
 	var save_dict : Dictionary = {
-		"node": get_path(),
 		"score_record" : score_record,
 		"wallet" : wallet,
 		"last_color" : last_color,
@@ -36,6 +34,6 @@ func save() -> Dictionary:
 		"unlocked_background": unlocked_background,
 		"tutorial" : tutorial,
 		"bus" : bus,
-		"ads" : ads
+		"lang": lang,
 		}
 	return save_dict

@@ -1,9 +1,9 @@
 extends ConfirmationDialog
 
-onready var label := $RichTextLabel
-onready var tween := $Tween
+@onready var label := $RichTextLabel
 
 func _on_tutorial_triggered() -> void:
+	var tween = Tween.new()
 	label.set_bbcode(Main.tutorial_strings[0])
 	label.set_percent_visible(0)
 	popup()

@@ -2,13 +2,13 @@ extends CanvasLayer
 
 signal closed()
 
-onready var root_node := $Control
-onready var label := $Control/CenterContainer/RichTextLabel
-onready var banner := $Control/TextureRect
-onready var progress := $Control/TextureProgress
-onready var progress_text := $Control/TextureProgress/Label
-onready var close_button := $Control/CloseButton
-onready var timer := $Control/Timer
+@onready var root_node := $Control
+@onready var label := $Control/CenterContainer/RichTextLabel
+@onready var banner := $Control/TextureRect
+@onready var progress := $Control/TextureProgressBar
+@onready var progress_text := $Control/TextureProgressBar/Label
+@onready var close_button := $Control/CloseButton
+@onready var timer := $Control/Timer
 
 var type := 0
 
@@ -17,7 +17,7 @@ func _ready() -> void:
 	randomize()
 	type = randi() % Main.fake_ads_text.size()
 	banner.set_texture(Main.fake_ads_img[type])
-	label.set_bbcode(Main.fake_ads_text[type])
+	label.parse_bbcode(Main.fake_ads_text[type])
 
 func _process(delta: float) -> void:
 	progress.set_value(timer.time_left)

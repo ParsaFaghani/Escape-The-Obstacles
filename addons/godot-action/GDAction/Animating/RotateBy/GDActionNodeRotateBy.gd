@@ -7,7 +7,8 @@ func get_class() -> String:
 	return "GDActionNodeRotateBy"
 
 
-func _init(action, key, node).(action, key, node):
+func _init(action, key, node):
+	super(action, key, node)
 	pass
 
 
@@ -17,7 +18,7 @@ func _update(value: float, eased_value: float, delta: float):
 			node.rotation_degrees += self.angular_velocity * delta
 		
 		NodeType.CONTROL:
-			node.rect_rotation += self.angular_velocity * delta
+			node.rotation += self.angular_velocity * delta
 
 
 func action_done():
@@ -29,12 +30,12 @@ func action_done():
 			node.rotation_degrees = fmod(node.rotation_degrees, 360.0)
 		
 		NodeType.CONTROL:
-			node.rect_rotation = fmod(node.rect_rotation, 360.0)
+			node.rotation = fmod(node.rotation, 360.0)
 
 
 func rotate_by(angle: float, duration: float, delay: float, speed: float):
 	if duration <= 0.0:
-		finished()
+		_finished()
 	
 	self.angular_velocity = angle / duration
 	self.duration = duration

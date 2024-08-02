@@ -1,4 +1,5 @@
 class_name GDActionInstant extends GDAction
 
-func _init(gd_utils: Node).(gd_utils):
+func _init(gd_utils: Node):
+	super(gd_utils)
 	pass

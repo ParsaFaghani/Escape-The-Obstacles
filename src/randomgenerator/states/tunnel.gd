@@ -34,7 +34,7 @@ func first_phase(x : int, y : int) -> void:
 	add_element((max_x - x), y, rgen.elements[0]["element"]) #right eraser
 	if(y == 0):
 		l_eraser.trigger_pos = 0
-		l_eraser.connect("next_triggered", rgen, "generate")
+		l_eraser.connect("next_triggered", Callable(rgen, "generate"))
 	
 	var rand : float = randf()
 	if (rand >= rgen.elements[0]["probability"]):
@@ -56,7 +56,7 @@ func second_phase(x : int, y :int) -> int:
 	add_element((x + 464), y, rgen.elements[0]["element"]) #right eraser
 	if(y == 0):
 		l_eraser.trigger_pos = 0
-		l_eraser.connect("next_triggered", rgen, "generate")
+		l_eraser.connect("next_triggered", Callable(rgen, "generate"))
 	
 	var rand : float = randf()
 	if (rand >= rgen.elements[0]["probability"]):

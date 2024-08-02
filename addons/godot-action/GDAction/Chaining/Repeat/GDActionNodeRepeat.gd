@@ -9,7 +9,8 @@ func get_class() -> String:
 	return "GDActionNodeRepeat"
 
 
-func _init(action, key, node).(action, key, node):
+func _init(action, key, node):
+	super(action, key, node)
 	pass
 
 
@@ -28,10 +29,10 @@ func _start_action():
 
 
 func _on_action_object_completed(action_node):
-	action_node.disconnect("finished", self, "_on_action_object_completed")
+	action_node.disconnect("finished", Callable(self, "_on_action_object_completed"))
 
 	if _count_repeat_action >= number_repeat:
-		finished()
+		_finished()
 		return
 	
 	_run_repeat(_count_repeat_action + 1)
@@ -41,11 +42,11 @@ func _run_repeat(count: int) -> void:
 	_count_repeat_action = count
 	
 	if not is_instance_valid(node):
-		finished()
+		_finished()
 		return
 	
 	var action_node = action_repeat._start_from_action(node, key, speed)
 	
-	if not action_node.is_connected("finished", self, "_on_action_object_completed"):
-		action_node.connect("finished", self, "_on_action_object_completed")
+	if not action_node.is_connected("finished", Callable(self, "_on_action_object_completed")):
+		action_node.connect("finished", Callable(self, "_on_action_object_completed"))
 

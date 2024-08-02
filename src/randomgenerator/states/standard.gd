@@ -1,12 +1,11 @@
 extends RGenState
 
 
-export var element_y := [0, 426, 853]
-export var min_distance := 148
-export var max_x := 720
+@export var element_y := [0, 426, 853]
+@export var min_distance := 148
+@export var max_x := 720
 
 var last_x := 0
-
 
 func enter() -> void:
 	randomize()
@@ -36,8 +35,8 @@ func new_generation(x : int, y : Array, dir : int) -> int:
 	var new_element := add_element(x, y[0], element)
 	if (y[0] == 0):
 		new_element.trigger_pos = 0
-		new_element.connect("next_triggered", rgen, "generate")
+		new_element.next_triggered.connect(Callable(rgen, "generate"))
 	
-	y.remove(0)
+	y.erase(0)
 	
-	return new_generation(x, y, dir)
+	return x
