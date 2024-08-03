@@ -3,7 +3,7 @@ extends AcceptDialog
 signal can_show_ads()
 
 @onready var label := $RichTextLabel
-@onready var tween := $Tween
+@onready var tween : Tween
 
 var ads_warning := "Take a look at this ad to %s"
 
@@ -25,6 +25,7 @@ func _http_request_completed(result, _response_code, _headers, _body):
 	remove_child($HTTPRequest)
 
 func _on_ads_warning_triggered(string : String) -> void:
+	tween = create_tween()
 	var text : String
 	if UserData.ads:
 		text = ads_warning % string
@@ -34,14 +35,12 @@ func _on_ads_warning_triggered(string : String) -> void:
 [right]ﻪﮑﺳ 300 ﻎﯿﻠﺒﺗ ﺮﻫ[/right]"""
 		else:
 			text = "Noob... do you wanna respawn?"
-	label.set_bbcode(text)
+	label.parse_bbcode(text)
 	if UserData.lang:
 		popup()
 	else:
-		label.set_percent_visible(0)
+		label.visible = 0
 		popup()
-		tween.interpolate_property(
-			label, "percent_visible", 0, 1, 0.5, 
-			Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
-		tween.start()
+		tween.tween_property(label, "percent_visible", 1, 0.5)
+		tween.play()
 

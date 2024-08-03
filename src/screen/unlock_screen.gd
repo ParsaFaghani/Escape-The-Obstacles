@@ -7,7 +7,7 @@ signal unlocked(index)
 @onready var label := $RichTextLabel
 @onready var button_sfx := $ButtonSFX
 @onready var error_sfx := $ErrorSFX
-@onready var tween := $Tween
+@onready var tween : Tween
 
 var node : Node
 var method : String
@@ -16,6 +16,7 @@ var cost : int
 var text := "You're in the mood for shopping... this requires %d coins. Do you want to buy it?"
 var text_fa := " %d  :ﻪﮑﺳ ﺩﺍﺪﻌﺗ ؟ﺪﯾﺮﺨﺑ ﺍﺭ ﻥﺍ ﻪﮐ ﺪﯿﻠﯾﺎﻣ ﺎﯾﺍ"
 func _ready() -> void:
+	tween = create_tween()
 	get_cancel_button().pressed.connect(Callable(self, "_on_UnlockScreen_cancelled"))
 	get_cancel_button().pressed.connect(Callable(self, "_on_UnlockScreen_cancelled"))
 
@@ -27,22 +28,20 @@ func _on_unlock_pressed(
 	) -> void:
 	
 	if node:
-		disconnect("unlocked", Callable(node, method))
+		unlocked.disconnect(Callable(node, method))
 	
-	connect("unlocked", Callable(new_node, new_method))
+	unlocked.connect(Callable(new_node, new_method))
 	
 	node = new_node
 	method = new_method
 	index = new_index
 	cost = new_cost
-	label.set_bbcode(text_fa % cost)
-	label.set_percent_visible(0)
+	label.parse_bbcode(text_fa % cost)
+	label.visible = 0
 	
 	popup()
-	tween.interpolate_property(
-		label, "percent_visible", 0, 1, 0.5, 
-		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
-	tween.start()
+	tween.tween_property(label, "percent_visible", 1, 0.5)
+	tween.play()
 
 func _on_UnlockScreen_confirmed() -> void:
 	if UserData.wallet >= cost:

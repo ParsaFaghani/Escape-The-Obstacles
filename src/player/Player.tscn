@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://d0oqtaecqolpe"]
+[gd_scene load_steps=74 format=3 uid="uid://d0oqtaecqolpe"]
 
 [ext_resource type="Texture2D" uid="uid://py4xd4x7cpe5" path="res://assets/player/head/head01.png" id="1"]
 [ext_resource type="Script" path="res://src/player/player_state_machine.gd" id="2"]
@@ -13,16 +13,12 @@
 [ext_resource type="Texture2D" uid="uid://4tgnghjfpqbs" path="res://assets/shader/texture/erase_texture_up.png" id="11"]
 [ext_resource type="Texture2D" uid="uid://bjpcyn4kljrg0" path="res://assets/player/player_shield_spritesheet.png" id="12"]
 [ext_resource type="Shader" path="res://assets/shader/script/erase.gdshader" id="13"]
-[ext_resource type="Texture2D" uid="uid://dpuiciiyrcc0x" path="res://assets/shader/texture/erase_shield.png" id="14"]
 [ext_resource type="Environment" uid="uid://cubx17s0fe45p" path="res://src/escape_env.tres" id="15"]
 [ext_resource type="AudioStream" uid="uid://cdqf8jhx5tdj1" path="res://assets/sfx/shield.wav" id="16"]
 
 [sub_resource type="ShaderMaterial" id="1"]
 resource_local_to_scene = true
 shader = ExtResource("13")
-shader_parameter/progress = 1.2
-shader_parameter/color = Color(0, 1, 1.5, 1)
-shader_parameter/noise = ExtResource("14")
 
 [sub_resource type="RectangleShape2D" id="2"]
 size = Vector2(64, 112)

@@ -1,86 +1,99 @@
-[gd_scene load_steps=24 format=3]
+[gd_scene load_steps=24 format=3 uid="uid://dqoqhoxo1hcit"]
 
 [ext_resource type="Theme" uid="uid://8v4be764xt8s" path="res://assets/base_theme.tres" id="1"]
 [ext_resource type="Script" path="res://admob-lib/admob.gd" id="2"]
 [ext_resource type="Material" uid="uid://do36kvrgmr67n" path="res://assets/shader/material/glitch.tres" id="3"]
-[ext_resource type="Environment" path="res://src/escape_env.tres" id="4"]
+[ext_resource type="Environment" uid="uid://cubx17s0fe45p" path="res://src/escape_env.tres" id="4"]
 [ext_resource type="PackedScene" path="res://debug/AdMobDebug.tscn" id="5"]
 [ext_resource type="AudioStream" uid="uid://clb13nxm4p246" path="res://assets/sfx/click.wav" id="6"]
 [ext_resource type="Texture2D" uid="uid://c61jtlh62dnb6" path="res://assets/ui/coin.png" id="7"]
 [ext_resource type="Script" path="res://src/screen/customization_screen.gd" id="8"]
 [ext_resource type="PackedScene" path="res://src/screen/UnlockScreen.tscn" id="9"]
 [ext_resource type="PackedScene" path="res://src/screen/ColorSelector.tscn" id="10"]
-[ext_resource type="PackedScene" path="res://src/screen/PlayerSelector.tscn" id="11"]
+[ext_resource type="PackedScene" uid="uid://bujmpfdfcyus0" path="res://src/screen/PlayerSelector.tscn" id="11"]
 [ext_resource type="PackedScene" path="res://src/screen/BackGroundSelector.tscn" id="12"]
 [ext_resource type="PackedScene" path="res://src/screen/InfoScreen.tscn" id="13"]
 [ext_resource type="PackedScene" path="res://src/fakeads/FakeAds.tscn" id="14"]
-[ext_resource type="PackedScene" path="res://src/screen/AdsWarning.tscn" id="15"]
-[ext_resource type="PackedScene" path="res://src/screen/TutorialConfirmation.tscn" id="16"]
-[ext_resource type="Texture2D" uid="uid://b2lkt86rfdiyd" path="res://assets/shader/texture/right_texture.png" id="17"]
+[ext_resource type="PackedScene" uid="uid://dy5ycv0gpuunv" path="res://src/screen/AdsWarning.tscn" id="15"]
+[ext_resource type="PackedScene" uid="uid://ohc7kpbmaw5k" path="res://src/screen/TutorialConfirmation.tscn" id="16"]
 [ext_resource type="FontFile" uid="uid://bbh85piycq7us" path="res://assets/fonts/hh.otf" id="18"]
 [ext_resource type="Shader" path="res://assets/shader/script/change_texture.gdshader" id="19"]
 
-[sub_resource type="ShaderMaterial" id=1]
+[sub_resource type="ShaderMaterial" id="1"]
 resource_local_to_scene = true
-shader = ExtResource( 19 )
-shader_param/progress = 0.0
-shader_param/noise = ExtResource( 17 )
+shader = ExtResource("19")
+shader_parameter/progress = 0.0
 
-[sub_resource type="FontFile" id=4]
-size = 60
-font_data = ExtResource( 18 )
+[sub_resource type="FontFile" id="4"]
+fallbacks = Array[Font]([ExtResource("18")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id="2"]
 length = 0.3
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("Glitch:material:shader_param/apply")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.1, 0.2, 0.3 ),
-"transitions": PackedFloat32Array( 1, 1, 1, 1 ),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [ true, false, true, false ]
+"values": [true, false, true, false]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id="3"]
 resource_name = "exit"
 length = 0.2
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("Glitch:material:shader_param/apply")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.1, 0.2 ),
-"transitions": PackedFloat32Array( 1, 1, 1 ),
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [ true, false, true ]
+"values": [true, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ipjue"]
+_data = {
+"ENTER": SubResource("2"),
+"exit": SubResource("3")
 }
 
 [node name="CustomizationScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme = ExtResource( 1 )
-script = ExtResource( 8 )
-__meta__ = {
-"_edit_horizontal_guides_": [ 640.0 ],
-"_edit_vertical_guides_": [ 360.0 ]
-}
+theme = ExtResource("1")
+script = ExtResource("8")
 
 [node name="ads" type="CanvasLayer" parent="."]
 layer = 100
 
-[node name="AdMobDebug" parent="ads" instance=ExtResource( 5 )]
+[node name="AdMobDebug" parent="ads" instance=ExtResource("5")]
 visible = false
+layout_mode = 3
+anchors_preset = 10
 
-[node name="BackGroundSelector" parent="." instance=ExtResource( 12 )]
-material = SubResource( 1 )
+[node name="BackGroundSelector" parent="." instance=ExtResource("12")]
+material = SubResource("1")
+layout_mode = 0
+expand_mode = 1
 
 [node name="Coin" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(640, 64)
+layout_mode = 0
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -320.0
@@ -88,40 +101,26 @@ offset_top = 80.0
 offset_right = 320.0
 offset_bottom = 160.0
 grow_horizontal = 0
-custom_minimum_size = Vector2( 640, 64 )
 alignment = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Label" type="Label" parent="Coin"]
-offset_left = 494.0
-offset_top = 10.0
-offset_right = 520.0
-offset_bottom = 70.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_fonts/font = SubResource( 4 )
+layout_mode = 2
+theme_override_fonts/font = SubResource("4")
 text = "0"
-align = 2
-valign = 1
 
 [node name="VSeparator" type="VSeparator" parent="Coin"]
-modulate = Color( 1, 1, 1, 0 )
-offset_left = 524.0
-offset_right = 556.0
-offset_bottom = 80.0
-custom_minimum_size = Vector2( 32, 64 )
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(32, 64)
+layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="Coin"]
-offset_left = 560.0
-offset_right = 640.0
-offset_bottom = 80.0
-custom_minimum_size = Vector2( 80, 80 )
-texture = ExtResource( 7 )
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture = ExtResource("7")
 stretch_mode = 1
 
-[node name="ColorSelector" parent="." instance=ExtResource( 10 )]
+[node name="ColorSelector" parent="." instance=ExtResource("10")]
+anchors_preset = 0
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -166.0
@@ -129,17 +128,19 @@ offset_top = 160.0
 offset_right = 166.0
 offset_bottom = 324.0
 
-[node name="PlayerSelector" parent="." instance=ExtResource( 11 )]
+[node name="PlayerSelector" parent="." instance=ExtResource("11")]
+layout_mode = 0
+anchors_preset = 0
 
 [node name="Button" type="Control" parent="."]
+anchors_preset = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="PlayButton" type="Button" parent="Button"]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -147,15 +148,15 @@ anchor_bottom = 0.5
 offset_left = -200.0
 offset_right = 200.0
 offset_bottom = 100.0
-custom_minimum_size = Vector2( 400, 100 )
-focus_mode = 0
-mouse_default_cursor_shape = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 focus_mode = 0
+mouse_default_cursor_shape = 2
 text = "Play"
 
 [node name="AdsButton" type="Button" parent="Button"]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -164,18 +165,15 @@ offset_left = -200.0
 offset_top = 134.0
 offset_right = 200.0
 offset_bottom = 263.0
-custom_minimum_size = Vector2( 400, 100 )
-focus_mode = 0
-mouse_default_cursor_shape = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 focus_mode = 0
+mouse_default_cursor_shape = 2
 text = "More Coin"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ExitButton" type="Button" parent="Button"]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -184,18 +182,15 @@ offset_left = -200.0
 offset_top = 268.0
 offset_right = 200.0
 offset_bottom = 397.0
-custom_minimum_size = Vector2( 400, 100 )
-focus_mode = 0
-mouse_default_cursor_shape = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 focus_mode = 0
+mouse_default_cursor_shape = 2
 text = "Exit"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="InfoButton" type="Button" parent="Button"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -204,79 +199,51 @@ offset_left = -317.0
 offset_top = -321.0
 offset_right = -157.0
 offset_bottom = -192.0
-custom_minimum_size = Vector2( 100, 100 )
 focus_mode = 0
 mouse_default_cursor_shape = 2
-focus_mode = 0
 text = "..."
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="InfoScreen" parent="." instance=ExtResource( 13 )]
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -278.0
-offset_top = 320.0
-offset_right = 262.0
-offset_bottom = 960.0
-window_title = "INFO"
+[node name="InfoScreen" parent="." instance=ExtResource("13")]
+position = Vector2i(0, 40)
 
-[node name="UnlockScreen" parent="." instance=ExtResource( 9 )]
-anchor_left = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.0
-offset_left = -278.0
-offset_top = 320.0
-offset_right = 262.0
-offset_bottom = 960.0
-window_title = "INFO"
+[node name="UnlockScreen" parent="." instance=ExtResource("9")]
 
-[node name="TutorialConfirmation" parent="." instance=ExtResource( 16 )]
+[node name="TutorialConfirmation" parent="." instance=ExtResource("16")]
 
-[node name="AdsWarning" parent="." instance=ExtResource( 15 )]
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -278.0
-offset_top = 320.0
-offset_right = 262.0
-offset_bottom = 960.0
-window_title = "INFO"
+[node name="AdsWarning" parent="." instance=ExtResource("15")]
 
 [node name="Glitch" type="ColorRect" parent="."]
-material = ExtResource( 3 )
+material = ExtResource("3")
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
-[node name="FakeAds" parent="." instance=ExtResource( 14 )]
+[node name="FakeAds" parent="." instance=ExtResource("14")]
 
 [node name="AdMob" type="Node" parent="."]
-script = ExtResource( 2 )
-__meta__ = {
-"_editor_description_": ""
-}
+script = ExtResource("2")
 is_real = true
 is_personalized = false
 max_ad_content_rate = "T"
 
 [node name="ButtonSFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 6 )
-bus = "SFX"
+stream = ExtResource("6")
+bus = &"SFX"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ipjue")
+}
 autoplay = "ENTER"
-anims/ENTER = SubResource( 2 )
-anims/exit = SubResource( 3 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource( 4 )
+environment = ExtResource("4")
 
 [connection signal="pressed" from="Button/PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="Button/AdsButton" to="." method="_on_AdsButton_pressed"]
 [connection signal="pressed" from="Button/ExitButton" to="." method="_on_ExitButton_pressed"]
 [connection signal="pressed" from="Button/InfoButton" to="." method="_on_InfoButton_pressed"]
-[connection signal="popup_hide" from="InfoScreen" to="." method="_on_InfoScreen_popup_hide"]
 [connection signal="confirmed" from="TutorialConfirmation" to="." method="_on_TutorialConfirmation_confirmed"]
 [connection signal="confirmed" from="AdsWarning" to="." method="_on_AdsWarning_confirmed"]
 [connection signal="closed" from="FakeAds" to="." method="_on_FakeAds_closed"]

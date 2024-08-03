@@ -19,11 +19,9 @@ func _ready() -> void:
 		if UserData.last_color == switch.get_index():
 			switch.set_pressed(true)
 		if switch.locked:
-			switch.pressed.connect(
-				self, "_on_Unlock_pressed", [switch])
+			switch.pressed.connect(Callable(self, "_on_Unlock_pressed").bind([switch]))
 		else:
-			switch.pressed.connect(
-				self, "_on_Change_pressed", [switch.get_index()])
+			switch.pressed.connect(Callable(self, "_on_Change_pressed").bind([switch.get_index()]))
 
 func _on_Change_pressed(new_color : int) -> void:
 	button_sfx.play()
@@ -49,8 +47,8 @@ func _on_Unlock_pressed(switch : Button) -> void:
 
 func _on_color_unlocked(index : int) -> void:
 	var switch := grid.get_child(index)
-	switch.disconnect("pressed", Callable(self, "_on_Unlock_pressed"))
-	switch.connect("pressed", Callable(self, "_on_Change_pressed").bind(index))
+	switch.pressed.disconnect("pressed", Callable(self, "_on_Unlock_pressed"))
+	switch.pressed.connect("pressed", Callable(self, "_on_Change_pressed").bind(index))
 	switch.emit_signal("pressed")
 	switch.set_pressed(true)
 	

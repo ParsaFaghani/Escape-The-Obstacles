@@ -47,16 +47,12 @@ func _ready() -> void:
 	connect("info_triggered", Callable(info_screen, "_on_info_triggered"))
 	connect("ads_warnig_triggered", Callable(ads_warning, "_on_ads_warning_triggered"))
 	
-	player_selector.unlock_pressed.connect(unlock_screen, "_on_unlock_pressed")
-	background_selector.unlock_pressed.connect(unlock_screen, "_on_unlock_pressed")
-	color_selector.unlock_pressed.connect(unlock_screen, "_on_unlock_pressed")
-	color_selector.player_color_changed.connect(player_selector, "_on_player_color_changed")
-	tutorial_screen.get_close_button().connect(
-		"pressed", self, "_on_TutorialConfirmation_cancelled")
-	tutorial_screen.get_cancel_button().connect(
-		"pressed", self, "_on_TutorialConfirmation_cancelled")
-	ads_warning.get_close_button().connect(
-		"pressed", self, "_on_AdsWarning_closed")
+	player_selector.unlock_pressed.connect(Callable(unlock_screen, "_on_unlock_pressed"))
+	background_selector.unlock_pressed.connect(Callable(unlock_screen, "_on_unlock_pressed"))
+	color_selector.unlock_pressed.connect(Callable(unlock_screen, "_on_unlock_pressed"))
+	color_selector.player_color_changed.connect(Callable(player_selector, "_on_player_color_changed"))
+	tutorial_screen.close_requested.connect(Callable(self,"_on_TutorialConfirmation_cancelled"))
+	ads_warning.close_requested.connect(Callable(self,"_on_AdsWarning_closed"))
 	
 	coin.set_text(str(UserData.wallet))
 	
@@ -86,7 +82,7 @@ func _on_ExitButton_pressed() -> void:
 	anim_play.play("exit")
 	await anim_play.animation_finished
 	
-	get_tree().change_scene_to_packed(Main.main_screen)
+	get_tree().change_scene_to_packed(preload("res://src/screen/MainScreen.tscn"))
 
 func _on_InfoButton_pressed() -> void:
 	button_sfx.play()
