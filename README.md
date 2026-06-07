@@ -7,7 +7,7 @@ Escape The Obstacles is a free and open source game
 
 ## Developers 
 * [DarkCoder](https://github.com/FDarkCoder)
-* [MDarvishi](https://github.com/MDarvishi5124)
+* [MDarvishi](https://github.com/MohamadDarvishi)
 ## Software
 
 The game was made with Godot Engine
@@ -23,4 +23,4 @@ Anyone who wants to contribute [MIT license](https://github.com/FDarkCoder/Escap
 
 ## Thanks
 
-Thank you and MDarvishi
+Thank you and [MDarvishi](https://github.com/MohamadDarvishi)
