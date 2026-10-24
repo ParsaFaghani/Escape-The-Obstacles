@@ -6,7 +6,7 @@
 Escape The Obstacles is a free and open source game
 
 ## Developers 
-* [DarkCoder](https://github.com/FDarkCoder)
+* [Parsa Faghani](https://github.com/ParsaFaghani)
 * [MDarvishi](https://github.com/MohamadDarvishi)
 ## Software
 
